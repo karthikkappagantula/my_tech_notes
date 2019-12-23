@@ -1,6 +1,12 @@
 # Table of Contents
 
+## AWS Essentials
 * [ch1_aws_accounts](ch1_aws_accounts.md)
 * [ch2_aws_regions_azs_edgelocations](ch2_aws_regions_azs_edgelocations.md)
 * [ch3_disaster_recovery_rpo&rto](ch3_disaster_recovery_rpo&rto.md)
 * [ch4_data_persistence](ch4_data_persistence.md)
+* [ch5_osi7_layer_networking_model](ch5_osi7_layer_networking_model.md)
+
+## Accounts
+### AWS Identity Basics
+ * [ch6_iam_overview](ch6_iam_overview.md)
