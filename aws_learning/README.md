@@ -1,5 +1,7 @@
 # Table of Contents
 
+AWS official documentation -> https://docs.aws.amazon.com/
+
 ## AWS Essentials
 * [ch1_aws_accounts](ch1_aws_accounts.md)
 * [ch2_aws_regions_azs_edgelocations](ch2_aws_regions_azs_edgelocations.md)
