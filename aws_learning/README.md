@@ -9,9 +9,14 @@ AWS official documentation -> https://docs.aws.amazon.com/
 * [ch4_data_persistence](ch4_data_persistence.md)
 * [ch5_osi7_layer_networking_model](ch5_osi7_layer_networking_model.md)
 
+* * * 
 ## Accounts  
 (AWS user guide -> https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 
 ### AWS Identity Basics
  * [ch6_iam_overview](ch6_iam_overview.md)
  * [ch7_identity_and_resource_policies](ch7_identity_and_resource_policies.md)
+ * [ch8_iam_roles_and_temporary_security_credentials](ch8_iam_roles_and_temporary_security_credentials.md)
+
+### Account Management
+ * [ch9_aws_accounts_and_aws_organizations](ch9_aws_accounts_and_aws_organizations.md)
