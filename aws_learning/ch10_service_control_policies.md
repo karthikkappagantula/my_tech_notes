@@ -12,4 +12,7 @@ If multiple SCPs apply to an account, only the overlap of those SCPs is permitte
 
 
 * * *
-[ch9_aws_accounts_and_aws_organizations](ch9_aws_accounts_and_aws_organizations.md)<pre>              </pre>[ch11_aws_account_limits](ch11_aws_account_limits.md)
+Footer
+* * *
+[Previous](ch9_aws_accounts_and_aws_organizations.md)
+[Next](ch11_aws_account_limits.md)
