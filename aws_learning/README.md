@@ -14,3 +14,4 @@ AWS official documentation -> https://docs.aws.amazon.com/
 
 ### AWS Identity Basics
  * [ch6_iam_overview](ch6_iam_overview.md)
+ * [ch7_identity_and_resource_policies](ch7_identity_and_resource_policies.md)
