@@ -8,3 +8,14 @@
 
 Everytime a role is assumed, IAM provides temporary security credentials that allow/deny the permissions based on the role policy.
 
+## Cross-Account Access: Resource Permissions vs. Cross-Account Roles
+There are 3 ways to provide access to your S3 buckets from external AWS accounts.
+* IAM Roles
+* Bucket Policies
+* Bucket ACLs (Access Control Lists) 
+
+It is recommended to use IAM cross-account roles as a general practice.
+
+
+
+
