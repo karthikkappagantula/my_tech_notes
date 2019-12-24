@@ -5,7 +5,7 @@
     c. [Availability Zones](#aws_azs)<br />
     d. [Edge Infrastructure](#aws_edge)<br />
     e. [HA, FT, DR](#aws_ha_ft_dr)<br />
-    f [Use cases](#aws_ha_ft_dr_usecase)<br />
+    f. [Use cases](#aws_ha_ft_dr_usecase)<br />
     g. [Disaster Recovery](#aws_dr)<br />
     h. [Data Persistence](#aws_data_persistence)<br />
     i. [OSI 7-layer Networking Model](#aws_osi_model)<br />
