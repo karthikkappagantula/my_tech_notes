@@ -1,21 +1,21 @@
 # Table of contents (#top)<br />
 1. [AWS Essentials](#aws_essentials)<br />
-    a. [Accounts](#aws_accounts)<br />
-    b. [Regions](#aws_regions)<br />
-    c. [Availability Zones](#aws_azs)<br />
-    d. [Edge Infrastructure](#aws_edge)<br />
-    e. [HA, FT, DR](#aws_ha_ft_dr)<br />
-    f. [Use cases](#aws_ha_ft_dr_usecase)<br />
-    g. [Disaster Recovery](#aws_dr)<br />
-    h. [Data Persistence](#aws_data_persistence)<br />
-    i. [OSI 7-layer Networking Model](#aws_osi_model)<br />
+    * [Accounts](#aws_accounts)<br />
+    * [Regions](#aws_regions)<br />
+    * [Availability Zones](#aws_azs)<br />
+    * [Edge Infrastructure](#aws_edge)<br />
+    * [HA, FT, DR](#aws_ha_ft_dr)<br />
+    * [Use cases](#aws_ha_ft_dr_usecase)<br />
+    * [Disaster Recovery](#aws_dr)<br />
+    * [Data Persistence](#aws_data_persistence)<br />
+    * [OSI 7-layer Networking Model](#aws_osi_model)<br />
 2. [Accounts](#aws_accounts)<br />
-    a. [IAM Overview](#aws_iam)<br />
-    b. [IAM Identity and Resource Policies](#aws_iam_policies)<br />
-    c. [IAM Roles and Temporary Security Credentials](#aws_iam_roles)<br />
-    d. [AWS accounts and Organizations](#aws_org)<br />
-    e. [Service Control Policies](#aws_scp)<br />
-    f. [AWS Account Limits](#aws_acc_limits)<br />
+    * [IAM Overview](#aws_iam)<br />
+    * [IAM Identity and Resource Policies](#aws_iam_policies)<br />
+    * [IAM Roles and Temporary Security Credentials](#aws_iam_roles)<br />
+    * [AWS accounts and Organizations](#aws_org)<br />
+    * [Service Control Policies](#aws_scp)<br />
+    * [AWS Account Limits](#aws_acc_limits)<br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
