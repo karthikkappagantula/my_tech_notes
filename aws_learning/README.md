@@ -20,3 +20,5 @@ AWS official documentation -> https://docs.aws.amazon.com/
 
 ### Account Management
  * [ch9_aws_accounts_and_aws_organizations](ch9_aws_accounts_and_aws_organizations.md)
+ * [ch10_service_control_policies](ch10_service_control_policies.md)
+ * [ch11_aws_account_limits](ch11_aws_account_limits.md)
