@@ -12,5 +12,4 @@ If multiple SCPs apply to an account, only the overlap of those SCPs is permitte
 
 
 * * *
-* * *
 [Next](ch11_aws_account_limits.md)
