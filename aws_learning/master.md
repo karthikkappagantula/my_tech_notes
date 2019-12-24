@@ -1,4 +1,4 @@
-# Table of contents
+# Table of contents (#top)<br />
 1. [AWS Essentials](#aws_essentials)<br />
     a. [Accounts](#aws_accounts)<br />
     b. [Regions](#aws_regions)<br />
@@ -31,6 +31,8 @@ Root user have full unrestricted permissions to the account, and can create othe
 AWS IAM will provide the identity store and a permission store used during authentication and authorization stages.
 
 * * *
+[Top](#top)
+* * * 
 ## Regions / macro scale isolation <a name="aws_regions"></a>
 There are many global regions. Usually > 100s of KM apart. 
 Example - us-east-1, eu-central-1 etc
