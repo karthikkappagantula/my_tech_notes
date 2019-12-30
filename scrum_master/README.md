@@ -4,5 +4,5 @@
 * * *
 [Top](#top)
 * * *
-## Introduct <a name="scm_intro"></a>
+## Introduction <a name="scm_intro"></a>
 
