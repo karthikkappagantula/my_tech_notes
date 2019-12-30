@@ -1,8 +1,10 @@
 # Table of contents <br />
-[](#top)
+
 1. [Introduction](#scm_intro)<br />
 * * *
-[Top](#top)
+[Top](#table-of-contents-)
 * * *
 ## Introduction <a name="scm_intro"></a>
-
+* * *
+[Top](#table-of-contents-)
+* * *
