@@ -20,7 +20,7 @@
     * [AWS Support Tiers](#aws_supp_tiers)<br />
     * [AWS Config](#aws_config)<br />
     * [AWS Service Catalog](#aws_service_catalog)<br />
-    * [Resource Billing Modes: On-Demand, Reserved, and Spot](#aws_rsc_billing)<br />
+    * [Resource Billing Modes: On-Demand, Reserved, and Spot](#aws_billing)<br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
@@ -321,7 +321,7 @@ https://docs.aws.amazon.com/servicecatalog/latest/adminguide/getstarted-iamendus
 * * * 
 [Top](#top)
 * * * 
-### Resource Billing Modes: On-Demand, Reserved, and Spot<a name="#aws_rsc_billing"></a>
+### Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws_billing"></a>
 AWS provides three billing models.
    * On-demand
       1) Default AWS billing Model. 
