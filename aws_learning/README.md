@@ -19,6 +19,7 @@
     * [AWS Account Limits](#aws_acc_limits)<br />
     * [AWS Support Tiers](#aws_supp_tiers)<br />
     * [AWS Config](#aws_config)<br />
+    * [AWS Service Catalog](#aws_service_catalog)<br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
@@ -293,16 +294,32 @@ https://aws.amazon.com/premiumsupport/plans/
 [Top](#top)
 * * * 
 ### AWS Config <a name="aws_config"></a>
-AWS configuration management that gives detailed view of the configuration of AWS resources(EC2, EBS, VPC etc)
+AWS configuration management system - a managed AWS service that gives detailed view of the configuration of AWS resources(EC2, EBS, VPC etc.
 
 Provides - 
-* Ability to monitor all the AWS resources of a account.
-* Ability to check for compliance of AWS resources.
+* Ability to monitor all the AWS resources of a account over time.
+* Ability to check for compliance of AWS resources for standards/rules.
+* Ability to check the relationship between AWS resources.
 
 Key Components - 
-* Configuration recorder - Tracks every change to AWS resource in an AWS account. Enabled per region basis. Needs an IAM role to provide necessary permissions for recorder to perform its functionality.
+* Configuration recorder - Tracks every change made to AWS resource in an AWS account. Enabled per region basis. Needs an IAM role to provide necessary permissions for recorder to perform its functionality.
 
 Key Terms - 
 * AWS resource - Any resource that can be configured and tracked in a AWS account. S3 bucker, EC2, RDS, VPC, etc.
 * Configuration Item(CI) - Record/State of a particular AWS resource at a point in time. 
 * Configuration History(CH) - Collection of CIs at a time going backward in time for a AWS resource. One can know what changes were made to a resource since the establishment.
+* * * 
+[Top](#top)
+* * * 
+### AWS Service Catalog <a name="aws_service_catalog"></a>
+Provides the abilit to implements IT Service Catalog in AWS. Usually used for larger organizations that have formal IT processes.
+
+Service Catalog is a product which allows administrators to define products and portfolios(groups of products and configuration). Users can be allowed to self-service deploy these products without the usual IAM permissions required to do so directly with AWS services. 
+
+CloudFormation Template is used to create portfolio/products along with permission details that will be used to provide self-service ability to product/service.
+
+#### AWS documentation
+https://docs.aws.amazon.com/servicecatalog/latest/adminguide/getstarted-iamenduser.html
+* * * 
+[Top](#top)
+* * * 
