@@ -16,6 +16,8 @@
     * [AWS accounts and Organizations](#aws_org)<br />
     * [Service Control Policies](#aws_scp)<br />
     * [AWS Account Limits](#aws_acc_limits)<br />
+    * [AWS Support Tiers](#aws_supp_tiers)<br />
+    * [AWS Config](#aws_config)<br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
@@ -265,4 +267,41 @@ IAM and STS limits -> https://docs.aws.amazon.com/IAM/latest/UserGuide/reference
 * * *
 [Top](#top)
 * * * 
+### AWS Support Tiers <a name="aws_supp_tiers"></a>
+There are 3 support plans apart from Basic free tien plan.
+* Developer
+   1. POCs/Experiments & Explore solutions
+   2. Business hours email access to support engineers. Unlimited cases and 1 primary contact.
+   3. General Architectural guidane.
+   
+* Business
+   1. Production workloads for medium scale applications
+   2. 24 X 7 phone, email and chat access to support engineers. Unlimited cases and contacts.
+   3. Contextual Architectural guidane to use-cases
+   
+* Enterprise
+   1. Large scale mission critical Production workloads.
+   2. 24 X 7 phone, email and chat access to support engineers. Unlimited cases and contacts. 
+   3. Consultative review and guidance based on your application.
+   4. Access to Dedicated technical manager.
+   
+* * * 
+#### AWS Documentation
+https://aws.amazon.com/premiumsupport/plans/
+* * * 
+[Top](#top)
+* * * 
+### AWS Config <a name="aws_config"></a>
+AWS configuration management that gives detailed view of the configuration of AWS resources(EC2, EBS, VPC etc)
 
+Provides - 
+* Ability to monitor all the AWS resources of a account.
+* Ability to check for compliance of AWS resources.
+
+Key Components - 
+* Configuration recorder - Tracks every change to AWS resource in an AWS account. Enabled per region basis. Needs an IAM role to provide necessary permissions for recorder to perform its functionality.
+
+Key Terms - 
+* AWS resource - Any resource that can be configured and tracked in a AWS account. S3 bucker, EC2, RDS, VPC, etc.
+* Configuration Item(CI) - Record/State of a particular AWS resource at a point in time. 
+* Configuration History(CH) - Collection of CIs at a time going backward in time for a AWS resource. One can know what changes were made to a resource since the establishment.
