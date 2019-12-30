@@ -44,7 +44,7 @@ Root user have full unrestricted permissions to the account, and can create othe
 AWS IAM will provide the identity store and a permission store used during authentication and authorization stages.
 
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 ## Regions / macro scale isolation <a name="aws_regions"></a>
 There are many global regions. Usually > 100s of KM apart. 
@@ -66,7 +66,7 @@ Cannot be used to deploy a EC2/RDS instances.
 * For high performance and fault isolation, usually AZs can used.
 * For global high availability. Example - Netflix. Usually costs high.
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 
 ## Differences between High availability, Fault Tolerance, and Disaster Recovery <a name="aws_ha_ft_dr"></a>
@@ -95,7 +95,7 @@ Any failure with one of the engine can be recovered easily due to availability o
 
 Here Air force pilot is an important asset that can be protected by ejecting out of the failing plane.
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ## Disaster Recovery <a name="aws_dr"></a>
 It is all about how to be build systems highly available, fault tolerance, provide good performance and also can recover in the event of a disaster.
@@ -112,7 +112,7 @@ Improve this by decreasing the restore time through having spares tested, and re
 
 It is important to understand how each AWS service/product supports RPO/RTO.
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 ## Data Persistence <a name="aws_data_persistence"></a>
 
@@ -135,7 +135,7 @@ Data that exists in a form while it is passed between sources. This helps in dec
 Example: Amazon Simple Queue Service (SQS)
 
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ## OSI Model <a name="aws_osi_model"></a>
 
@@ -155,7 +155,7 @@ No | Layer | Protocol data unit (PDU) | Function
  1 | Physical | Symbol | Transmission and reception of raw bit streams over a physical medium
 
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 # Accounts <a name="aws_accounts"></a>
 ## Identity and Acess Management(IAM) Overview <a name="aws_iam"></a>
@@ -187,7 +187,7 @@ If there is any explicit Deny, it always override a ALLOW permission.
 
 A root user account by default has all permissions on AWS, but it is highly recommended to use roor user only to setup the first IAM user account with admin access through a IAM policy.
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 ## Identity and Resource Policies <a name="aws_iam_policies"></a>
 ### Identity policy
@@ -223,7 +223,7 @@ Principal is required/mandatory for a resource policy which is the identity tryi
 #### AWS official documents
 IAM Policy ->  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ## IAM Roles and Temporary Security Credentials <a name="aws_iam_roles"></a>
 ## IAM roles
@@ -242,7 +242,7 @@ There are 3 ways to provide access to your S3 buckets from external AWS accounts
 
 It is recommended to use IAM cross-account roles as a general practice.
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ## AWS Accounts and AWS Organizations
 ### AWS Organization <a name="aws_org"></a>
@@ -264,7 +264,7 @@ If multiple SCPs apply to an account, only the overlap of those SCPs is permitte
 * Avoid using master accounts for any AWS services. Use it only for billing and user store. You cannot place any restrictions on the resources using service control policy.
 
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 ### AWS Account Limits/Service Quotas <a name="aws_acc_limits"></a>
 This details the cut-off limits that AWS service supports. Most of these are hard cut-offs that play a crucial role in determining system design.
@@ -274,7 +274,7 @@ AWS Service Quotas -> https://docs.aws.amazon.com/general/latest/gr/aws_service_
 IAM and STS limits -> https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html
 
 * * *
-[Top](#top)
+[Top](#toc)
 * * * 
 ### AWS Support Tiers <a name="aws_supp_tiers"></a>
 There are 3 support plans apart from Basic free tien plan.
@@ -297,7 +297,7 @@ There are 3 support plans apart from Basic free tien plan.
 #### AWS Documentation
 https://aws.amazon.com/premiumsupport/plans/
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### AWS Config <a name="aws_config"></a>
 AWS configuration management system - a managed AWS service that gives detailed view of the configuration of AWS resources(EC2, EBS, VPC etc.
@@ -315,7 +315,7 @@ Key Terms -
 * Configuration Item(CI) - Record/State of a particular AWS resource at a point in time. 
 * Configuration History(CH) - Collection of CIs at a time going backward in time for a AWS resource. One can know what changes were made to a resource since the establishment.
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### AWS Service Catalog <a name="aws_service_catalog"></a>
 Provides the abilit to implements IT Service Catalog in AWS. Usually used for larger organizations that have formal IT processes.
@@ -327,7 +327,7 @@ CloudFormation Template is used to create portfolio/products along with permissi
 #### AWS documentation
 https://docs.aws.amazon.com/servicecatalog/latest/adminguide/getstarted-iamenduser.html
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws_billing"></a>
 AWS provides three billing models.
@@ -361,20 +361,20 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html 
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html <br />
 https://github.com/open-guides/og-aws#billing-and-cost-management <br />
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### Identity Federation <a name="aws_id_fed"></a>
 IAM roles + Security Token Services
 
 Bridges two security domains (Like using AWS with Active directory).
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### IAM Permissions Boundaries <a name="aws_iam_permissions"></a>
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
 ### Policy Evaluation Logic <a name="aws_policy_eval"></a>
 * * * 
-[Top](#top)
+[Top](#toc)
 * * * 
