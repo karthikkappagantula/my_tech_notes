@@ -6,7 +6,7 @@
 5. [Agile URLs](#agile_urls)<br />
 
 * * *
-[Top](#toc)
+[Top](#table-of-contents)
 * * *
 ## Java URLs <a name="java_urls"></a>
 
@@ -31,5 +31,5 @@
 ## Agile URLs <a name="agile_urls"></a>
 
 * * *
-[Top](#toc)
+[Top](#table-of-contents)
 * * *
