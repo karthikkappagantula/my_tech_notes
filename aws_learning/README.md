@@ -1,5 +1,5 @@
 # Table of contents <br />
-
+[](#toc)
 1. [AWS Essentials](#aws_essentials)<br />
     * [Accounts](#aws_accounts)<br />
     * [Regions](#aws_regions)<br />
@@ -11,7 +11,7 @@
     * [Data Persistence](#aws_data_persistence)<br />
     * [OSI 7-layer Networking Model](#aws_osi_model)<br />
 * * *
-[Top](#top)
+[Top](#toc)
 * * *
 2. [Accounts](#aws_accounts)<br />
     * [IAM Overview](#aws_iam)<br />
@@ -28,7 +28,7 @@
     * [IAM Permissions Boundaries](#aws_iam_permissions) <br />
     * [Policy Evaluation Logic](#aws_policy_eval) <br />
 * * *
-[Top](#top)
+[Top](#toc)
 * * *
 
 # AWS Essentials <a name="aws_essentials"></a>
