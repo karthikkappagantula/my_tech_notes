@@ -1,5 +1,5 @@
 # Table of contents <br />
-[](#top)
+
 1. [AWS Essentials](#aws_essentials)<br />
     * [Accounts](#aws_accounts)<br />
     * [Regions](#aws_regions)<br />
