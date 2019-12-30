@@ -20,6 +20,7 @@
     * [AWS Support Tiers](#aws_supp_tiers)<br />
     * [AWS Config](#aws_config)<br />
     * [AWS Service Catalog](#aws_service_catalog)<br />
+    * [Resource Billing Modes: On-Demand, Reserved, and Spot](#aws_rsc_billing)<br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
@@ -211,7 +212,6 @@ Principal is required/mandatory for a resource policy which is the identity tryi
 #### Important points:
 * An explicit deny will override any explicit allow permissions.
 
-* * *
 #### AWS official documents
 IAM Policy ->  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
 * * * 
@@ -261,7 +261,6 @@ If multiple SCPs apply to an account, only the overlap of those SCPs is permitte
 ### AWS Account Limits/Service Quotas <a name="aws_acc_limits"></a>
 This details the cut-off limits that AWS service supports. Most of these are hard cut-offs that play a crucial role in determining system design.
 
-* * * 
 #### AWS Documentation
 AWS Service Quotas -> https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html <br />
 IAM and STS limits -> https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html
@@ -287,7 +286,6 @@ There are 3 support plans apart from Basic free tien plan.
    3. Consultative review and guidance based on your application.
    4. Access to Dedicated technical manager.
    
-* * * 
 #### AWS Documentation
 https://aws.amazon.com/premiumsupport/plans/
 * * * 
@@ -320,6 +318,40 @@ CloudFormation Template is used to create portfolio/products along with permissi
 
 #### AWS documentation
 https://docs.aws.amazon.com/servicecatalog/latest/adminguide/getstarted-iamenduser.html
+* * * 
+[Top](#top)
+* * * 
+### Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws-rsc-billing></a>
+AWS provides three billing models.
+   * On-demand
+      1) Default AWS billing Model. 
+      2) Ideally suites an adhoc usage for POCs/experiments. 
+      3) No discounts.
+      4) Pay for what you consume. $ per hour, $ per GB transferred.
+      5) Standard Startup priority - mostly used for shortterm usage.
+   
+   * Reserved
+      1) Billing based on committed usage for 12 or 36 month term. You can pay "All upfront"/"Partial upfront"/"No Upfront" - with full upfront providing best cost advantage.
+      2) Reservations can be used for EC2 instance, RDS instance, Dynamo DB performance and many other services in AWS.
+      3) Reserved terms are useful when your usage is known and steady-state. This model can also reserve capacity.
+      4) Provides high priority startup.
+
+   * Spot
+      1) Ideally suits for sporadic workloads - when you can tolerate interruptions and want the lowest price.
+      2) Can be significantly cheaper than on-demand.
+      3) Workloads need to be tolerant of interruptions, and resources can be terminated with very little notice.
+      4) Lowest startup priority vs On-demand and Reserved.
+  
+AWS documentation -
+https://aws.amazon.com/blogs/compute/new-amazon-ec2-spot-pricing/
+
+See the following for the most updated information:
+https://aws.amazon.com/ec2/pricing/
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html
+https://github.com/open-guides/og-aws#billing-and-cost-management
 * * * 
 [Top](#top)
 * * * 
