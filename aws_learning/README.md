@@ -1,4 +1,4 @@
-# Table of contents (#top)<br />
+# [Table of contents] (#top)<br />
 1. [AWS Essentials](#aws_essentials)<br />
     * [Accounts](#aws_accounts)<br />
     * [Regions](#aws_regions)<br />
