@@ -343,15 +343,15 @@ AWS provides three billing models.
       4) Lowest startup priority vs On-demand and Reserved.
   
 AWS documentation -
-https://aws.amazon.com/blogs/compute/new-amazon-ec2-spot-pricing/
+https://aws.amazon.com/blogs/compute/new-amazon-ec2-spot-pricing/ <br />
 
 See the following for the most updated information:
-https://aws.amazon.com/ec2/pricing/
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html
-https://github.com/open-guides/og-aws#billing-and-cost-management
+https://aws.amazon.com/ec2/pricing/ <br />
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html <br />
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html <br />
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html <br />
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html <br />
+https://github.com/open-guides/og-aws#billing-and-cost-management <br />
 * * * 
 [Top](#top)
 * * * 
