@@ -12,7 +12,7 @@
     * [OSI 7-layer Networking Model](#aws_osi_model)<br />
 * * *
 [Top](#top)
-
+* * *
 2. [Accounts](#aws_accounts)<br />
     * [IAM Overview](#aws_iam)<br />
     * [IAM Identity and Resource Policies](#aws_iam_policies)<br />
@@ -29,8 +29,8 @@
     * [Policy Evaluation Logic](#aws_policy_eval) <br />
 * * *
 [Top](#top)
-
 * * *
+
 # AWS Essentials <a name="aws_essentials"></a>
 
 ## AWS Accounts <a name="aws_accounts"></a>
