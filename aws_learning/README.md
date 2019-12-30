@@ -21,6 +21,9 @@
     * [AWS Config](#aws_config)<br />
     * [AWS Service Catalog](#aws_service_catalog)<br />
     * [Resource Billing Modes: On-Demand, Reserved, and Spot](#aws_billing)<br />
+    * [Identity Federation](#aws_id_fed) <br />
+    * [IAM Permissions Boundaries](#aws_iam_permissions) <br />
+    * [Policy Evaluation Logic](#aws_policy_eval) <br />
 
 # AWS Essentials <a name="aws_essentials"></a>
 
@@ -352,6 +355,21 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.ht
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html <br />
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html <br />
 https://github.com/open-guides/og-aws#billing-and-cost-management <br />
+* * * 
+[Top](#top)
+* * * 
+### Identity Federation <a name="aws_id_fed"></a>
+IAM roles + Security Token Services
+
+Bridges two security domains (Like using AWS with Active directory).
+* * * 
+[Top](#top)
+* * * 
+### IAM Permissions Boundaries <a name="aws_iam_permissions"></a>
+* * * 
+[Top](#top)
+* * * 
+### Policy Evaluation Logic <a name="aws_policy_eval"></a>
 * * * 
 [Top](#top)
 * * * 
