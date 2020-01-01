@@ -3,6 +3,7 @@
 2. [Jupyter Intro](#jupyter_intro)
 3. [Conditional Statements](#ifelifelse)
 4. [For Loops](#forloops)
+5. [Lists](#lists)
 
 # Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -65,6 +66,8 @@ For creating new python script : new -> select python version
 ![new script](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/newscript.png)
 * Select each cell after typing code and run the cell using "Run/Play" button.
 * To save the script, double click the file name on top (Untitled is default filename)
+* You can download the file as a .py file using file -> download as .py file
+
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -140,5 +143,8 @@ This second: 43
 3
 This second: 46
 </pre>
-
+* * *
+[Top](#table-of-contents)
+* * * 
+## Lists <a name='lists'> </a>
 
