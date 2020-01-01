@@ -2,6 +2,7 @@
 1. [Install Anaconda](#install_anaconda)
 2. [Jupyter Intro](#jupyter_intro)
 3. [Conditional Statements](#ifelifelse)
+4. [For Loops](#forloops)
 
 # Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -64,7 +65,9 @@ For creating new python script : new -> select python version
 ![new script](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/newscript.png)
 * Select each cell after typing code and run the cell using "Run/Play" button.
 * To save the script, double click the file name on top (Untitled is default filename)
-
+* * *
+[Top](#table-of-contents)
+* * * 
 ## Conditional Statements - if/elif/else <a name='ifelifelse'> </a>
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
@@ -82,5 +85,23 @@ else:
 
 *Output: Divisible by 2*
 </pre>
+* * *
+[Top](#table-of-contents)
+* * * 
+## For Loops <a name='forloops'> </a>
 
+* * *
+[Top](#table-of-contents)
+* * * 
+<pre>
+#for loops
+for i in range(5):
+    print(i)
 
+*Ouput: 
+0
+1
+2
+3
+4*
+</pre>
