@@ -1,6 +1,7 @@
 # Table of Contents
 1. [Install Anaconda](#install_anaconda)
 2. [Jupyter Intro](#jupyter_intro)
+3. [Conditional Statements](#ifelifelse)
 
 # Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -61,3 +62,25 @@ After launching Jupyter notebook as above, a new browser is opened for Jupyter w
 
 For creating new python script : new -> select python version
 ![new script](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/newscript.png)
+* Select each cell after typing code and run the cell using "Run/Play" button.
+* To save the script, double click the file name on top (Untitled is default filename)
+
+## Conditional Statements - if/elif/else <a name='ifelifelse'> </a>
+* Indentation is used to determine the scope. 
+* elif is nothing but an else if
+
+example - 1
+<pre>
+#if/elif/else statement
+temp_num = 10
+if temp_num%3 == 0:
+    print('Divisible by 3')
+elif temp_num%2 == 0:
+    print('Divisible by 2')
+else:
+    print('Default')
+
+*Output: Divisible by 2*
+</pre>
+
+
