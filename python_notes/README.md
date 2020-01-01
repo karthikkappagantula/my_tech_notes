@@ -53,4 +53,7 @@ To Start Jupyter Notebook -
 
 ## Jupyter Intro
 After launching Jupyter notebook as above, a new browser is opened for Jupyter window.
-![Jupyter_Intro](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/jupyter_intro.png)
+![Jupyter_Intro](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/jupyter_intro.png)
+
+For creating new python script : new -> select python version
+![new script](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/newscript.png)
