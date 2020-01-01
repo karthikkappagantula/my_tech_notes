@@ -1,4 +1,7 @@
+# Linux Academy Presentation - https://interactive.linuxacademy.com/diagrams/OrionPapersPro.html <br />
+
 # Table of contents <br />
+
 1. [AWS Essentials](#aws_essentials)<br />
     * [Accounts](#aws_accounts)<br />
     * [Regions](#aws_regions)<br />
@@ -29,7 +32,13 @@
 * * *
 [Top](#table-of-contents-)
 * * *
-
+3. [Networking in AWS: Virtual Private Clouds(VPCs)](#aws_vpc_main)<br />
+   * [VPC Basics]<#aws_vpc_basics><br />
+   * [AWS Resource Access Manager(RAM)]<#aws_vpc_ram><br />
+   
+* * *
+[Top](#table-of-contents-)
+* * *
 # AWS Essentials <a name="aws_essentials"></a>
 
 ## AWS Accounts <a name="aws_accounts"></a>
@@ -186,6 +195,28 @@ By default, any new IAM user you create in AWS account has no permission policie
 If there is any explicit Deny, it always override a ALLOW permission.
 
 A root user account by default has all permissions on AWS, but it is highly recommended to use roor user only to setup the first IAM user account with admin access through a IAM policy.
+* * *
+[Top](#table-of-contents-)
+* * *
+### IAM Security Token Service(STS)
+* STS allows you to create temporary security credentials that grant trusted users access to your AWS resouces.
+* Short-term credentials - configurable session duration between 15 minutes and 12 or 36 hours.
+* STS API call returns a credential object with - 
+   1. Session Token
+   2. Access Key ID
+   3. Secret Access Key
+   4. Expiration Timestamp
+ 
+#### When to use STS:
+* Identity fedaration - authenticate through your company network.
+* Supports Security Assertion Markup Language(SAML), which allows Microsoft Active directory.
+* Web identity federation (Google, Amazon, Twitter etc)
+* Roles for Cross-Account access - used for organizations that have more than one AWS account.
+* Roles for Amazon EC2 and other services - granting access to application running on EC2 to other AWS service without having to imbed credentials.
+
+*NOTE - For Mobile applications AWS recommends using Cognito rather than STS.*
+
+
 * * *
 [Top](#table-of-contents-)
 * * * 
@@ -364,9 +395,15 @@ https://github.com/open-guides/og-aws#billing-and-cost-management <br />
 [Top](#table-of-contents-)
 * * * 
 ### Identity Federation <a name="aws_id_fed"></a>
-IAM roles + Security Token Services
+Identity fedaration bridges two security domains. AWS account is a separate security domain.
 
-Bridges two security domains (Like using AWS with Active directory).
+Internal AWS identity fedaration between master account and user account:
+IAM roles + Security Token Services(STS). STS provides the temporary access tokens that lets you assume a IAM role - which is a kind of identity federation.
+
+External AWS Identity fedaration:
+Use a non AWS user id to login and use AWS resources. This is similar to using a in house/active directory security domains ids for logging in to AWS. Like using your company email id as AWS login details.
+
+Google, Facebook, Twitter are external identity providers(IDPs). They identiy and authenticate the users. STS provides the temporary credetials that will be used for interacting with AWS resources/services.
 * * * 
 [Top](#table-of-contents-)
 * * * 
@@ -378,3 +415,24 @@ Bridges two security domains (Like using AWS with Active directory).
 * * * 
 [Top](#table-of-contents-)
 * * * 
+
+## Networking in AWS: Virtual Private Clouds (VPCs) <a name="aws_vpc_main"></a>
+### VPC Basics <a name="aws_vpc_basics"></a>
+* Use VPC to create any private isolated networks domains.
+
+Private networks - accessible only to the owner/creator
+Public networks - accessible over on the internet.
+AWS public zone - S3/Dynamo DB/Cloud watch logs can be accessed through end points from both private/public networks.
+
+Each AWS account has a default VPC for the region of your account. Certain AWS services depend on this default VPC.
+A VPC can be set to two tenancy modes:
+* Default - shared systems/resources
+* Dedicated - dedicatedly hosted resources.
+
+A VPC contains Subnets. Subnets occupy a AZ/subset of VPC CIDR range. A subnet is where your resources reside.
+No of subnets = No of AZs we want to deploy to * No of application tiers(UI/DB/etc).
+
+
+#### Useful links
+[IP Subnetting the Easy Way](https://www.theprohack.com/2012/01/ip-subnetting-easy-way.html)
+### AWS Resource Access Manager(RAM) <a name="aws_vpc_ram"></a>
