@@ -1,10 +1,14 @@
 # Table of Contents
-1. [Introduction](#intro)
+1. [Install Anaconda](#install_anaconda)
+2. [Jupyter Intro](#jupyter_intro)
+
+# Important URLs
+[Python Standard Libraries] (https://docs.python.org/3/library/)
 
 * * *
 [Top](#table-of-contents)
 * * * 
-## Introduction <a name="#intro"></a>
+## Install Anaconda <a name="#install_anaconda"></a>
 * Install Anaconda - a data science platform that includes Jupyter notebook and is packed with important Python and Datascience libraries. <br />
 https://www.anaconda.com/distribution/#download-section <br />
 
@@ -30,7 +34,7 @@ quit()
 * * *
 [Top](#table-of-contents)
 * * * 
-
+## Jupyter Intro <a name='jupyter_intro'> </a>
 To Start Jupyter Notebook - 
 <pre>
 (base) Karthiks-MacBook-Air:~ karthikkappagantula$ jupyter notebook
@@ -51,7 +55,7 @@ To Start Jupyter Notebook -
 
 </pre>
 
-## Jupyter Intro
+
 After launching Jupyter notebook as above, a new browser is opened for Jupyter window.
 ![Jupyter_Intro](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/resources/jupyter_intro.png)
 
