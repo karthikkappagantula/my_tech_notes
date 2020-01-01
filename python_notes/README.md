@@ -3,7 +3,7 @@
 2. [Jupyter Intro](#jupyter_intro)
 
 # Important URLs
-[Python Standard Libraries] (https://docs.python.org/3/library/)
+[Python Standard Libraries](https://docs.python.org/3/library/)
 
 * * *
 [Top](#table-of-contents)
