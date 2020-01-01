@@ -93,15 +93,42 @@ else:
 * * *
 [Top](#table-of-contents)
 * * * 
+* Index starts with 0
+
+Examples:
 <pre>
 #for loops
 for i in range(5):
     print(i)
 
-*Ouput: 
+*Ouput:* 
 0
 1
 2
 3
-4*
+4
 </pre>
+* * *
+<pre>
+for i in range(5):
+    random_num = random.randint(2,7)
+    print(random_num)
+    time.sleep(random_num)
+    
+    this_second = the_time().tm_sec
+    #String formatting with the % operator
+    print('This second: %s' %this_second)
+
+*Ouput:*
+2
+This second: 31
+6
+This second: 37
+4
+This second: 41
+2
+This second: 43
+3
+This second: 46
+</pre>
+
