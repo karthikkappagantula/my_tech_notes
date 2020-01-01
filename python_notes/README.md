@@ -50,3 +50,7 @@ To Start Jupyter Notebook -
      or http://127.0.0.1:8888/?token=3884620c15c49428c9fab4e74d55d9725600761a3331ca63
 
 </pre>
+
+## Jupyter Intro
+After launching Jupyter notebook as above, a new browser is opened for Jupyter window.
+![Jupyter_Intro](https://github.com/karthikkappagantula/my_tech_notes/blob/master/python_notes/jupyter_intro.png)
