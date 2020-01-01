@@ -22,6 +22,11 @@ Hello World!
 time.struct_time(tm_year=2019, tm_mon=12, tm_mday=31, tm_hour=16, tm_min=48, tm_sec=18, tm_wday=1, tm_yday=365, tm_isdst=0)
 >>> 
 </pre>
+
+To kill Idle3 session -
+<pre>
+quit()
+</pre>
 * * *
 [Top](#table-of-contents)
 * * * 
