@@ -31,3 +31,22 @@ quit()
 [Top](#table-of-contents)
 * * * 
 
+To Start Jupyter Notebook - 
+<pre>
+(base) Karthiks-MacBook-Air:~ karthikkappagantula$ jupyter notebook
+[I 15:43:51.696 NotebookApp] JupyterLab extension loaded from /Users/karthikkappagantula/opt/anaconda3/lib/python3.7/site-packages/jupyterlab
+[I 15:43:51.696 NotebookApp] JupyterLab application directory is /Users/karthikkappagantula/opt/anaconda3/share/jupyter/lab
+[I 15:43:51.700 NotebookApp] Serving notebooks from local directory: /Users/karthikkappagantula
+[I 15:43:51.700 NotebookApp] The Jupyter Notebook is running at:
+[I 15:43:51.700 NotebookApp] http://localhost:8888/?token=3884620c15c49428c9fab4e74d55d9725600761a3331ca63
+[I 15:43:51.700 NotebookApp]  or http://127.0.0.1:8888/?token=3884620c15c49428c9fab4e74d55d9725600761a3331ca63
+[I 15:43:51.700 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 15:43:51.713 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///Users/karthikkappagantula/Library/Jupyter/runtime/nbserver-3154-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=3884620c15c49428c9fab4e74d55d9725600761a3331ca63
+     or http://127.0.0.1:8888/?token=3884620c15c49428c9fab4e74d55d9725600761a3331ca63
+
+</pre>
