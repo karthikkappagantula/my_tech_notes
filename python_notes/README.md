@@ -94,6 +94,15 @@ else:
 [Top](#table-of-contents)
 * * * 
 * Index starts with 0
+* break statement can be used to exit from the loop based on a condition
+<pre>
+    break;
+</pre>
+* continue statement can be used to continue to next iteration of the loop
+<pre>
+    continue;
+</pre>
+
 
 Examples:
 <pre>
@@ -131,4 +140,5 @@ This second: 43
 3
 This second: 46
 </pre>
+
 
