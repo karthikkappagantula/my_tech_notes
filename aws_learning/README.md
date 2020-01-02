@@ -1,4 +1,4 @@
-# Linux Academy Presentation - https://interactive.linuxacademy.com/diagrams/OrionPapersPro.html <br />
+##### Linux Academy Presentation - https://interactive.linuxacademy.com/diagrams/OrionPapersPro.html <br />
 
 # Table of contents <br />
 
@@ -419,12 +419,14 @@ Google, Facebook, Twitter are external identity providers(IDPs). They identiy an
 ## Networking in AWS: Virtual Private Clouds (VPCs) <a name="aws_vpc_main"></a>
 ### VPC Basics <a name="aws_vpc_basics"></a>
 * Use VPC to create any private isolated networks domains.
+VPC - foundational network elements in AWS.
 
-Private networks - accessible only to the owner/creator
-Public networks - accessible over on the internet.
-AWS public zone - S3/Dynamo DB/Cloud watch logs can be accessed through end points from both private/public networks.
+Network Zones:
+1. Private networks - accessible only to the owner/creator.
+2. Public networks - accessible over on the internet.
+3. AWS public zone - S3/Dynamo DB/Cloud watch logs can be accessed through end points from both private/public networks.
 
-Each AWS account has a default VPC for the region of your account. Certain AWS services depend on this default VPC.
+Each AWS account has a default VPC(only one) for the region of your account. Certain AWS services depend on this default VPC.
 A VPC can be set to two tenancy modes:
 * Default - shared systems/resources
 * Dedicated - dedicatedly hosted resources.
