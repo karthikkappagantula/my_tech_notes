@@ -1,11 +1,11 @@
 # Table of Contents <br>
-1. [Agile Foundations](#agile_foundation)<br>
+1. [Agile Foundations](#agile-foundations)<br>
 	* [Agile Alliance](#agile_alliance)<br>
 
 * * * 
-[Top](#table-of-contents)
+[Top](#table-of-contents-)
 * * * 
-# Agile Foundations(#agile_foundation)
+# Agile Foundations(#agile-foundations)
 Organizations were also figuring out that heavier project management methodologies, which focused more on long-term planning, were not as effective for the types of projects they were working on now. Due to a highly changing environment and constant demands to stay current on innovative technologies, it was imperative to find newer and better ways of doing things.
 
 ## THE AGILE ALLIANCE(#agile_alliance)
@@ -14,5 +14,5 @@ Organizations were also figuring out that heavier project management methodologi
 * The second driving factor was creating higher quality software in shorter time frames, running short sprints or iterations and work to produce something usable at the end of each.
 * It was necessary to have requirements and solutions evolve through collaboration and self-organizing, cross-functional teams. This would allow for business value to evolve and develop a cross-pollinated understanding of what the results should be at the team level. Everyone knows the vision, even when the vision changes.
 * * * 
-[Top](#table-of-contents)
+[Top](#table-of-contents-)
 * * * 
