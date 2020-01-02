@@ -441,15 +441,17 @@ Within every VPC subnet a number of IP addresses reserved:
    * 10.0.0.3 - Reserved for future use
    * 10.0.0.255 - Broadcast
  Primary DNS address in a VPC is VPC network + 2.
- 
-<br>
-*NOTE: 
-Basic recommendation for No of subnets in AWS = No of AZs we want to deploy to X No of application tiers(UI/DB/etc).
-This is not a hard rule and a new subnet should be created as required.* <br />
 
 Cloud Formation templates can be used to create VPCs/Subnets.
 
-####Connection between VPCs
+<pre>
+NOTE: 
+Basic recommendation for No of subnets in AWS = No of AZs we want to deploy to X No of application tiers(UI/DB/etc).
+This is not a hard rule and a new subnet should be created as required.
+</pre>
+
+
+#### Connection between VPCs
 * VPC peers - connects individual VPCs to other VPCs in same/other region/zones.
 * Internet gateways - connection over internet.
 * VPN gateways - connection to On-premise resources.
