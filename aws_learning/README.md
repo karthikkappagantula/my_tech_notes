@@ -428,13 +428,58 @@ Network Zones:
 
 Each AWS account has a default VPC(only one) for the region of your account. Certain AWS services depend on this default VPC.
 A VPC can be set to two tenancy modes:
-* Default - shared systems/resources
-* Dedicated - dedicatedly hosted resources.
+* Default - shared hardware systems/resources
+* Dedicated - dedicatedly hardware resources.
 
 A VPC contains Subnets. Subnets occupy a AZ/subset of VPC CIDR range. A subnet is where your resources reside.
-No of subnets = No of AZs we want to deploy to * No of application tiers(UI/DB/etc).
+Subnets CIDR range occupy some portion of CIDR range of VPC.
+Within every VPC subnet a number of IP addresses reserved:
+(assuming 10.0.0.0/24 subnet)
+   * 10.0.0.0 - network address
+   * 10.0.0.1 - VPC router(network + 1)
+   * 10.0.0.2 - DNS (network + 2)
+   * 10.0.0.3 - Reserved for future use
+   * 10.0.0.255 - Broadcast
+ Primary DNS address in a VPC is VPC network + 2.
+ 
+<br>
+*NOTE* <br>
+*Basic recommendation for No of subnets in AWS = No of AZs we want to deploy to * No of application tiers(UI/DB/etc).*
+*This is not a hard rule and a new subnet should be created as required.*
 
+Cloud Formation templates can be used to create VPCs/Subnets.
+
+####Connection between VPCs
+* VPC peers - connects individual VPCs to other VPCs in same/other region/zones.
+* Internet gateways - connection over internet.
+* VPN gateways - connection to On-premise resources.
+* Bastion Host - 
+* VPC end points
+* Egress only Internet gateway
 
 #### Useful links
 [IP Subnetting the Easy Way](https://www.theprohack.com/2012/01/ip-subnetting-easy-way.html)
+* * * 
+[Top](#table-of-contents-)
+* * * 
 ### AWS Resource Access Manager(RAM) <a name="aws_vpc_ram"></a>
+A service that allows the sharing of AWS resources between accounts (VPC owner vs VPC participant).
+
+* Enable sharing within your organization in RAM before sharing any resources between accounts - handshake is not required.
+* AZ id - AZ name is generic and they remain same for all users of AWS. AZ id is unique id that maps to a physical hardware, and is consistent for all accounts. AZ name can be different between Dev and Prod accounts.
+* Resource share - By creating a resource share in AWS RAM  you share set of AWS resources within/outside organization. Sharing is limited based on the resources being shared. Subnets are not allowed to be shared outside of organization.
+
+VPC owner - responsible for maintaining VPCs and its components(Subnets, Network ACLs,Peering Connections, Routing connections, End points, etc).
+VPC participant - responsibility of only resources created by participants. All other shared resources are read-only.
+
+#### AWS documentation
+[Enabling RAM](https://console.aws.amazon.com/ram/home#Setting)
+
+[Working with AZ IDs](https://docs.aws.amazon.com/ram/latest/userguide/working-with-az-ids.html)
+
+[What Is AWS RAM?](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html)
+
+[VPC Sharing](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html)
+* * * 
+[Top](#table-of-contents-)
+* * * 
