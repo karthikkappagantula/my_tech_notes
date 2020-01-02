@@ -47,6 +47,20 @@ The ability to pivot and be agile is the crux of all methods and frameworks. Cha
 11. The best architectures, requirements, and designs emerge from self-organizing teams.
 12. At regular intervals, the team reflects on how to become more effective and then tunes and adjusts its behavior accordingly.
 
+#### 12 Principles of Agile Manifesto Simplified
+1. **Customer Satisfaction**: All Agile methodologies are looking for ways to bring value to the customer on a regular basis by communicating and adapting to changing customer needs.
+2. **Welcome Changes**: This keeps the team on top of new requirements and allows for some flexibility in the design rather than preplan and go through a formal change control system every time there is an update to the scope of work.
+3. **Frequent Delivery**: Like many methodologies and frameworks that deal with short iterations, the goal is to produce something usable early and often. Frequent delivery is about producing a usable increment in a short time span that the customer finds valuable.
+4. **Collocated Teams**: Many best practices in Agile project management have collocated teams. If team members are located remotely or are virtual, the best practice is to collocate them for at least one iteration if possible.
+5. **Motivated Individuals**: Teams are self-managed and self-organizing, and they are there because they want to be there. Demotivation doesn’t produce good working increments or keep the team focused on providing value.
+6. **Face to Face Contact**: Communication is a large part of Agile project management, and face-to-face contact is the best way to communicate. It ties into collocation as well as open and honest communication across the team dynamic.
+7. **Working Software**: Focus is on a usable increment that works, and not spending a lot of time on creating software that doesn’t work. This is done by getting frequent feedback, utilizing frequent testing and reviews, and looking back to see what changes for the better are necessary.
+8. **Constant/Sustainable Pace**: Try to achieve a 40-hour work week and no overtime if possible.
+9. **Continuous Attention**: The entire team looks for ways to improve quality, the design, and the overall process on a regular basis.
+10. **Simplicity**: Keep it simple. Don’t add extra features that are unnecessary.
+11. **Self-Organization**: The team decides for itself what it can and can’t do, and it works together on solutions.
+12. **Regular Reflection**: The team keeps a constant focus on looking back to move forward more successfully.
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
