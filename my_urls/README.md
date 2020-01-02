@@ -38,6 +38,17 @@ b. [Markdown](#markdown_urls)<br />
 
 ### Github related
 [Github Guides](https://guides.github.com/)
+Guides included - 
+* Understanding Github Flow
+* Getting started with Github pages
+* Hello World Exercise
+* Git Handbook
+* Forking Projects
+* Be Social
+* Making your code Citable
+* Mastering Issues
+* Mastering Markdown
+* Documenting Projects in Github
 
 * * *
 [Top](#table-of-contents-)
