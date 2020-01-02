@@ -13,6 +13,7 @@
 * * *
 # Other URLs<br />
 a. [Regular Expression/regex URLs](#regex_urls)<br />
+b. [Markdown](#markdown_urls)<br />
 
 * * *
 [Top](#table-of-contents-)
@@ -63,6 +64,12 @@ a. [Regular Expression/regex URLs](#regex_urls)<br />
 ## Regular Expression/regex URLs <a name="regex_urls"></a>
 https://www.geeksforgeeks.org/write-regular-expressions/  <br />
 https://www.rexegg.com/regex-quickstart.html <br />
+* * *
+[Top](#other-urls)
+* * *
+## Markdown URLs <a name="markdown_urls"></a>
+[Github Markdown Guide](https://guides.github.com/features/mastering-markdown/)
+
 * * *
 [Top](#other-urls)
 * * *
