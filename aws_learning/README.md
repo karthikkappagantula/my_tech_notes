@@ -506,6 +506,10 @@ NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or 
 * Inbound rules are applied for traffic coming in to subnets.
 * Outbound rules are applied for traffic coming out of the subnets.
 * Rules priority is done based on Rule # field. Lowest Rule # will take higher priority over a higher Rule # entry.
+* Rules are based on IP address ranges only, and cannot refer any logical resources.
+* Common use case for NACLs - Whitelist/Blacklist traffic from/to an IP.
+* NACLs does not effect traffic between two EC2 instances with in same Subnet. They come in to effect only when the traffic is flowing in to/out of a Subnet.
+* NACLs are the only option when Security groups cannot be used to restrict the routing. 
 
 [Wiki for Ephemeral port](https://en.wikipedia.org/wiki/Ephemeral_port)
 * * * 
