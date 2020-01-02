@@ -48,8 +48,9 @@ a. [Regular Expression/regex URLs](#regex_urls)<br />
 [Top](#table-of-contents-)
 * * *
 ## Python/R URLs <a name="pythonr_urls"></a>
+### Python
 [Python Standard Libraries](https://docs.python.org/3/library/)
-
+### R
 * * *
 [Top](#table-of-contents-)
 * * *
