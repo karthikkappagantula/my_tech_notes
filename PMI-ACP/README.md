@@ -93,8 +93,37 @@ To achieve these results:
 	What works for one project will not work for another. Knowing this leaves a more fluid focus on solutions rather than on rules, and with that comes ROI, reliable results, managed risk, creativity, and boosted performance.
 
 *It is typical to adopt the defined (theoretical) modeling approach when the underlying mechanisms by which a process operates are reasonably well understood. When the process is too complicated for the defined approach, the empirical approach is the appropriate choice.*
+* * * 
+[Top](#table-of-contents-)
+* * * 
+### Empirical Process Control
+Ken Schwaber and Jeff Sutherland are the creators of the Scrum methodology. They adapted and used empirical process control to develop the best practices of Scrum along with the Agile Manifesto as the guiding principle. The three key aspects of empirical process control are also the three pillars of Scrum.
 
+Empirical process controls focus on the following:
+
+* **Transparency**: This encompasses not just the process itself but all communications.
+* **Inspection**: Frequent inspection and the utilization of frequent reviews of the product service or results is essential.
+* **Adaptation**: None of the above will work fully without adaptation, which is the ability to embrace uncertainty and changes and manage risks accordingly.
+
+*definition of empirical (using your own experiences and knowledge rather than buying into a set of processes based on theory or even known logic at the time)*
+
+Empiricism involves learning and adapting as needed.
+* * * 
+The following are great guiding principles to know that get you into the mindset of empirical process control:
+* Iterative
+* Incremental
+* Frequent reviews
+* Adaptation
+* Uncertainty and risks during execution
+* It isn’t a “defined” process; it’s a way of being and doing
+
+Agile, as a term, is the umbrella over all of the different methodologies that you can absorb, use, and understand. To pass the PMI-ACP exam, you have got to get into that frame of mind. The Agile principles mindset involves the following:
+* Exploring, embracing, and applying Agile principles while incorporating that mindset across the team and the organization
+* Focusing value driven delivery on high-value increments and making sure that they are produced early and often
+* Meeting and reviewing stakeholder priorities
+* Gaining feedback on the increments you produce and then prioritizing and improving upon them
 
 * * * 
 [Top](#table-of-contents-)
 * * * 
+
