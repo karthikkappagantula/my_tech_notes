@@ -443,9 +443,9 @@ Within every VPC subnet a number of IP addresses reserved:
  Primary DNS address in a VPC is VPC network + 2.
  
 <br>
-*NOTE* <br>
-*Basic recommendation for No of subnets in AWS = No of AZs we want to deploy to X No of application tiers(UI/DB/etc).*<br>
-*This is not a hard rule and a new subnet should be created as required.*<br>
+*NOTE: 
+Basic recommendation for No of subnets in AWS = No of AZs we want to deploy to X No of application tiers(UI/DB/etc).
+This is not a hard rule and a new subnet should be created as required.* <br />
 
 Cloud Formation templates can be used to create VPCs/Subnets.
 
