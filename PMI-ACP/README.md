@@ -126,4 +126,19 @@ Agile, as a term, is the umbrella over all of the different methodologies that y
 * * * 
 [Top](#table-of-contents-)
 * * * 
+### Satir Model
+The Satir model, created by Virginia Satir during her work as a family counselor, correctly depicts how organizations go from the status quo to the introduction of a foreign element and then resist the changes. Once resistance begins, chaos ensues. Most organizations throw away the best practices of Agile because of the chaos instead of realizing that chaos is necessary for the transformation of ideas and the integration of those innovative ideas in order to move forward to a new status quo.
+
+### Organizational agility tips
+To implement Agile methodologies successfully, your organization will need to do the following:
+
+* If your team or organization is new to Agile, it is best to use a proven method of best practices and then to try to create a hybrid approach.
+* Implement Agile on the organizational level starting with an understanding and internalization of Agile principles.
+* Practice the steps of a chosen Agile methodology until proficient.
+* Encourage others to internalize and practice Agile.
+* Learn the techniques before throwing a methodology out as not working.
+* Embrace the higher criticality and weight of method based on team size and project length.
+* * * 
+[Top](#table-of-contents-)
+* * * 
 
