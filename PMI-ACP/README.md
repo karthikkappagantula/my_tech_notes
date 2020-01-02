@@ -33,7 +33,7 @@ Collaboration with the customer and working toward the right solution is more im
 * **Responding to Change over Following a Plan** <br>
 The ability to pivot and be agile is the crux of all methods and frameworks. Change happens—it’s expected and embraced.<br>
  
-#### 12 Principles of Agile Manifesto
+### 12 Principles of Agile Manifesto
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 2. Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.
 3. Deliver working software frequently, from a couple of weeks to a couple of months, with a preference for the shorter timescale.
@@ -47,7 +47,7 @@ The ability to pivot and be agile is the crux of all methods and frameworks. Cha
 11. The best architectures, requirements, and designs emerge from self-organizing teams.
 12. At regular intervals, the team reflects on how to become more effective and then tunes and adjusts its behavior accordingly.
 
-#### 12 Principles of Agile Manifesto Simplified
+### 12 Principles of Agile Manifesto Simplified
 1. **Customer Satisfaction**: All Agile methodologies are looking for ways to bring value to the customer on a regular basis by communicating and adapting to changing customer needs.
 2. **Welcome Changes**: This keeps the team on top of new requirements and allows for some flexibility in the design rather than preplan and go through a formal change control system every time there is an update to the scope of work.
 3. **Frequent Delivery**: Like many methodologies and frameworks that deal with short iterations, the goal is to produce something usable early and often. Frequent delivery is about producing a usable increment in a short time span that the customer finds valuable.
@@ -60,6 +60,40 @@ The ability to pivot and be agile is the crux of all methods and frameworks. Cha
 10. **Simplicity**: Keep it simple. Don’t add extra features that are unnecessary.
 11. **Self-Organization**: The team decides for itself what it can and can’t do, and it works together on solutions.
 12. **Regular Reflection**: The team keeps a constant focus on looking back to move forward more successfully.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+### The declaration of interdependence
+The concept behind the Declaration of Interdependence was to develop modern management principles essential to project management and management in general. <br>
+
+The six principles are based on what might be required to achieve the mindset of an Agile-type project, regardless of the industry.<br>
+
+**Agile and adaptive approaches for linking people, projects, and value. We are a community of project leaders that are highly successful at delivering results.**
+
+To achieve these results:
+1.We increase return on investment by making continuous flow of value our focus.
+2.We deliver reliable results by engaging customers in frequent interactions and shared ownership.
+3.We expect uncertainty and manage for it through iterations, anticipation, and adaptation.
+4.We unleash creativity and innovation by recognizing that individuals are the ultimate source of value and creating an environment where they can make a difference.
+5.We boost performance through group accountability for results and shared responsibility for team effectiveness.
+6.We improve effectiveness and reliability through situationally specific strategies, processes, and practices.
+
+### The declaration of interdependence simplified
+1. **We increase return on investment by making continuous flow of value our focus.**
+	The goal is to produce something of value by collecting requirements as current information is gathered. Requirements are collected on a continuous basis, with quick turn-around of results so that value is returned and ROI is achieved.
+2. **We deliver reliable results by engaging customers in frequent interactions and shared ownership.**
+	The results are dependent on interacting with the customers on a regular basis to find out what is new, what has changed, and what they find valuable today. The customer is part of owning the result and therefore is more invested in how they communicate and interact.
+3. **We expect uncertainty and manage for it through iterations, anticipation, and adaptation.**
+	By carrying the expectation that we don’t have an if situation but instead a when situation, we can adapt and pivot as needed.
+4. **We unleash creativity and innovation by recognizing that individuals are the ultimate source of value and creating an environment where they can make a difference.**
+5. **We boost performance through group accountability for results and shared responsibility for team effectiveness.**
+	Agile world is more equal in the distribution of the work, the accountability, and the glory. It is a shift in focus to a team dynamic rather than a top-down hierarchy.
+6. **We improve effectiveness and reliability through situationally specific strategies, processes, and practices.**	
+	What works for one project will not work for another. Knowing this leaves a more fluid focus on solutions rather than on rules, and with that comes ROI, reliable results, managed risk, creativity, and boosted performance.
+
+*It is typical to adopt the defined (theoretical) modeling approach when the underlying mechanisms by which a process operates are reasonably well understood. When the process is too complicated for the defined approach, the empirical approach is the appropriate choice.*
+
 
 * * * 
 [Top](#table-of-contents-)
