@@ -35,6 +35,8 @@
 3. [Networking in AWS: Virtual Private Clouds(VPCs)](#aws_vpc_main)<br />
    * [VPC Basics](#aws_vpc_basics)<br />
    * [AWS Resource Access Manager(RAM)](#aws_vpc_ram)<br />
+   * [VPC Router](#aws_vpc_router)<br>
+   * [Network Access Control Lists(NACLs)(#aws_nacl)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -485,7 +487,7 @@ VPC participant - responsibility of only resources created by participants. All 
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### VPC Routing <a name="aws_vpc_routing"></a>
+### VPC Routing <a name="aws_vpc_router"></a>
 VPC Router - 
 * Every VPC has a VPC router - default gateway for VPC
 * Occupies on ip address on every single subnet in the VPC(network + 1 address).
@@ -497,7 +499,7 @@ VPC Router -
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### Network Access Control Lists (NACLs)
+### Network Access Control Lists (NACLs) <a name="aws_nacl"></a>
 NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or leaving the subnet. NACLs are STATELESS which means ephemeral port rules are required to allow 'response' traffic.
 * A subnet can have one associated NACLs acting as a barrier between VPC and its subnet.
 * VPCs have a defailt NACLS associated with any subnets in that VPC by default.
