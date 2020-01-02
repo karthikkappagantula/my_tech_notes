@@ -65,13 +65,13 @@ b. [Markdown](#markdown_urls)<br />
 https://www.geeksforgeeks.org/write-regular-expressions/  <br />
 https://www.rexegg.com/regex-quickstart.html <br />
 * * *
-[Top](#table-of-contents-)
+[Top](#table-of-contents-)<br>
 [Other](#other-urls)
 * * *
 ## Markdown URLs <a name="markdown_urls"></a>
 [Github Markdown Guide](https://guides.github.com/features/mastering-markdown/)
 
 * * *
-[Top](#table-of-contents-)
-[Top](#other-urls)
+[Top](#table-of-contents-)<br>
+[Other](#other-urls)
 * * *
