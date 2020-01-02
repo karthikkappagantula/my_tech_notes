@@ -485,3 +485,27 @@ VPC participant - responsibility of only resources created by participants. All 
 * * * 
 [Top](#table-of-contents-)
 * * * 
+### VPC Routing <a name="aws_vpc_routing"></a>
+VPC Router - 
+* Every VPC has a VPC router - default gateway for VPC
+* Occupies on ip address on every single subnet in the VPC(network + 1 address).
+* VPC router is controlled by route tables. VPCs come with a default 'MAIN' Route table. Customer RTs can be defined and attached to subnets
+* Route tables contain a default 'local' route 
+* A route matches a destination and tells the VPC router where to direct IP traffic. More specific routes take priority(i.e /32 > /16).
+* VPC routers are used for VPC endpoints, VPC peering connections, Egress only Internet gateway, Internet gateway, NAT-Gateway.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+### Network Access Control Lists (NACLs)
+NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or leaving the subnet. NACLs are STATELESS which means ephemeral port rules are required to allow 'response' traffic.
+* A subnet can have one associated NACLs acting as a barrier between VPC and its subnet.
+* VPCs have a defailt NACLS associated with any subnets in that VPC by default.
+* Inbound rules are applied for traffic coming in to subnets.
+* Outbound rules are applied for traffic coming out of the subnets.
+* Rules priority is done based on Rule # field. Lowest Rule # will take higher priority over a higher Rule # entry.
+
+[Wiki for Ephemeral port](https://en.wikipedia.org/wiki/Ephemeral_port)
+* * * 
+[Top](#table-of-contents-)
+* * * 
