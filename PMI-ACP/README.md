@@ -24,14 +24,14 @@ Organizations were also figuring out that heavier project management methodologi
 * The Agile Manifesto does not suggest that we do one over the other; rather, it advocates that while all of the mentioned items are important, some are valued more than the others.
 
 ### Manifesto Principles:<br>
-**Individuals and Interactions over Processes and Tools**<br>
- * This isn’t a suggestion that process and tools are unnecessary; rather, it’s more that there is better value found in individuals and interactions.<br>
-**Working Software over Comprehensive Documentation**<br>
- * It is more important to have software that works and that meets business value and tech specs than it is to spend time putting together massive plans that will change.<br>
-**Customer Collaboration over Contract Negotiation**<br>
- * Collaboration with the customer and working toward the right solution is more important than locking down a contract that doesn’t meet the needs of the customer in the end. <br>
-**Responding to Change over Following a Plan** <br>
- * The ability to pivot and be agile is the crux of all methods and frameworks. Change happens—it’s expected and embraced.<br>
+* **Individuals and Interactions over Processes and Tools**<br>
+This isn’t a suggestion that process and tools are unnecessary; rather, it’s more that there is better value found in individuals and interactions.<br>
+* **Working Software over Comprehensive Documentation**<br>
+It is more important to have software that works and that meets business value and tech specs than it is to spend time putting together massive plans that will change.<br>
+* **Customer Collaboration over Contract Negotiation**<br>
+Collaboration with the customer and working toward the right solution is more important than locking down a contract that doesn’t meet the needs of the customer in the end. <br>
+* **Responding to Change over Following a Plan** <br>
+The ability to pivot and be agile is the crux of all methods and frameworks. Change happens—it’s expected and embraced.<br>
  
 #### 12 Principles of Agile Manifesto
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
