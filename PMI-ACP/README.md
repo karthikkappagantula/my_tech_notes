@@ -1,15 +1,18 @@
 # Table of Contents <br>
+
 1. [Agile Foundations](#agile-foundations)<br>
-	* [Agile Alliance](#agile_alliance)<br>
-	* [Agile Manifesto](#agile_manifesto)<br>
+	a. [Agile Alliance](#agile_alliance)<br>
+	b. [Agile Manifesto](#agile_manifesto)<br>
 
 * * * 
 [Top](#table-of-contents-)
 * * * 
 # Agile Foundations<a name="agile-foundations"></a>
+
 Organizations were also figuring out that heavier project management methodologies, which focused more on long-term planning, were not as effective for the types of projects they were working on now. Due to a highly changing environment and constant demands to stay current on innovative technologies, it was imperative to find newer and better ways of doing things.
 
 ## Agile Alliance<a name="agile_alliance"></a>
+
 * The ability to build working software quickly by understanding what the customer needs with very little front-end planning and documentation formed a large part of the discussions.
 * The Agile Alliance determined that new methods should be based on iterative and incremental development rather than a preplanned and well-defined scope of work right at the very beginning of the project. This would allow the result to surface organically as new features or requirements were discovered.
 * The second driving factor was creating higher quality software in shorter time frames, running short sprints or iterations and work to produce something usable at the end of each.
@@ -18,12 +21,15 @@ Organizations were also figuring out that heavier project management methodologi
 * * * 
 [Top](#table-of-contents-)
 * * * 
+  
 ## Agile Manifesto<a name="agile_manifesto"></a>
+
 * The Agile Manifesto was designed to be a set of lightweight and guiding principles rather than set rules and formal processes.
 * The Agile Manifesto forms the basis for most methods currently in use today, including Scrum, eXtreme Programming, Lean, Crystal Methods, and others.
 * The Agile Manifesto does not suggest that we do one over the other; rather, it advocates that while all of the mentioned items are important, some are valued more than the others.
 
 ### Manifesto Principles:<br>
+
 * **Individuals and Interactions over Processes and Tools**<br>
 This isn’t a suggestion that process and tools are unnecessary; rather, it’s more that there is better value found in individuals and interactions.<br>
 * **Working Software over Comprehensive Documentation**<br>
@@ -34,6 +40,7 @@ Collaboration with the customer and working toward the right solution is more im
 The ability to pivot and be agile is the crux of all methods and frameworks. Change happens—it’s expected and embraced.<br>
  
 ### 12 Principles of Agile Manifesto
+
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.
 2. Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.
 3. Deliver working software frequently, from a couple of weeks to a couple of months, with a preference for the shorter timescale.
@@ -48,6 +55,7 @@ The ability to pivot and be agile is the crux of all methods and frameworks. Cha
 12. At regular intervals, the team reflects on how to become more effective and then tunes and adjusts its behavior accordingly.
 
 ### 12 Principles of Agile Manifesto Simplified
+
 1. **Customer Satisfaction**: All Agile methodologies are looking for ways to bring value to the customer on a regular basis by communicating and adapting to changing customer needs.
 2. **Welcome Changes**: This keeps the team on top of new requirements and allows for some flexibility in the design rather than preplan and go through a formal change control system every time there is an update to the scope of work.
 3. **Frequent Delivery**: Like many methodologies and frameworks that deal with short iterations, the goal is to produce something usable early and often. Frequent delivery is about producing a usable increment in a short time span that the customer finds valuable.
@@ -80,23 +88,26 @@ To achieve these results:
 6.We improve effectiveness and reliability through situationally specific strategies, processes, and practices.
 
 ### The declaration of interdependence simplified
-1. **We increase return on investment by making continuous flow of value our focus.**
+
+1. **We increase return on investment by making continuous flow of value our focus.** <br>
 	The goal is to produce something of value by collecting requirements as current information is gathered. Requirements are collected on a continuous basis, with quick turn-around of results so that value is returned and ROI is achieved.
-2. **We deliver reliable results by engaging customers in frequent interactions and shared ownership.**
+2. **We deliver reliable results by engaging customers in frequent interactions and shared ownership.** <br>
 	The results are dependent on interacting with the customers on a regular basis to find out what is new, what has changed, and what they find valuable today. The customer is part of owning the result and therefore is more invested in how they communicate and interact.
-3. **We expect uncertainty and manage for it through iterations, anticipation, and adaptation.**
+3. **We expect uncertainty and manage for it through iterations, anticipation, and adaptation.** <br>
 	By carrying the expectation that we don’t have an if situation but instead a when situation, we can adapt and pivot as needed.
-4. **We unleash creativity and innovation by recognizing that individuals are the ultimate source of value and creating an environment where they can make a difference.**
-5. **We boost performance through group accountability for results and shared responsibility for team effectiveness.**
+4. **We unleash creativity and innovation by recognizing that individuals are the ultimate source of value and creating an environment where they can make a difference.** <br>
+5. **We boost performance through group accountability for results and shared responsibility for team effectiveness.** <br>
 	Agile world is more equal in the distribution of the work, the accountability, and the glory. It is a shift in focus to a team dynamic rather than a top-down hierarchy.
-6. **We improve effectiveness and reliability through situationally specific strategies, processes, and practices.**	
+6. **We improve effectiveness and reliability through situationally specific strategies, processes, and practices.** <br>
 	What works for one project will not work for another. Knowing this leaves a more fluid focus on solutions rather than on rules, and with that comes ROI, reliable results, managed risk, creativity, and boosted performance.
 
 *It is typical to adopt the defined (theoretical) modeling approach when the underlying mechanisms by which a process operates are reasonably well understood. When the process is too complicated for the defined approach, the empirical approach is the appropriate choice.*
 * * * 
 [Top](#table-of-contents-)
 * * * 
+  
 ### Empirical Process Control
+
 Ken Schwaber and Jeff Sutherland are the creators of the Scrum methodology. They adapted and used empirical process control to develop the best practices of Scrum along with the Agile Manifesto as the guiding principle. The three key aspects of empirical process control are also the three pillars of Scrum.
 
 Empirical process controls focus on the following:
@@ -110,6 +121,7 @@ Empirical process controls focus on the following:
 Empiricism involves learning and adapting as needed.
 * * * 
 The following are great guiding principles to know that get you into the mindset of empirical process control:
+
 * Iterative
 * Incremental
 * Frequent reviews
@@ -118,6 +130,7 @@ The following are great guiding principles to know that get you into the mindset
 * It isn’t a “defined” process; it’s a way of being and doing
 
 Agile, as a term, is the umbrella over all of the different methodologies that you can absorb, use, and understand. To pass the PMI-ACP exam, you have got to get into that frame of mind. The Agile principles mindset involves the following:
+
 * Exploring, embracing, and applying Agile principles while incorporating that mindset across the team and the organization
 * Focusing value driven delivery on high-value increments and making sure that they are produced early and often
 * Meeting and reviewing stakeholder priorities
@@ -126,10 +139,13 @@ Agile, as a term, is the umbrella over all of the different methodologies that y
 * * * 
 [Top](#table-of-contents-)
 * * * 
+
 ### Satir Model
+
 The Satir model, created by Virginia Satir during her work as a family counselor, correctly depicts how organizations go from the status quo to the introduction of a foreign element and then resist the changes. Once resistance begins, chaos ensues. Most organizations throw away the best practices of Agile because of the chaos instead of realizing that chaos is necessary for the transformation of ideas and the integration of those innovative ideas in order to move forward to a new status quo.
 
 ### Organizational agility tips
+
 To implement Agile methodologies successfully, your organization will need to do the following:
 
 * If your team or organization is new to Agile, it is best to use a proven method of best practices and then to try to create a hybrid approach.
@@ -138,6 +154,7 @@ To implement Agile methodologies successfully, your organization will need to do
 * Encourage others to internalize and practice Agile.
 * Learn the techniques before throwing a methodology out as not working.
 * Embrace the higher criticality and weight of method based on team size and project length.
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
