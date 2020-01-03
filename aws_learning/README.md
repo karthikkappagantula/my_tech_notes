@@ -38,6 +38,7 @@
    * [VPC Router](#aws_vpc_router)<br>
    * [Network Access Control Lists(NACLs)](#aws_nacl)<br>
    * [Security Groups(SGs)](#aws_sg)<br>
+   * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -516,13 +517,31 @@ NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or 
 * * * 
 [Top](#table-of-contents-)
 * * * 
+  
 ### Security Groups (SG)<a name="aws_sg"></a>
+
 SG companion security filtering products in AWS, applied to networks inside VPC. SGa are applied to network resources and effect the traffic coming in/to them.
 
 * Every VPC comes with a default SG
 * Each SG contains inbound/outbound rules for IP traffic.
 * SG procesing has NO order - all rules are executed at once. There is a deafult implicit DENY. SG's cannot explicitly DENY.
 * SG rules are STATEFUL. If traffic is allowed IN, it's corresponding return traffic is automatically allowed - this cannot be changed. The same applies to outbound traffic, its return communications are automatically permitted. ==> You do not have to worry about ephemeral ports.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+  
+### Public vs Private Subnets, Internet Gateways, and IP addressing <a name="aws_networks"></a>
+
+* A private subnet is a subnet with default configuration. It cannot communicate with public internet or AWS public zone networks.
+* A public subnet requires the VPC to be able to connect to internet gateway (you have to create a internet gateway and attach to VPC) and should have custom route table with default traffic allowed for internet gateway.
+
+*public IP for an instance can be inherited based on VPC config*
+
+**Bastion Host** - An EC2 instance in a public subnet with public IP address, configured to accept connections from public internet. They are usually used for admin purpose to control/restric traffic from public internet to private resources.
+
+
+[Connect to Amazon EC2 Using Putty Private Key on Windows](https://linuxacademy.com/blog/linux/connect-to-amazon-ec2-using-putty-private-key-on-windows/)
 
 * * * 
 [Top](#table-of-contents-)
