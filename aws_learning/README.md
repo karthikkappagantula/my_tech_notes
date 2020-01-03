@@ -36,7 +36,8 @@
    * [VPC Basics](#aws_vpc_basics)<br />
    * [AWS Resource Access Manager(RAM)](#aws_vpc_ram)<br />
    * [VPC Router](#aws_vpc_router)<br>
-   * [Network Access Control Lists(NACLs)(#aws_nacl)<br>
+   * [Network Access Control Lists(NACLs)](#aws_nacl)<br>
+   * [Security Groups(SGs)](#aws_sg)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -512,6 +513,17 @@ NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or 
 * NACLs are the only option when Security groups cannot be used to restrict the routing. 
 
 [Wiki for Ephemeral port](https://en.wikipedia.org/wiki/Ephemeral_port)
+* * * 
+[Top](#table-of-contents-)
+* * * 
+### Security Groups (SG)<a name="aws_sg"></a>
+SG companion security filtering products in AWS, applied to networks inside VPC. SGa are applied to network resources and effect the traffic coming in/to them.
+
+* Every VPC comes with a default SG
+* Each SG contains inbound/outbound rules for IP traffic.
+* SG procesing has NO order - all rules are executed at once. There is a deafult implicit DENY. SG's cannot explicitly DENY.
+* SG rules are STATEFUL. If traffic is allowed IN, it's corresponding return traffic is automatically allowed - this cannot be changed. The same applies to outbound traffic, its return communications are automatically permitted. ==> You do not have to worry about ephemeral ports.
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
