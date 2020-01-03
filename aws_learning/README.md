@@ -39,7 +39,7 @@
    * [Network Access Control Lists(NACLs)](#aws_nacl)<br>
    * [Security Groups(SGs)](#aws_sg)<br>
    * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
-   * [DNS in a VPC](#aws_dns_vpc)<br?
+   * [DNS in a VPC](#aws_dns_vpc)<br>
    
 * * *
 [Top](#table-of-contents-)
