@@ -562,6 +562,9 @@ Resources inside a public subnet with IPv6 allocations are provided with publica
 NAT gateways are not a valid option to provide outgoing only access to the AWS public zone or public internet. Egress-Only Gateway is used to prevent any incoming traffic to such publicly routable IPv6 addresses.
 Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Gateway = Prevents public networks from accessing resources hosted on this VPC/Subnet/Instance.
 
+[IPv6 Subnet Cheat Sheet and IPv6 Cheat Sheet Reference](https://www.crucial.com.au/blog/2011/04/15/ipv6-subnet-cheat-sheet-and-ipv6-cheat-sheet-reference/)<br>
+[IPv6 Subnetting - Overview and Case Study](https://community.cisco.com/t5/networking-documents/ipv6-subnetting-overview-and-case-study/ta-p/3125702)<br>
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
