@@ -543,6 +543,25 @@ SG companion security filtering products in AWS, applied to networks inside VPC.
 
 [Connect to Amazon EC2 Using Putty Private Key on Windows](https://linuxacademy.com/blog/linux/connect-to-amazon-ec2-using-putty-private-key-on-windows/)
 
+**NAT Gateways**
+* NAT gateways provides NAT services - network address translation. 
+* NAT gateway have single public IP. 
+* When NAT Gateways receive any traffic from private instances, they convert the private IPs to the single Public IP and connects to Internet Gateway.
+* NAT gateways are configured in Public Subnet and require Elastic IP addresse - static IP that does not change.
+* Configurate NAT gateway in each AZ with in your account to support high availability.
+* Use route tables to direct the traffic through NAT gateways.
+
+**Internet Gateways** - allows INBOUND and OUTBOUND public internet and AWS Public Zone routing.
+
+**Egress-Only Gateways** - allows OUTBOUND only public internet and AWS public Zone routing.
+Egress-Only Gateways work similar to Internet Gateway, except that it is used for IPv6 addresses. IPv6 address are public routable addresses.
+
+Senario - A resource has been allocated an IPv6 address, occupies a subnet with an applicated IPv6 CIDR which itself is part of a VPC with a IPv6 CIDR allocation.
+Resources inside a public subnet with IPv6 allocations are provided with publically routable addresses - because all IPv6 addresses are publically routable.
+
+NAT gateways are not a valid option to provide outgoing only access to the AWS public zone or public internet. Egress-Only Gateway is used to prevent any incoming traffic to such publicly routable IPv6 addresses.
+Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Gateway = Prevents public networks from accessing resources hosted on this VPC/Subnet/Instance.
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
