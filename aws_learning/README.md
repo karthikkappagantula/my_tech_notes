@@ -39,6 +39,7 @@
    * [Network Access Control Lists(NACLs)](#aws_nacl)<br>
    * [Security Groups(SGs)](#aws_sg)<br>
    * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
+   * [DNS in a VPC](#aws_dns_vpc)<br?
    
 * * *
 [Top](#table-of-contents-)
@@ -568,7 +569,14 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
 [Top](#table-of-contents-)
 * * * 
-  
+### DNS in a VPC <a name="aws_dns_vpc"> </a>
+* The Network+2(DNS server) reserved address is called R53 Resolver - and is accessible only with in a VPC.
+* Thus DNS server is not accessible outside the VPC to any on premise servers through VPN connection or direct connection.
+* One solution is to use EC2 instances as DNS relays that let the on premise instances to talk to instances in VPC indirectly.
+* 
+
+
+[AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)
 * * * 
 [Top](#table-of-contents-)
 * * * 
