@@ -198,6 +198,9 @@ This second: 46
     5
     </pre>
 
+* * *
+[Top](#table-of-contents)
+* * * 
 
 * There are many built in python functions that can be run against Lists.
     <pre> 
@@ -236,6 +239,10 @@ This second: 46
     [1, 3, 4, 5, 6]
     </pre>
 
+* * *
+[Top](#table-of-contents)
+* * * 
+  
 * To remove an element from end, use pop function.
     <pre>
     list1 = [1, 2, 3, 4, 5]
@@ -281,3 +288,6 @@ This second: 46
     9
   </pre>
 
+* * *
+[Top](#table-of-contents)
+* * * 
