@@ -40,6 +40,7 @@
    * [Security Groups(SGs)](#aws_sg)<br>
    * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
    * [DNS in a VPC](#aws_dns_vpc)<br>
+   * [VPC Flow Logs](#aws_vpc_flowlogs)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -569,14 +570,30 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
 [Top](#table-of-contents-)
 * * * 
+  
 ### DNS in a VPC <a name="aws_dns_vpc"> </a>
+
 * The Network+2(DNS server) reserved address is called R53 Resolver - and is accessible only with in a VPC.
 * Thus DNS server is not accessible outside the VPC to any on premise servers through VPN connection or direct connection.
 * One solution is to use EC2 instances as DNS relays that let the on premise instances to talk to instances in VPC indirectly.
-* 
-
+* Inbound/Outbound endpoints configuration in R53 resolver does the DNS resolving between VPC and on-prem/external/non-VPC networks.
 
 [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### VPC Flow Logs <a name="aws_vpc_flowlogs"> </a>
+
+* Provides network traffic visibility (logging and monitoring toolset).
+* Stores only Metadata, but not application data.
+* **NOT LOGGED -** DHCP traffic, AWS DNS, Internal AWS instances' Metadata, License Activation Requests.
+* Collects data at one of the 3 levels:
+  * At VPC level (all traffic TO/FROM/INSIDE) the VPC.
+  * At Subnet level(TO/FROM/INSIDE) the subnet.
+  * At Elastic Network Interface(ENI) level(TO/FROM) the ENI.
+* IAM Role is required for VPC flow log service - either for CloudWatch logs injection or to store log files in to an S3 bucket.
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
