@@ -1,9 +1,12 @@
 # Table of Contents
-1. [Install Anaconda](#install_anaconda)
-2. [Jupyter Intro](#jupyter_intro)
-3. [Conditional Statements](#ifelifelse)
-4. [For Loops](#forloops)
-5. [Lists](#lists)
+- [Table of Contents](#table-of-contents)
+- [Important URLs](#important-urls)
+  - [Install Anaconda ](#install-anaconda)
+  - [Jupyter Intro ](#jupyter-intro)
+  - [Conditional Statements - if/elif/else ](#conditional-statements---ifelifelse)
+  - [For Loops ](#for-loops)
+  - [Data Structures](#data-structures)
+    - [Lists](#lists)
 
 # Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -67,6 +70,10 @@ For creating new python script : new -> select python version
 * Select each cell after typing code and run the cell using "Run/Play" button.
 * To save the script, double click the file name on top (Untitled is default filename)
 * You can download the file as a .py file using file -> download as .py file
+
+***Keyboard shortcuts***
+* select a cell and press control + enter -> to execute a cell
+* select a cell and press shift + tab -> presents the tooltip with details of function used in the cell.
 
 * * *
 [Top](#table-of-contents)
@@ -146,5 +153,131 @@ This second: 46
 * * *
 [Top](#table-of-contents)
 * * * 
-## Lists <a name='lists'> </a>
+  
+## Data Structures
+
+### Lists
+
+* Lists are like arrays with elements that can be accessed using indexes.
+* Lists are created using comma separated elements with in Square brackets. <br>
+  
+  ***Example :***
+  <pre> 
+    list1 = [1, 2, 3, 4, 5] 
+    print(list1)
+  </pre>
+    *Output:*
+    <pre>
+    [1, 2, 3, 4, 5]
+    </pre>
+
+
+* Lists can have elements of any type (numeric, alphabetic, string)
+
+  ***Example :***
+  <pre> 
+    list2 = [1, 'a', 'abcd'] 
+    print(list2)
+  </pre>
+    *Output:*
+    <pre>
+    [1, 'a', 'abcd']
+    </pre>
+
+* Elements in the Lists can be accessed from both from and back using index.
+* Index 0 or Index -1 gives access to first element.
+ ***Example :***
+  <pre> 
+    list1 = [1, 2, 3, 4, 5] 
+    print(list1[0])
+    print(list1[-1])
+  </pre>
+    *Output:*
+    <pre>
+    1
+    5
+    </pre>
+
+
+* There are many built in python functions that can be run against Lists.
+    <pre> 
+    list1 = [1, 2, 3, 4, 5] 
+    print(len(list1))
+  </pre>
+    *Output:*
+    <pre>
+    5
+    </pre>
+
+* Append and remove functions let you add and remove elements.
+     <pre> 
+    list1 = [1, 2, 3, 4, 5] 
+    print(len(list1))
+    print(list1)
+    print('_________________')
+    list1.append(6)
+    print(len(list1))
+    print(list1)
+    print('_________________')
+    list1.remove(2)
+    print(len(list1))
+    print(list1)
+  </pre>
+    *Output:*
+
+    <pre>
+    5
+    [1, 2, 3, 4, 5]
+    _________________
+    6
+    [1, 2, 3, 4, 5, 6]
+    _________________
+    5
+    [1, 3, 4, 5, 6]
+    </pre>
+
+* To remove an element from end, use pop function.
+    <pre>
+    list1 = [1, 2, 3, 4, 5]
+    poppedValue = list1.pop()
+    print('Popped value = %s' %poppedValue)
+    print(list1)
+    </pre>
+    *Output:*
+    <pre>
+    Popped value = 5
+    [1, 2, 3, 4]
+    </pre>
+
+* To insert an element at a particular index, use insert function.
+  <pre>
+    list1 = [1, 2, 3, 4, 5]
+    print(list1)
+    list1.insert(2, 3.5)
+    print(list1)
+  </pre>
+  *Output:*
+  <pre>
+    [1, 2, 3, 4, 5]
+    5
+    [1, 2, 3.5, 3, 4, 5]
+    6
+  </pre>
+
+* To extend an list with another list, use extend function.
+  <pre>
+    list1 = [1, 2, 3, 4, 5]
+    print(list1)
+    print(len(list1))
+    list1.extend([6, 7, 8, 9])
+    print(list1)
+    print(len(list1))
+  </pre>
+  *Output:*
+  <pre>
+    [1, 2, 3, 4, 5]
+    5
+    [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    9
+  </pre>
 
