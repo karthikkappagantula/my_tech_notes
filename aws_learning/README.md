@@ -41,6 +41,11 @@
    * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
    * [DNS in a VPC](#aws_dns_vpc)<br>
    * [VPC Flow Logs](#aws_vpc_flowlogs)<br>
+   * [Using VPC Endpoints](#aws_vpc_endpoints)<br>
+   * [Peering VPCs](#aws_vpc_peering)<br>
+   * [AWS Site-to-Site VPN](#aws_s2s_vpn)<br>
+   * [AWS Direct Connect Architecture](#aws_dca)<br>
+   * [AWS Transit Gateway](#aws_tg)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -593,6 +598,42 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
   * At Subnet level(TO/FROM/INSIDE) the subnet.
   * At Elastic Network Interface(ENI) level(TO/FROM) the ENI.
 * IAM Role is required for VPC flow log service - either for CloudWatch logs injection or to store log files in to an S3 bucket.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+  
+### Using VPC Endpoints <a name="aws_vpc_endpoints"></a>
+* VPC endpoints come in handy where you do not want any of you subnets/VPC instances to have access to public/internet networks.
+* VPC endpoints allow services to be injected in to your VPC via a virtual devide in your VPC.
+* VPC endpoints come in two types - Interface endpoints and Gateway endpoints - which you select will depend on the service you wish to allow.
+* Endpoints can be utilised to allow access to AWS public zone services without giving resources public access.
+* Endpoints can also be used to create 'private only' access to certain services such as S3 buckets.
+* Gateway endpoints are logical Gateway entity that exists inside VPC rather than inside Subnet. They can be referenced in a route table.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### Peering VPCs <a name="aws_vpc_peering"></a>
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### AWS Site-to-Site VPN <a name="aws_s2s_vpn"></a>
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### AWS Direct Connect Architecture <a name="aws_dca"></a>
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+  
+### AWS Transit Gateway <a name="aws_tg"></a>
 
 * * * 
 [Top](#table-of-contents-)
