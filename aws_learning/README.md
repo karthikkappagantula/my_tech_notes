@@ -621,7 +621,24 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * VPC peering connections are created as logical objects - and require route table entries at both sides.
 * CIDRs cannot overlap.
 * Provides highly resilient and performance oriented easy solution to inter-connect VPCs.
-* NACLs routes/SGs rules may need to be updated for routing restrictions that conflicts VPC peering connections.
+* NACLs routes/SGs rules may need to be updated for routing restrictions that conflicts VPC peering connections. 
+* Also have to ensure DNS resolution works correctly.
+
+  
+#### Limitations and Considerations
+
+**Intra-region VPC Peering**
+* Peering connections cannot peer VPC's with overlapping CIDRs
+* Peering is not transitive. Peering A and B, B and C, does not mean A and C are peered.
+* SGs can reference groups in remove VPC's. SGs and NACLs can also reference CIDR/IP.
+* IPv6 is supported, but not by-default.
+* Private DNS hostnames can be resolved.
+
+**Inter-region VPC Peering**
+* Inter(cross) Region peered VPCs do not support IPv6.
+* Security group logical referencing does not work cross-region.
+* Private DNS hostnames can be resolved but must be enabled.
+
   
 * * * 
 [Top](#table-of-contents-)
