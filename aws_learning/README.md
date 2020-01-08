@@ -617,6 +617,12 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 
 ### Peering VPCs <a name="aws_vpc_peering"></a>
 
+* VPC peering connections allow communication between isolated VPCs. They work fully-featured across accounts, and in a feature-limited way between AWS regions.
+* VPC peering connections are created as logical objects - and require route table entries at both sides.
+* CIDRs cannot overlap.
+* Provides highly resilient and performance oriented easy solution to inter-connect VPCs.
+* NACLs routes/SGs rules may need to be updated for routing restrictions that conflicts VPC peering connections.
+  
 * * * 
 [Top](#table-of-contents-)
 * * * 
