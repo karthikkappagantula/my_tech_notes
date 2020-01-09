@@ -1,6 +1,6 @@
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [Important URLs](#important-urls)
+  - [Important URLs](#important-urls)
   - [Install Anaconda ](#install-anaconda)
   - [Jupyter Intro ](#jupyter-intro)
   - [Keywords ](#keywords)
@@ -10,9 +10,9 @@
   - [For Loops ](#for-loops)
   - [Data Structures ](#data-structures)
     - [Lists ](#lists)
-      - [Slicing Lists ](#slicing-lists)
+      - [Slicing Lists (#slicing-lists)](#slicing-lists-slicing-lists)
 
-# Important URLs
+## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
 
 * * *
@@ -44,7 +44,7 @@ quit()
 * * *
 [Top](#table-of-contents)
 * * * 
-## Jupyter Intro <a name='jupyter_intro'> </a>
+## Jupyter Intro <a name='jupyter-intro'> </a>
 To Start Jupyter Notebook - 
 <pre>
 (base) Karthiks-MacBook-Air:~ karthikkappagantula$ jupyter notebook
@@ -313,7 +313,7 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
   
-## Conditional Statements - if/elif/else <a name="ifelifelse"> </a>
+## Conditional Statements - if/elif/else <a name="conditional-statements---ifelifelse "> </a>
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
 
@@ -527,7 +527,7 @@ This second: 46
 [Top](#table-of-contents)
 * * * 
   
-#### Slicing Lists <a name ="list-slicing"></a>
+#### Slicing Lists (#slicing-lists)
 
 * Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
 
