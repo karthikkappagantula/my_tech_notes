@@ -5,8 +5,9 @@
   - [Jupyter Intro ](#jupyter-intro)
   - [Conditional Statements - if/elif/else ](#conditional-statements---ifelifelse)
   - [For Loops ](#for-loops)
-  - [Data Structures](#data-structures)
-    - [Lists](#lists)
+  - [Data Structures ](#data-structures)
+    - [Lists ](#lists)
+      - [Slicing Lists ](#slicing-lists)
 
 # Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -154,9 +155,9 @@ This second: 46
 [Top](#table-of-contents)
 * * * 
   
-## Data Structures
+## Data Structures <a name="data-structures"> </a>
 
-### Lists
+### Lists <a name="lists"></a>
 
 * Lists are like arrays with elements that can be accessed using indexes.
 * Lists are created using comma separated elements with in Square brackets. <br>
@@ -288,6 +289,75 @@ This second: 46
     9
   </pre>
 
+* * *
+[Top](#table-of-contents)
+* * * 
+  
+#### Slicing Lists <a name ="list-slicing"></a>
+
+* Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
+
+  <pre>
+    list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    num_list_2 = list1[0:9:2]
+    print(num_list_2)
+  </pre>
+
+  *Output:*
+  <pre>
+    [1, 3, 5, 7, 9]
+  </pre>
+
+* Few examples of slicing 
+  
+  <pre>
+    list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    #prints all elements from index position 4 to end of list
+    print(list1[4:])  
+    #prints all elements from start till last element (Last element excluded due to mention of -1)    
+    print(list1[:-1])  
+    #prints elements starting from index 3 with increment of 2 until index 10   
+    print(list1[3:10:2])  
+    #prints the list in reverse order
+    print(list1[::-1])    
+  </pre>
+
+  *Output:*
+  <pre>
+    [5, 6, 7, 8, 9, 10, 11, 12]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    [4, 6, 8, 10]
+    [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+  </pre>
+
+* Difference between list assignment and list.copy()
+  
+  <pre>
+    list1 = ["hello","there"]
+    print(list1)
+    list2 = list1  #using assignment makes the list2 refer to same object(list1)
+    print("list2:" + str(list2))
+    list1.append("!")
+    print("list1:" + str(list1))
+    print("list2:" + str(list2))
+    list3=list1.copy()
+    print("list3:" + str(list3))
+    list1.append(".")
+    print("list1:" + str(list1))
+    print("list3:" + str(list3))
+  </pre>
+
+  *Output:*
+  <pre>
+  ['hello', 'there']
+  list2:['hello', 'there']
+  list1:['hello', 'there', '!']
+  list2:['hello', 'there', '!']
+  list3:['hello', 'there', '!']
+  list1:['hello', 'there', '!', '.']
+  list3:['hello', 'there', '!']
+  </pre>
 * * *
 [Top](#table-of-contents)
 * * * 
