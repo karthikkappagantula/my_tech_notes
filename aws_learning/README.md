@@ -638,13 +638,20 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * Inter(cross) Region peered VPCs do not support IPv6.
 * Security group logical referencing does not work cross-region.
 * Private DNS hostnames can be resolved but must be enabled.
-
   
 * * * 
 [Top](#table-of-contents-)
 * * * 
 
 ### AWS Site-to-Site VPN <a name="aws_s2s_vpn"></a>
+
+* Product set allows to configure hardware based VPN connection between on-prem networks and VPCs.
+* Provides fully encrypted communication channels.
+* Contains 3 components:
+  * Customer Gateway - physical hardware at on-prem side that allows static/dynamic routing.
+  * Virtual Private Gateway -
+  * VPN Connections - 
+
 
 * * * 
 [Top](#table-of-contents-)
