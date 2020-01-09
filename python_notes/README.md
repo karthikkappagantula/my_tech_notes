@@ -10,7 +10,7 @@
   - [For Loops ](#for-loops)
   - [Data Structures ](#data-structures)
     - [Lists ](#lists)
-      - [Slicing Lists (#slicing-lists)](#slicing-lists-slicing-lists)
+      - [Slicing Lists](#slicing-lists)
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -527,7 +527,7 @@ This second: 46
 [Top](#table-of-contents)
 * * * 
   
-#### Slicing Lists (#slicing-lists)
+#### [Slicing Lists](#slicing-lists)
 
 * Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
 
