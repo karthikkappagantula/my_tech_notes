@@ -6,6 +6,7 @@
   - [Keywords](#keywords)
   - [print output](#print-output)
     - [format output](#format-output)
+  - [Taking Inputs](#taking-inputs)
   - [Conditional Statements - if/elif/else](#conditional-statements---ifelifelse)
   - [For Loops](#for-loops)
   - [Data Structures](#data-structures)
@@ -308,6 +309,59 @@ For creating new python script : new -> select python version
     The right aligned string is : 
     --------------------I love geeksforgeeks
   </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Taking Inputs
+
+Python provides us with two inbuilt functions to read the input from the keyboard.
+* raw_input ( prompt )  --> works only in python 2.x
+    <pre>
+      # Python program showing  
+      # a use of raw_input() 
+        
+      g = raw_input("Enter your name : ") 
+      print g 
+    </pre>
+
+* input ( prompt )  --> works in python 3.x
+    <pre>
+      # Python program showing  
+      # a use of input() 
+        
+      val = input("Enter your value: ") 
+      print(val) 
+    </pre>
+
+    Whatever you enter as input, input function convert it into a string. if you enter an integer value still input() function convert it into a string. You need to explicitly convert it into an integer in your code using typecasting.
+
+    <pre>
+      # Program to check input  
+      # type in Python 
+        
+      num = input ("Enter number :") 
+      print(num) 
+      name1 = input("Enter name : ") 
+      print(name1) 
+        
+      # Printing type of input value 
+      print ("type of number", type(num)) 
+      print ("type of name", type(name1)) 
+    </pre>
+
+    *Output*:
+    <pre>
+      Enter number :hello
+      hello
+      Enter name : there
+      there
+      type of number <class 'str'>
+      type of name <class 'str'>
+    </pre>
+
+
 
 * * *
 [Top](#table-of-contents)
