@@ -1,15 +1,15 @@
 # Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Important URLs](#important-urls)
-  - [Install Anaconda ](#install-anaconda)
-  - [Jupyter Intro ](#jupyter-intro)
-  - [Keywords ](#keywords)
-  - [print output ](#print-output)
-    - [format output ](#format-output)
-  - [Conditional Statements - if/elif/else ](#conditional-statements---ifelifelse)
-  - [For Loops ](#for-loops)
-  - [Data Structures ](#data-structures)
-    - [Lists ](#lists)
+  - [Install Anaconda](#install-anaconda)
+  - [Jupyter Intro](#jupyter-intro)
+  - [Keywords](#keywords)
+  - [print output](#print-output)
+    - [format output](#format-output)
+  - [Conditional Statements - if/elif/else](#conditional-statements---ifelifelse)
+  - [For Loops](#for-loops)
+  - [Data Structures](#data-structures)
+    - [Lists](#lists)
       - [Slicing Lists](#slicing-lists)
 
 ## Important URLs
@@ -18,7 +18,7 @@
 * * *
 [Top](#table-of-contents)
 * * * 
-## Install Anaconda <a name="#install_anaconda"></a>
+## Install Anaconda 
 * Install Anaconda - a data science platform that includes Jupyter notebook and is packed with important Python and Datascience libraries. <br />
 https://www.anaconda.com/distribution/#download-section <br />
 
@@ -44,7 +44,7 @@ quit()
 * * *
 [Top](#table-of-contents)
 * * * 
-## Jupyter Intro <a name='jupyter-intro'> </a>
+## Jupyter Intro 
 To Start Jupyter Notebook - 
 <pre>
 (base) Karthiks-MacBook-Air:~ karthikkappagantula$ jupyter notebook
@@ -83,7 +83,7 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
 
-## Keywords <a name="keywords"></a>
+## Keywords
 * Python language also reserves some of keywords that convey special meaning. Knowledge of these is necessary part of learning this language. 
 
   <pre>
@@ -103,7 +103,7 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
 
-## print output <a name="print-output"></a>
+## print output
 * Python has a predefined format if you use print(a_variable) then it will go to next line automatically.
 
   <pre>
@@ -158,7 +158,7 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
 
-### format output <a name="format-output"></a>
+### format output
 
 * **Formatting output using String modulo operator(%)** :
 
@@ -313,7 +313,7 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
   
-## Conditional Statements - if/elif/else <a name="conditional-statements---ifelifelse "> </a>
+## Conditional Statements - if/elif/else
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
 
@@ -333,7 +333,7 @@ else:
 * * *
 [Top](#table-of-contents)
 * * * 
-## For Loops <a name='forloops'> </a>
+## For Loops
 
 * * *
 [Top](#table-of-contents)
@@ -389,9 +389,9 @@ This second: 46
 [Top](#table-of-contents)
 * * * 
   
-## Data Structures <a name="data-structures"> </a>
+## Data Structures
 
-### Lists <a name="lists"></a>
+### Lists
 
 * Lists are like arrays with elements that can be accessed using indexes.
 * Lists are created using comma separated elements with in Square brackets. <br>
@@ -527,7 +527,7 @@ This second: 46
 [Top](#table-of-contents)
 * * * 
   
-#### [Slicing Lists](#slicing-lists)
+#### Slicing Lists
 
 * Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
 
