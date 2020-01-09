@@ -110,15 +110,15 @@ For creating new python script : new -> select python version
   <pre>
   Syntax: print(value(s), sep= ‘ ‘, end = ‘\n’, file=file, flush=flush)
 
-    *Parameters*:
-    **value(s)** : Any value, and as many as you like. Will be converted to string before printed
-    **sep=’separator’** : (Optional) Specify how to separate the objects, if there is more than one.Default :’ ‘
-    **end=’end’**: (Optional) Specify what to print at the end.Default : ‘\n’
-    **file** : (Optional) An object with a write method. Default :sys.stdout
-    **flush** : (Optional) A Boolean, specifying if the output is flushed (True) or buffered (False). Default: False
+    Parameters:
+    value(s) : Any value, and as many as you like. Will be converted to string before printed
+    sep=’separator’ : (Optional) Specify how to separate the objects, if there is more than one.Default :’ ‘
+    end=’end’: (Optional) Specify what to print at the end.Default : ‘\n’
+    file : (Optional) An object with a write method. Default :sys.stdout
+    flush : (Optional) A Boolean, specifying if the output is flushed (True) or buffered (False). Default: False
   </pre>
 
-**Examples**
+  **Examples**
 
   <pre>
     # Python 3.x program showing 
@@ -318,48 +318,48 @@ For creating new python script : new -> select python version
 
 Python provides us with two inbuilt functions to read the input from the keyboard.
 * raw_input ( prompt )  --> works only in python 2.x
-    <pre>
-      # Python program showing  
-      # a use of raw_input() 
-        
-      g = raw_input("Enter your name : ") 
-      print g 
-    </pre>
+  <pre>
+    # Python program showing  
+    # a use of raw_input() 
+      
+    g = raw_input("Enter your name : ") 
+    print g 
+  </pre>
 
 * input ( prompt )  --> works in python 3.x
-    <pre>
-      # Python program showing  
-      # a use of input() 
-        
-      val = input("Enter your value: ") 
-      print(val) 
-    </pre>
+  <pre>
+    # Python program showing  
+    # a use of input() 
+      
+    val = input("Enter your value: ") 
+    print(val) 
+  </pre>
 
     Whatever you enter as input, input function convert it into a string. if you enter an integer value still input() function convert it into a string. You need to explicitly convert it into an integer in your code using typecasting.
 
-    <pre>
-      # Program to check input  
-      # type in Python 
-        
-      num = input ("Enter number :") 
-      print(num) 
-      name1 = input("Enter name : ") 
-      print(name1) 
-        
-      # Printing type of input value 
-      print ("type of number", type(num)) 
-      print ("type of name", type(name1)) 
-    </pre>
+  <pre>
+    # Program to check input  
+    # type in Python 
+      
+    num = input ("Enter number :") 
+    print(num) 
+    name1 = input("Enter name : ") 
+    print(name1) 
+      
+    # Printing type of input value 
+    print ("type of number", type(num)) 
+    print ("type of name", type(name1)) 
+  </pre>
 
     *Output*:
-    <pre>
-      Enter number :hello
-      hello
-      Enter name : there
-      there
-      type of number <class 'str'>
-      type of name <class 'str'>
-    </pre>
+  <pre>
+    Enter number :hello
+    hello
+    Enter name : there
+    there
+    type of number <class 'str'>
+    type of name <class 'str'>
+  </pre>
 
 
 
@@ -372,18 +372,18 @@ Python provides us with two inbuilt functions to read the input from the keyboar
 * elif is nothing but an else if
 
 example - 1
-<pre>
-#if/elif/else statement
-temp_num = 10
-if temp_num%3 == 0:
-    print('Divisible by 3')
-elif temp_num%2 == 0:
-    print('Divisible by 2')
-else:
-    print('Default')
+  <pre>
+  #if/elif/else statement
+  temp_num = 10
+  if temp_num%3 == 0:
+      print('Divisible by 3')
+  elif temp_num%2 == 0:
+      print('Divisible by 2')
+  else:
+      print('Default')
 
-*Output: Divisible by 2*
-</pre>
+  *Output: Divisible by 2*
+  </pre>
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -452,129 +452,130 @@ This second: 46
   
   ***Example :***
   <pre> 
-    list1 = [1, 2, 3, 4, 5] 
-    print(list1)
+  list1 = [1, 2, 3, 4, 5] 
+  print(list1)
   </pre>
-    *Output:*
-    <pre>
-    [1, 2, 3, 4, 5]
-    </pre>
+  *Output:*
+  <pre>
+  [1, 2, 3, 4, 5]
+  </pre>
 
 
 * Lists can have elements of any type (numeric, alphabetic, string)
 
   ***Example :***
   <pre> 
-    list2 = [1, 'a', 'abcd'] 
-    print(list2)
+  list2 = [1, 'a', 'abcd'] 
+  print(list2)
   </pre>
-    *Output:*
-    <pre>
-    [1, 'a', 'abcd']
-    </pre>
+  *Output:*
+  <pre>
+  [1, 'a', 'abcd']
+  </pre>
 
 * Elements in the Lists can be accessed from both from and back using index.
 * Index 0 or Index -1 gives access to first element.
  ***Example :***
   <pre> 
-    list1 = [1, 2, 3, 4, 5] 
-    print(list1[0])
-    print(list1[-1])
+  list1 = [1, 2, 3, 4, 5] 
+  print(list1[0])
+  print(list1[-1])
   </pre>
-    *Output:*
-    <pre>
-    1
-    5
-    </pre>
+  *Output*:
+  <pre>
+  1
+  5
+  </pre>
 
 * * *
 [Top](#table-of-contents)
 * * * 
 
 * There are many built in python functions that can be run against Lists.
-    <pre> 
-    list1 = [1, 2, 3, 4, 5] 
-    print(len(list1))
+  <pre> 
+  list1 = [1, 2, 3, 4, 5] 
+  print(len(list1))
   </pre>
-    *Output:*
-    <pre>
-    5
-    </pre>
+  *Output:*
+  <pre>
+  5
+  </pre>
 
 * Append and remove functions let you add and remove elements.
-     <pre> 
-    list1 = [1, 2, 3, 4, 5] 
-    print(len(list1))
-    print(list1)
-    print('_________________')
-    list1.append(6)
-    print(len(list1))
-    print(list1)
-    print('_________________')
-    list1.remove(2)
-    print(len(list1))
-    print(list1)
-  </pre>
-    *Output:*
 
-    <pre>
-    5
-    [1, 2, 3, 4, 5]
-    _________________
-    6
-    [1, 2, 3, 4, 5, 6]
-    _________________
-    5
-    [1, 3, 4, 5, 6]
-    </pre>
+  <pre> 
+  list1 = [1, 2, 3, 4, 5] 
+  print(len(list1))
+  print(list1)
+  print('_________________')
+  list1.append(6)
+  print(len(list1))
+  print(list1)
+  print('_________________')
+  list1.remove(2)
+  print(len(list1))
+  print(list1)
+  </pre>
+  *Output:*
+
+  <pre>
+  5
+  [1, 2, 3, 4, 5]
+  _________________
+  6
+  [1, 2, 3, 4, 5, 6]
+  _________________
+  5
+  [1, 3, 4, 5, 6]
+  </pre>
 
 * * *
 [Top](#table-of-contents)
 * * * 
   
 * To remove an element from end, use pop function.
-    <pre>
-    list1 = [1, 2, 3, 4, 5]
-    poppedValue = list1.pop()
-    print('Popped value = %s' %poppedValue)
-    print(list1)
-    </pre>
-    *Output:*
-    <pre>
-    Popped value = 5
-    [1, 2, 3, 4]
-    </pre>
-
-* To insert an element at a particular index, use insert function.
   <pre>
-    list1 = [1, 2, 3, 4, 5]
-    print(list1)
-    list1.insert(2, 3.5)
-    print(list1)
+  list1 = [1, 2, 3, 4, 5]
+  poppedValue = list1.pop()
+  print('Popped value = %s' %poppedValue)
+  print(list1)
   </pre>
   *Output:*
   <pre>
-    [1, 2, 3, 4, 5]
-    5
-    [1, 2, 3.5, 3, 4, 5]
-    6
+  Popped value = 5
+  [1, 2, 3, 4]
+  </pre>
+
+* To insert an element at a particular index, use insert function.
+  <pre>
+  list1 = [1, 2, 3, 4, 5]
+  print(list1)
+  list1.insert(2, 3.5)
+  print(list1)
+  </pre>
+  *Output:*
+  <pre>
+  [1, 2, 3, 4, 5]
+  5
+  [1, 2, 3.5, 3, 4, 5]
+  6
   </pre>
 
 * To extend an list with another list, use extend function.
   <pre>
-    list1 = [1, 2, 3, 4, 5]
-    print(list1)
-    print(len(list1))
-    list1.extend([6, 7, 8, 9])
-    print(list1)
-    print(len(list1))
+  list1 = [1, 2, 3, 4, 5]
+  print(list1)
+  print(len(list1))
+  list1.extend([6, 7, 8, 9])
+  print(list1)
+  print(len(list1))
   </pre>
   *Output:*
   <pre>
-    [1, 2, 3, 4, 5]
-    5
-    [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    9
+  [1, 2, 3, 4, 5]
+  5
+  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  9
   </pre>
 
 * * *
@@ -586,54 +587,54 @@ This second: 46
 * Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
 
   <pre>
-    list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    num_list_2 = list1[0:9:2]
-    print(num_list_2)
+  list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  num_list_2 = list1[0:9:2]
+  print(num_list_2)
   </pre>
 
   *Output:*
   <pre>
-    [1, 3, 5, 7, 9]
+  [1, 3, 5, 7, 9]
   </pre>
 
 * Few examples of slicing 
   
   <pre>
-    list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-    #prints all elements from index position 4 to end of list
-    print(list1[4:])  
-    #prints all elements from start till last element (Last element excluded due to mention of -1)    
-    print(list1[:-1])  
-    #prints elements starting from index 3 with increment of 2 until index 10   
-    print(list1[3:10:2])  
-    #prints the list in reverse order
-    print(list1[::-1])    
+  list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  #prints all elements from index position 4 to end of list
+  print(list1[4:])  
+  #prints all elements from start till last element (Last element excluded due to mention of -1)    
+  print(list1[:-1])  
+  #prints elements starting from index 3 with increment of 2 until index 10   
+  print(list1[3:10:2])  
+  #prints the list in reverse order
+  print(list1[::-1])    
   </pre>
 
   *Output:*
   <pre>
-    [5, 6, 7, 8, 9, 10, 11, 12]
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-    [4, 6, 8, 10]
-    [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+  [5, 6, 7, 8, 9, 10, 11, 12]
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  [4, 6, 8, 10]
+  [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
   </pre>
 
 * Difference between list assignment and list.copy()
   
   <pre>
-    list1 = ["hello","there"]
-    print(list1)
-    list2 = list1  #using assignment makes the list2 refer to same object(list1)
-    print("list2:" + str(list2))
-    list1.append("!")
-    print("list1:" + str(list1))
-    print("list2:" + str(list2))
-    list3=list1.copy()
-    print("list3:" + str(list3))
-    list1.append(".")
-    print("list1:" + str(list1))
-    print("list3:" + str(list3))
+  list1 = ["hello","there"]
+  print(list1)
+  list2 = list1  #using assignment makes the list2 refer to same object(list1)
+  print("list2:" + str(list2))
+  list1.append("!")
+  print("list1:" + str(list1))
+  print("list2:" + str(list2))
+  list3=list1.copy()
+  print("list3:" + str(list3))
+  list1.append(".")
+  print("list1:" + str(list1))
+  print("list3:" + str(list3))
   </pre>
 
   *Output:*
