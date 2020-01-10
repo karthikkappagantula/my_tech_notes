@@ -7,6 +7,7 @@
   - [print output](#print-output)
     - [format output](#format-output)
   - [Taking Inputs](#taking-inputs)
+  - [Strings](#strings)
   - [Conditional Statements - if/elif/else](#conditional-statements---ifelifelse)
   - [For Loops](#for-loops)
   - [Data Structures](#data-structures)
@@ -362,16 +363,109 @@ Python provides us with two inbuilt functions to read the input from the keyboar
   </pre>
 
 
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Strings
+* Strings are a list of characters. So you can access each character using index from 0 or -1 (indexes from back)
+  
+  Examples:
+    <pre>
+    message="learning"
+    print(message[0])   #prints first character
+    print(message[-1])  #prints last character
+    print(message[0:4]) #prints charcters from index 0 to 4 (excludes character at index=4).
+    print(message[:-1]) #prints all characters
+    print(message[0:])  #prints all characters
+    print(message[:])   #prints all characters
+    </pre>
+
+  *Output*:
+    <pre>
+    l
+    g
+    lear
+    learnin
+    learning
+    learning
+    </pre>
+
+* Strings that includes quotes/double quotes.
+
+  Examples:
+    <pre>
+    message="this is tom's message"    #wrap message with single quotes in double quotes
+    print(message)
+
+    message1='this is "python" notes'  #wrap message with double quotes in single quotes
+    print(message1)
+
+    message2='this is \"python\" notes with tom\'s message'   #use escape character followed by a quote ( \" or \' ).
+    print(message2)
+    </pre>
+
+    *Output*:
+    <pre>
+    this is tom's message
+    this is "python" notes
+    this is "python" notes with tom's message
+    </pre>
+
+* Escape characters
+  * \n -> leaves a line
+  * \t -> leaves a tab space
+  * \\ -> backslash
+  * \' -> single quote
+  * \" -> double quote
+
+  Examples:
+    <pre>
+    ch = "I\nLove\tGeeksforgeeks"
+
+    print ("The string after resolving escape character is : ") 
+    print (ch) 
+    </pre>
+
+    *Output*:
+    <pre>
+    The string after resolving escape character is : 
+    I
+    Love	Geeksforgeeks
+    </pre>
+
+Using repr() -> This function returns a string in its printable format, i.e doesn’t resolve the escape sequences.
+
+  Example:
+    <pre>
+    ch = "I\nLove\tGeeksforgeeks"
+    print ("The string without repr() is : ") 
+    print (ch) 
+    print ("\r") 
+    print ("The string after using repr() is : ") 
+    print (repr(ch)) 
+    </pre>
+
+  *Output*: 
+
+    The string without repr() is : 
+    I
+    Love	Geeksforgeeks
+
+    The string after using repr() is : 
+    'I\nLove\tGeeksforgeeks'
+
+
 
 * * *
 [Top](#table-of-contents)
 * * * 
-  
+
 ## Conditional Statements - if/elif/else
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
 
-example - 1
+Example - 1
   <pre>
   #if/elif/else statement
   temp_num = 10
