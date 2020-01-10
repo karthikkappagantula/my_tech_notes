@@ -4,6 +4,8 @@
   - [Install Anaconda](#install-anaconda)
   - [Jupyter Intro](#jupyter-intro)
   - [Keywords](#keywords)
+  - [Arithmetic Operations](#arithmetic-operations)
+  - [Math Functions](#math-functions)
   - [print output](#print-output)
     - [format output](#format-output)
   - [Taking Inputs](#taking-inputs)
@@ -17,7 +19,7 @@
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
-
+[Python Math Module](https://docs.python.org/3/library/math.html)
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -105,6 +107,72 @@ For creating new python script : new -> select python version
 * * *
 [Top](#table-of-contents)
 * * * 
+## Arithmetic Operations
+
+  Examples:
+  <pre>
+  print(5 + 3)  # Addition
+  print(5 * 3)  # Multiplication
+  print(5 - 3)  # Subtraction
+  print(5 / 3)  # Division returns quotient in whole/fraction
+  print(5 // 3) # Division returns quotient in whole only
+  print(5 % 3)  # Modulo returns Remainder
+  print(5 ** 3) # Exponent
+  </pre>
+  *Output*:
+  <pre>
+  8
+  15
+  2
+  1.6666666666666667
+  1
+  2
+  125
+  </pre>
+
+  +=  --> x = x + 5 can be written as x += 5
+  -=  --> x = x - 5 can be written as x -= 5
+  *=  --> x = x * 5 can be written as x *= 5
+  /=  --> x = x / 5 can be written as x /= 5
+  (Can be similarly used for other operators too)
+
+  **Operator precedence follows same standard as in other programming languages BODMAS/PEMDAS**
+
+## Math Functions
+
+* Built-in math functions
+  
+  Example:
+  <pre>
+  x = 2.9
+  print(round(x))    #rounds up
+  print(abs(x * -1)) #asolute value
+  </pre>
+
+  *Output*:
+  <pre>
+  3
+  2.9
+  </pre>
+
+* Use(import) Math module for complex mathematical functions. 
+  
+  Example:
+  <pre>
+  import math
+  print(math.ceil(2.9))  #ceil value
+  print(math.floor(2.9)) #floor value
+  print(math.factorial(3)) #factorial
+  </pre>
+
+  *Output*:
+  <pre>
+  3
+  2
+  6
+  </pre>
+
+*[Python Math Module](https://docs.python.org/3/library/math.html)*
 
 ## print output
 * Python has a predefined format if you use print(a_variable) then it will go to next line automatically.
@@ -272,6 +340,21 @@ For creating new python script : new -> select python version
   <pre>
     Geeks: 4127; For: 4098; Geeks: 8637678
     I love GeeksForGeeks computer Portal
+  </pre>
+
+* **Formatted String** 
+  
+  Example:
+  <pre>
+  first = 'John'
+  last  = 'Wick'
+  message = f'{first} {last} is a coder'  #formatted string
+  print(message)
+  </pre>
+
+  *Ouput*:
+  <pre>
+  John Wick is a coder
   </pre>
 
 * **Formatting output using String method**:
@@ -467,7 +550,34 @@ Using repr() -> This function returns a string in its printable format, i.e does
 * * * 
 ### String functions
 
-* **Length**:
+Examples:
+  <pre>
+  course = 'John Wick is breathtaking'
+  print(len(course))
+  print((course.upper())) #returns all chars in upper case
+  print(course)           #but does not alter original value
+  print((course.lower())) #returns all chars in lower case
+  print((course.title())) #Makes first char of each word uppercase
+  print((course.find('o'))) #returns first index of the char 'o'
+  print((course.find('z'))) #returns -1 as 'z' does not exist in course
+  print((course.find('j'))) #returns -1 as 'j' does not exist - find is case sensitive
+  print((course.replace('Wick', 'Locke'))) #replaces the String found with new String
+  print('John' in course) #verify if a string exists
+  </pre>
+
+  *Output*:
+  <pre>
+  25
+  JOHN WICK IS BREATHTAKING
+  John Wick is breathtaking
+  john wick is breathtaking
+  John Wick Is Breathtaking
+  1
+  -1
+  -1
+  John Locke is breathtaking
+  True
+  </pre>
   
 
 * * *
