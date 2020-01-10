@@ -8,6 +8,7 @@
     - [format output](#format-output)
   - [Taking Inputs](#taking-inputs)
   - [Strings](#strings)
+    - [String functions](#string-functions)
   - [Conditional Statements - if/elif/else](#conditional-statements---ifelifelse)
   - [For Loops](#for-loops)
   - [Data Structures](#data-structures)
@@ -415,9 +416,9 @@ Python provides us with two inbuilt functions to read the input from the keyboar
 * Escape characters
   * \n -> leaves a line
   * \t -> leaves a tab space
-  * \\ -> backslash
-  * \' -> single quote
-  * \" -> double quote
+  * \\\ -> backslash
+  * \\' -> single quote
+  * \\" -> double quote
 
   Examples:
     <pre>
@@ -437,30 +438,42 @@ Python provides us with two inbuilt functions to read the input from the keyboar
 Using repr() -> This function returns a string in its printable format, i.e doesn’t resolve the escape sequences.
 
   Example:
-    <pre>
-    ch = "I\nLove\tGeeksforgeeks"
-    print ("The string without repr() is : ") 
-    print (ch) 
-    print ("\r") 
-    print ("The string after using repr() is : ") 
-    print (repr(ch)) 
-    </pre>
+  <pre>
+  ch = "I\nLove\tGeeksforgeeks"
+  print ("The string without repr() is : ") 
+  print (ch) 
+  print ("\r") 
+  print ("The string after using repr() is : ") 
+  print (repr(ch)) 
+  ch2 = R"I\nLove\tGeeksforgeeks"     
+  print ("The string after using R is : ") 
+  print (ch2) 
+  </pre>
 
   *Output*: 
+  <pre>
+  The string without repr() is : 
+  I
+  Love	Geeksforgeeks
 
-    The string without repr() is : 
-    I
-    Love	Geeksforgeeks
+  The string after using repr() is : 
+  'I\nLove\tGeeksforgeeks'
 
-    The string after using repr() is : 
-    'I\nLove\tGeeksforgeeks'
+  The string after using R is : 
+  I\nLove\tGeeksforgeeks
+  </pre>
+* * *
+[Top](#table-of-contents)
+* * * 
+### String functions
 
-
+* **Length**:
+  
 
 * * *
 [Top](#table-of-contents)
 * * * 
-
+  
 ## Conditional Statements - if/elif/else
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
