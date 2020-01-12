@@ -15,7 +15,10 @@
   - [For Loops](#for-loops)
   - [Data Structures](#data-structures)
     - [Lists](#lists)
-      - [Slicing Lists](#slicing-lists)
+    - [Lists funtions](#lists-funtions)
+    - [Slicing Lists](#slicing-lists)
+    - [Tuples](#tuples)
+    - [Dictionaries](#dictionaries)
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -92,7 +95,9 @@ For creating new python script : new -> select python version
 * Python language also reserves some of keywords that convey special meaning. Knowledge of these is necessary part of learning this language. 
 
   <pre>
-    #importing "keyword" for keyword operations import keyword 
+    #importing "keyword" for keyword operations 
+    import keyword 
+
     #printing all keywords at once using "kwlist()" 
     print ("The list of keywords is : ") 
     print (keyword.kwlist) 
@@ -130,10 +135,10 @@ For creating new python script : new -> select python version
   125
   </pre>
 
-  +=  --> x = x + 5 can be written as x += 5
-  -=  --> x = x - 5 can be written as x -= 5
-  *=  --> x = x * 5 can be written as x *= 5
-  /=  --> x = x / 5 can be written as x /= 5
+  +=  --> x = x + 5 can be written as x += 5 <br>
+  -=  --> x = x - 5 can be written as x -= 5 <br>
+  *=  --> x = x * 5 can be written as x *= 5 <br>
+  /=  --> x = x / 5 can be written as x /= 5 <br>
   (Can be similarly used for other operators too)
 
   **Operator precedence follows same standard as in other programming languages BODMAS/PEMDAS**
@@ -604,11 +609,9 @@ Example - 1
 * * *
 [Top](#table-of-contents)
 * * * 
+  
 ## For Loops
 
-* * *
-[Top](#table-of-contents)
-* * * 
 * Index starts with 0
 * break statement can be used to exit from the loop based on a condition
 <pre>
@@ -644,7 +647,7 @@ for i in range(5):
     #String formatting with the % operator
     print('This second: %s' %this_second)
 
-*Ouput:*
+*Ouput*:
 2
 This second: 31
 6
@@ -667,7 +670,7 @@ This second: 46
 * Lists are like arrays with elements that can be accessed using indexes.
 * Lists are created using comma separated elements with in Square brackets. <br>
   
-  ***Example :***
+  Example :
   <pre> 
   list1 = [1, 2, 3, 4, 5] 
   print(list1)
@@ -680,8 +683,8 @@ This second: 46
 
 * Lists can have elements of any type (numeric, alphabetic, string)
 
-  ***Example :***
-  <pre> 
+  Example :
+  <pre>
   list2 = [1, 'a', 'abcd'] 
   print(list2)
   </pre>
@@ -692,8 +695,9 @@ This second: 46
 
 * Elements in the Lists can be accessed from both from and back using index.
 * Index 0 or Index -1 gives access to first element.
- ***Example :***
-  <pre> 
+  
+  Example :
+  <pre>
   list1 = [1, 2, 3, 4, 5] 
   print(list1[0])
   print(list1[-1])
@@ -707,9 +711,12 @@ This second: 46
 * * *
 [Top](#table-of-contents)
 * * * 
+  
+### Lists funtions
 
 * There are many built in python functions that can be run against Lists.
-  <pre> 
+
+  <pre>
   list1 = [1, 2, 3, 4, 5] 
   print(len(list1))
   </pre>
@@ -720,7 +727,7 @@ This second: 46
 
 * Append and remove functions let you add and remove elements.
 
-  <pre> 
+  <pre>
   list1 = [1, 2, 3, 4, 5] 
   print(len(list1))
   print(list1)
@@ -751,6 +758,7 @@ This second: 46
 * * * 
   
 * To remove an element from end, use pop function.
+  
   <pre>
   list1 = [1, 2, 3, 4, 5]
   poppedValue = list1.pop()
@@ -764,6 +772,7 @@ This second: 46
   </pre>
 
 * To insert an element at a particular index, use insert function.
+
   <pre>
   list1 = [1, 2, 3, 4, 5]
   print(list1)
@@ -779,6 +788,7 @@ This second: 46
   </pre>
 
 * To extend an list with another list, use extend function.
+
   <pre>
   list1 = [1, 2, 3, 4, 5]
   print(list1)
@@ -798,8 +808,30 @@ This second: 46
 * * *
 [Top](#table-of-contents)
 * * * 
-  
-#### Slicing Lists
+
+**2-Dimensional Lists**
+
+* 2-Dimensional Matrix (or) lists with in list
+
+  Example:
+  <pre>
+  twodlist = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+  ]
+  print(twodlist)
+  print(twodlist[0])
+  print(twodlist[0][0])
+  </pre>
+  *Output*:
+  <pre>
+  [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  [1, 2, 3]
+  1
+  </pre>
+
+### Slicing Lists
 
 * Start, Stop and Step notation can be used to extract elements from the list based on consistent increments
 
@@ -834,7 +866,6 @@ This second: 46
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   [4, 6, 8, 10]
   [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-
   </pre>
 
 * Difference between list assignment and list.copy()
@@ -864,6 +895,72 @@ This second: 46
   list1:['hello', 'there', '!', '.']
   list3:['hello', 'there', '!']
   </pre>
+* * *
+[Top](#table-of-contents)
+* * * 
+
+### Tuples
+
+* Unlike lists, tuples cannot be altered once defined.
+* Tuples are immutable.
+* Tuples are created using comma separated elements with in round brackets.
+
+  <pre>
+  tup = (1, 2, 3)
+  print(tup)
+  print(tup[0])
+  tup[0] = 0    #generates TypeError
+  </pre>
+  *Output*:
+  <pre>
+  (1, 2, 3)
+  1
+
+  TypeError                                 Traceback (most recent call last)
+  <ipython-input-8-1160e2902c2c> in <module>
+    2 print(tup)
+    3 print(tup[0])
+  ----> 4 tup[0] = 0
+
+  TypeError: 'tuple' object does not support item assignment
+  </pre>
+
+* **Unpacking**
+  We can unpack tuples/lists in to set of variables as show below
+  <pre>
+  coordinates = (1, 2, 3)
+  x, y, z = coordinates
+  print('x: ' + str(x) + ' y: ' + str(y) + ' z: ' + str(z))
+  </pre>
+  *Output*:
+  <pre>
+  x: 1 y: 2 z: 3
+  </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+### Dictionaries
+* Datastructure based on Key-value pairs. Similar to JSON.
+* Dictionaries are created using comma separated key-value pairs with in Curly brackets.
+* Keys should be unique in the dictionaries.
+  
+<pre>
+customer = {
+    "name" : "John Wick",
+    "age"  : 40,
+    "is_awol" : True
+}
+print(customer)
+print(customer["name"])  #to access value for key "name"
+</pre>
+*Output*:
+<pre>
+{'name': 'John Wick', 'age': 40, 'is_awol': True}
+John Wick
+</pre>
+
 * * *
 [Top](#table-of-contents)
 * * * 
