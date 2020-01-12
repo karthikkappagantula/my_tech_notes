@@ -19,6 +19,9 @@
     - [Slicing Lists](#slicing-lists)
     - [Tuples](#tuples)
     - [Dictionaries](#dictionaries)
+  - [Functions](#functions)
+  - [Exception handling](#exception-handling)
+  - [Classes and Objects](#classes-and-objects)
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -960,6 +963,256 @@ print(customer["name"])  #to access value for key "name"
 {'name': 'John Wick', 'age': 40, 'is_awol': True}
 John Wick
 </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Functions
+* Create re-usable code in Functions
+  
+  <pre>
+  def greet_user():
+      print('Hi there!')
+      print('Welcome aboard')
+
+
+  print("Start")
+  greet_user()
+  print("Finish")
+  </pre>
+  *Output*:
+  <pre>
+  Start
+  Hi there!
+  Welcome aboard
+  Finish
+  </pre>
+
+* You can pass argument to functions that can be used with in functions
+* If you do not pass argument to a function that has parameters defined, the program fails with TypeError
+  <pre>
+  def greet_user(name):
+      print(f'Hi there!, {name}')
+      print('Welcome aboard')
+
+
+  print("Start")
+  greet_user("John Wick")
+  greet_user("John Locke")
+  greet_user()    **#this fails due to missing argument**
+  print("Finish")
+  </pre>
+
+  *Output*:
+  <pre>
+  Start
+  Hi there!, John Wick
+  Welcome aboard
+  Hi there!, John Locke
+  Welcome aboard
+
+  TypeError                                 Traceback (most recent call last)
+  <ipython-input-11-68dab155bf9f> in <module>
+    8 greet_user("John Wick")
+    9 greet_user("John Locke")
+  ---> 10 greet_user()
+    11 print("Finish")
+
+  TypeError: greet_user() missing 1 required positional argument: 'name'
+  </pre>
+
+* **Keyword Arguments** 
+  * Arguments are passed as key-value pair. This improves readability. 
+  * Order of keyword arguments does not matter as the mapping between arguments and parameters is done based on keys used.
+  * When using both positional and keyword arguments, always use keyword arguments after positional arguments
+
+  <pre>
+  def greet_user(first_name, last_name):
+      print(f'Hi there!, {first_name} {last_name}')
+      print('Welcome aboard')
+
+  print("Start")
+  greet_user(last_name="Wick" , first_name="Wick")
+  print("Finish")
+  </pre>
+
+  *Output*:
+  <pre>
+  Start
+  Hi there!, John Wick
+  Welcome aboard
+  Finish
+  </pre>
+
+* **Return Statements**
+  * Using return statement you can pass back values / results to invoking statement.
+  <pre>
+  def square(number):
+      return number * number
+
+  print(square(3))
+  print(square(5))
+  </pre>
+  *Output*:
+  <pre>
+  9
+  25
+  </pre>
+
+  * By default python always returns back 'None' value.
+  
+  <pre>
+  def square(number):
+      print(number * number)
+
+  print(square(3))
+  </pre>
+  *Output*:
+  <pre>
+  9
+  None
+  </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Exception handling
+
+* Exceptions occurs whenever there is a violation of acceptable functionality. Few sample exceptions:
+  * Passing a character to a numeric variable (ValueError)
+    <pre>
+    age = int(input('Age:'))
+    print(age)
+    </pre>
+    *Output*:
+    <pre>
+    Age:a
+    ValueError                                Traceback (most recent call last)
+    <ipython-input-18-a3ccad679065> in <module>
+    ----> 1 age = int(input('Age:'))
+      2 print(age)
+
+    ValueError: invalid literal for int() with base 10: 'a'
+    </pre>
+  * Divide by zero (ZeroDivisionError)
+    <pre>
+    a = 10
+    b = 0
+    print (a/b)
+    </pre>
+
+    *Output*:
+    <pre>
+    ZeroDivisionError                         Traceback (most recent call last)
+    <ipython-input-26-57a7363b4947> in <module>
+      1 a = 10
+      2 b = 0
+    ----> 3 print (a/b)
+
+    ZeroDivisionError: division by zero
+    </pre>
+  * Not passing the positional arguments to a function (TypeError) <br>
+    Refer [Functions](#functions)
+* These exceptions have to be handled to make the program end gracefully. Use 'try/except' blocks to handle this.
+* It is always recommended to handle particular exceptions.
+  
+  <pre>
+  try:
+      age = int(input('Age:'))
+      print(age)
+      income = 1000
+      print (income/age)
+  except ValueError:
+      print("Invalid value")
+  except ZeroDivisionError:
+      print("Age cannor be 0")
+  </pre>
+
+  *Output*:
+  <pre>
+  #When invalid value is passed to age
+  Age:a
+  Invalid value
+  #When 0 is passed for Age
+  Age:0
+  0
+  age cannor be 0
+  </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Classes and Objects
+
+* Classes are the templates that can be used to create complex data types called objects that have attributes and behaviour(methods)
+* **'class'** keyword is used to create Class.
+* Objects are created using <class-name>()
+
+  <pre>
+  class Point:
+    def move(self):
+        print("move")
+
+  def draw(self):
+      print("draw")
+
+  pointp = Point()
+  pointp.move()
+  pointp.draw()
+  </pre>
+
+  *Output*:
+  <pre>
+  move
+  draw
+  </pre>
+
+* **Constructor** can be used to initialize an object when they are instantiated.
+  
+  <pre>
+  class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        
+    def move(self):
+        print("move")
+        
+    def draw(self):
+        print("draw")
+        
+  pointp = Point(10, 20)
+  print(pointp.x)
+  print(pointp.y)
+  </pre>
+
+  *Output*:
+  <pre>
+  10
+  20
+  </pre>
+
+  <pre>
+  class Person:
+    def __init__(self, name):
+        self.name = name
+        
+    def talk(self):
+        print("talking " + self.name )
+        
+    john = Person("John Wick")
+    print(john.name)
+    john.talk()
+  </pre>
+
+  *Output*:
+  <pre>
+  John Wick
+  talking John Wick
+  </pre>
 
 * * *
 [Top](#table-of-contents)
