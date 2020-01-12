@@ -22,6 +22,8 @@
   - [Functions](#functions)
   - [Exception handling](#exception-handling)
   - [Classes and Objects](#classes-and-objects)
+    - [Inheritence](#inheritence)
+  - [Modules and Packages](#modules-and-packages)
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
@@ -1217,3 +1219,82 @@ John Wick
 * * *
 [Top](#table-of-contents)
 * * * 
+
+### Inheritence
+* Inheritence can be used to inherit the attributes and behaviour(functionality) of another class/object.
+* Helps with easy maintenance of Python code.
+* Few example scenarios:
+  * A dad inheriting from granddad, and grandchild inheriting from dad and grandfather
+  * A Cat or Dog inherting from a Mammal class
+* Inheriting classes can have their own behavior that is specific to that class.
+
+  <pre>
+  class Mammal:
+      def walk(self):
+          print("walk")
+          
+  class Dog(Mammal):
+      def bark(self):
+          print("bow bow")
+      
+  class Cat(Mammal):
+      def meow(self):
+          print("meow meow")
+      
+
+  dog1 = Dog()
+  dog1.walk()
+  dog1.bark()
+
+  cat1 = Cat()
+  cat1.walk()
+  cat1.meow()
+  </pre>
+
+  *Output*:
+  <pre>
+  walk
+  bow bow
+  walk
+  meow meow
+  </pre>
+
+## Modules and Packages
+* **Modules** - a file with python code in it.
+  * Use '**import**' keyword to import the functions from an another module
+    <pre> import module-name </pre>
+  * Use '**from**' and '**import**' to import specific functions from an another module.
+    <pre> from module-name import function-name </pre>
+
+* **Packages** - set of modules organized in to a categorical segregation.
+  * Each package will have "\_\_init\_\_.py" file.
+  * Prefix packagename for every import statement or function invocation statements.
+
+Example:
+Lets say a package named "ecommerce" has a module named "producs" that has functions such as "add", "delete" etc.
+
+Now to import all the functions from products, you can either:
+  <pre> 
+  import ecommerce.products 
+          
+  ecommerce.products.add()
+  ecommerce.products.delete()
+  </pre>
+
+  Or
+
+  <pre>
+  from ecommerce import products
+
+  products.add()
+  products.delete()
+  </pre>
+
+  Or
+
+  <pre>
+  from ecommerce.products import add, delete
+
+  add()
+  delete()
+  </pre>
