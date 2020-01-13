@@ -24,10 +24,15 @@
   - [Classes and Objects](#classes-and-objects)
     - [Inheritence](#inheritence)
   - [Modules and Packages](#modules-and-packages)
+    - [PyPI and PIP](#pypi-and-pip)
+  - [File Operations (Read/Write Operations)](#file-operations-readwrite-operations)
+  - [Working with Directories](#working-with-directories)
 
 ## Important URLs
 [Python Standard Libraries](https://docs.python.org/3/library/)
 [Python Math Module](https://docs.python.org/3/library/math.html)
+[Python Module Index](https://docs.python.org/3/py-modindex.html)
+[Python Package Index](https://pypi.org/)
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -1260,11 +1265,26 @@ John Wick
   </pre>
 
 ## Modules and Packages
+
 * **Modules** - a file with python code in it.
   * Use '**import**' keyword to import the functions from an another module
     <pre> import module-name </pre>
   * Use '**from**' and '**import**' to import specific functions from an another module.
     <pre> from module-name import function-name </pre>
+
+  * URL - [Python module list](https://docs.python.org/3/py-modindex.html)
+  * Python has many useful built in modules that you can import and use in the programs.
+  * Built-in modules can be found in External Libraries/Python 3.x.x/python3.x library root
+  * External modules can be found in External Libraries/Python 3.x.x/Lib folder.
+
+### PyPI and PIP
+
+* Python Package Index (PyPI) is a repository of software for the Python programming language. You can search for packages and projects that you can reuse.
+* URL - [Python Package Index](https://pypi.org/)
+
+* There are many 3rd party external modules that can also be installed to the local machine using pip installer. Such installed modules are placed in to Libraries/Python 3.x.x/Lib/site-packages folder.
+  <pre> pip install python-docx </pre>
+
 
 * **Packages** - set of modules organized in to a categorical segregation.
   * Each package will have "\_\_init\_\_.py" file.
@@ -1298,3 +1318,177 @@ Now to import all the functions from products, you can either:
   add()
   delete()
   </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## File Operations (Read/Write Operations)
+
+* To read from or write to a file in python you have to 'open' the file using open() function.
+* open() takes 2 arguments. 
+  * Target file name.
+    * Use target file name if the file is in same directory as python file
+    * Use absolute path of the file name if the file is not in same directory as python file.
+  * Modes to open.
+    * r - to read from the file
+    * w - to write to the file
+    * a - append to the file
+    * r+ - to read from/write to file
+* Every file opened to read/write should be closed using close() function.
+* It is recommended to find if a file is readable before reading and writeable before writing. 
+* Use try/except blocks as a general practice to catch exceptions.
+  
+**Examples - Reading from file**
+  *employees.txt - input file to read. This file resides in same directory as app.py*
+  <pre>
+  karthik, learner, india
+  john, teacher, us
+  mark, doctor, uk
+  </pre>
+
+* **read()** function is used to read entire file in a single go.
+  
+  *app.py - python program that reads employees.txt file in the same directory*
+  <pre>
+  employee_file = open("employees.txt", "r")
+  if(employee_file.readable()):
+      print(employee_file.read())
+  employee_file.close()
+  </pre>
+
+  *Output*:
+  <pre>
+  karthik, learner, india
+  john, teacher, us
+  mark, doctor, uk
+  </pre>
+
+* **readline()** function is used to read the file line by line.
+
+  <pre>
+  employee_file = open("employees.txt", "r")
+  if(employee_file.readable()):
+      print(employee_file.readline())
+      print(employee_file.readline())
+  employee_file.close()
+  </pre>
+
+  *Output*:
+  <pre>
+  karthik, learner, india
+  john, teacher, us
+  </pre>
+
+* **readlines()** function reads the file an puts the content in to a list.
+
+  <pre>
+  employee_file = open("employees.txt", "r")
+  if(employee_file.readable()):
+      print(employee_file.readlines())
+      print(employee_file.readlines()[0])
+  employee_file.close()
+  </pre>
+
+  *Output*:
+  <pre>
+  ['karthik, learner, india\n', 'john, teacher, us\n', 'mark, doctor, uk\n']
+  karthik, learner, india
+  </pre>
+
+* **write()** function is used to write content to the file.
+* When 'w' mode is used, python program creates the file if does not exist.
+* Write function does not add new line character. This should be handled programmatically.
+* Write function can be used to create files with different extensions too, like html file etc.
+  
+**Examples - Write to File**
+  <pre>
+  employee_file = open("employees1.txt", "w")
+  employee_file.write("de Kock, player, netherlands\n")
+  employee_file.close()
+  </pre>
+
+  *Output of employee1.txt file*:
+  <pre>
+  de Kock, player, netherlands
+  </pre>
+
+**Examples - Append to File**
+
+  * While appending to a file, you should be careful to rerun when needed as the data will being appended will duplicate.
+
+  <pre>
+  employee_file = open("employees.txt", "a")
+  employee_file.write("knox, manager, france\n")
+  employee_file.close()
+  </pre>
+
+  *Output of employee.txt file*:
+  <pre>
+  karthik, learner, india
+  john, teacher, us
+  mark, doctor, uk
+  knox, manager, france
+  </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Working with Directories 
+
+* pathlib module can be used to work with directories (browse, create, delete etc). 
+
+*Example - verify if a directory named 'education' exists*
+<pre>
+from pathlib import Path
+
+path = Path("education")       #no args points to current directory
+print(path.exists())
+</pre>
+
+*Output  -> if eduction directory exists*:
+<pre>
+True
+</pre>
+
+*Output  -> if eduction directory does not exist*:
+<pre>
+False
+</pre>
+
+*Example - creates a directory*
+<pre>
+from pathlib import Path
+
+path = Path("schools")
+print(path.mkdir())
+</pre>
+
+*Example - removes a directory*
+<pre>
+from pathlib import Path
+
+path = Path("schools")
+print(path.rmdir())
+</pre>
+
+*Example - file listing*
+<pre>
+from pathlib import Path
+
+path = Path()
+for file in path.glob('*'):
+    print(file)
+</pre>
+
+
+<pre>
+* - lists all files from all directories within the current directory
+*.* - lists all files from current directory
+</pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
