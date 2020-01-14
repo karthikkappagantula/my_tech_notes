@@ -23,10 +23,12 @@
   - [Exception handling](#exception-handling)
   - [Classes and Objects](#classes-and-objects)
     - [Inheritence](#inheritence)
+  - [Regular Expressions](#regular-expressions)
   - [Modules and Packages](#modules-and-packages)
     - [PyPI and PIP](#pypi-and-pip)
   - [File Operations (Read/Write Operations)](#file-operations-readwrite-operations)
   - [Working with Directories](#working-with-directories)
+  - [Date & Time](#date--time)
   - [How you code matters](#how-you-code-matters)
 
 ## Important URLs
@@ -1159,6 +1161,8 @@ John Wick
 * Classes are the templates that can be used to create complex data types called objects that have attributes and behaviour(methods)
 * **'class'** keyword is used to create Class.
 * Objects are created using <class-name>()
+* Class variable - defined outside of any class methods, usually belongs to all instances of a class.
+* Instance variable - defined inside methods of class and belongs to only particular instance.
 
   <pre>
   class Point:
@@ -1223,6 +1227,7 @@ John Wick
   talking John Wick
   </pre>
 
+
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -1266,6 +1271,135 @@ John Wick
   meow meow
   </pre>
 
+* Another Example:
+  <pre>
+  #!/usr/bin/python3
+
+  class Parent:        # define parent class
+    parentAttr = 100
+    def __init__(self):
+        print ("Calling parent constructor")
+
+    def parentMethod(self):
+        print ('Calling parent method')
+
+    def setAttr(self, attr):
+        Parent.parentAttr = attr
+
+    def getAttr(self):
+        print ("Parent attribute :", Parent.parentAttr)
+
+  class Child(Parent): # define child class
+    def __init__(self):
+        print ("Calling child constructor")
+
+    def childMethod(self):
+        print ('Calling child method')
+
+  c = Child()          # instance of child
+  c.childMethod()      # child calls its method
+  c.parentMethod()     # calls parent's method
+  c.setAttr(200)       # again call parent's method
+  c.getAttr()          # again call parent's method
+  </pre>
+
+  *Output*:
+  <pre>
+  Calling child constructor
+  Calling child method
+  Calling parent method
+  Parent attribute : 200
+  </pre>
+
+* Overriding Methods: You can always override parent class methods.
+  
+  <pre>
+  #!/usr/bin/python3
+
+  class Parent:        # define parent class
+    def myMethod(self):
+        print ('Calling parent method')
+
+  class Child(Parent): # define child class
+    def myMethod(self):
+        print ('Calling child method')
+
+  c = Child()          # instance of child
+  c.myMethod()         # child calls overridden method
+  </pre>
+
+  *Ouput*:
+  <pre>
+  Calling child method
+  </pre>
+
+* Data hiding - An object's attributes may or may not be visible outside the class definition. You need to name attributes with a double underscore prefix, and those attributes then will not be directly visible to outsiders.
+  <pre>
+  #!/usr/bin/python3
+
+  class JustCounter:
+    __secretCount = 0
+    
+    def count(self):
+        self.__secretCount += 1
+        print (self.__secretCount)
+
+  counter = JustCounter()
+  counter.count()
+  counter.count()
+  print (counter.__secretCount)
+  </pre>
+
+  *Output*:
+  <pre>
+  1
+  2
+  Traceback (most recent call last):
+    File "test.py", line 12, in <module>
+        print counter.__secretCount
+  AttributeError: JustCounter instance has no attribute '__secretCount'
+  </pre>
+
+  Changing <pre> print (counter.__secretCount) </pre> to <pre> print (counter._JustCounter__secretCount) </pre> will produce output as below -
+  <pre>
+  1
+  2
+  2
+  </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+  
+## Regular Expressions
+* A regular expression is a special sequence of characters that helps you match or find other strings or sets of strings, using a specialized syntax held in a pattern.
+* Python has a built-in package called re, which can be used to work with Regular Expressions.
+* The **re** module raises the exception **re.error** if an error occurs while compiling or using a regular expression.
+
+* Search the string to see if it starts with "The" and ends with "Spain":
+  <pre>
+  import re
+
+  txt = "The rain in Spain"
+  x = re.search("^The.*Spain$", txt)
+
+  if (x):
+    print("YES! We have a match!")
+  else:
+    print("No match")
+  </pre>
+
+  *Output*:
+  <pre>
+  YES! We have a match!
+  </pre>
+
+
+
+* * *
+[Top](#table-of-contents)
+* * * 
+  
 ## Modules and Packages
 
 * **Modules** - a file with python code in it.
@@ -1489,6 +1623,124 @@ for file in path.glob('*'):
 * - lists all files from all directories within the current directory
 *.* - lists all files from current directory
 </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Date & Time
+* Python's time and calendar modules help track dates and times.
+* **time** module available in Python which provides functions for working with times, and for converting between representations.
+* The function time.time() returns the current system time in ticks since 12:00am, January 1, 1970(epoch).
+
+  <pre>
+  #!/usr/bin/python3
+  import time;  # This is required to include time module.
+
+  ticks = time.time()
+  print("Number of ticks since 12:00am, January 1, 1970:", ticks)
+  </pre>  
+
+  *Output*:
+  <pre>
+  Number of ticks since 12:00am, January 1, 1970: 1579020431.6248808
+  </pre>
+
+* Many of Python's time functions handle time as a tuple of 9 numbers, as shown below −
+  
+  | Index        | Field        | Values  |
+  | ------------ |:-------------| :-----|
+  | 0            | 4-digit year | 2008    | 
+  | 1            | Month        | 1 to 12 |
+  | 2            | Day          | 1 to 31 |
+  | 3            | Hour         | 0 to 23 |
+  | 4            | Minute       | 0 to 59 |
+  | 5            | Second       | 0 to 61(60 or 61 are leap-seconds)|
+  | 6            | Day of Week  | 0 to 6 (0 is Monday) |
+  | 7            | Day of Year  | 1 to 366 (Julian day) |
+  | 8            | Daylight Savings | -1, 0, 1, -1 means library determines DST |
+  
+* Getting current time:
+  To translate a time instant from seconds since the epoch floating-point value into a timetuple, pass the floating-point value to a function (e.g., localtime) that returns a time-tuple with all valid nine items.
+  <pre>
+  #!/usr/bin/python3
+  import time
+
+  localtime = time.localtime(time.time())
+  print ("Local current time :", localtime)
+  </pre>
+
+  *Output*:
+  <pre>
+  Local current time : time.struct_time(tm_year=2020, tm_mon=1, tm_mday=14, tm_hour=22, tm_min=40, tm_sec=58, tm_wday=1, tm_yday=14, tm_isdst=0)
+  </pre>
+
+* Getting formatted time:
+  Simple method to get time in a readable format is asctime()
+
+  <pre>
+  #!/usr/bin/python3
+  import time
+
+  localtime = time.asctime( time.localtime(time.time()) )
+  print ("Local current time :", localtime)
+  </pre>
+
+  *Output*:
+  <pre>
+  Local current time : Tue Jan 14 22:45:51 2020
+  </pre>
+
+  * Getting calendar for a month
+  <pre>
+  #!/usr/bin/python3
+  import calendar
+
+  cal = calendar.month(2020, 1)
+  print ("Here is the calendar:")
+  print (cal)
+  </pre>
+
+  *Output*:
+  <pre>
+  Here is the calendar:
+      January 2020
+  Mo Tu We Th Fr Sa Su
+        1  2  3  4  5
+  6  7  8  9 10 11 12
+  13 14 15 16 17 18 19
+  20 21 22 23 24 25 26
+  27 28 29 30 31
+  </pre>
+
+* Few **time** module functions:
+  <pre>
+  time.asctime([tupletime]) ➤ Accepts a time-tuple and returns a readable 24-character string such as 'Tue Dec 11 18:07:14 2008'. <br>
+
+  time.clock( ) ➤ Returns the current CPU time as a floating-point number of seconds.<br>
+
+  time.sleep(secs) ➤ Suspends the calling thread for secs seconds.<br>
+
+  time.strptime(str,fmt = '%a %b %d %H:%M:%S %Y') ➤ Parses str according to format string fmt and returns the instant in time-tuple format.<br>
+
+  time.time( ) ➤ Returns the current time instant, a floating-point number of seconds since the epoch
+  </pre>
+* Few **calendar** module functions:
+  <pre>
+  calendar.calendar(year,w = 2,l = 1,c = 6) ➤ Returns a multiline string with a calendar for year year formatted into three columns separated by c spaces. w is the width in characters of each date; each line has length 21*w+18+2*c. l is the number of lines for each week.<br>
+
+  calendar.firstweekday( ) ➤ Returns the current setting for the weekday that starts each week. By default, when calendar is first imported, this is 0, meaning Monday.
+
+  calendar.isleap(year) ➤ Returns True if year is a leap year; otherwise, False.
+
+  calendar.month(year,month,w = 2,l = 1) ➤ Returns a multiline string with a calendar for month month of year year, one line per week plus two header lines. w is the width in characters of each date; each line has length 7*w+6. l is the number of lines for each week.
+
+  calendar.setfirstweekday(weekday) ➤ Sets the first day of each week to weekday code weekday. Weekday codes are 0 (Monday) to 6 (Sunday).
+
+  calendar.weekday(year,month,day) ➤ Returns the weekday code for the given date. Weekday codes are 0 (Monday) to 6 (Sunday); month numbers are 1 (January) to 12 (December).
+ 
+  </pre>
+
 
 * * *
 [Top](#table-of-contents)
