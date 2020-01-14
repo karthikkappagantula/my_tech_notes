@@ -19,4 +19,4 @@
 * Unsupervised Learning - Discover patters in the data
   * Clustering : cohesive grouping
   * Association : frequent cooccurence
-* Reinforcement Learning - Learning control
+* Reinforcement Learning - Learning to control behaviour of systems
