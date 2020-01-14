@@ -1395,6 +1395,7 @@ John Wick
   </pre>
 
 * RegEx Functions
+  
   | Function        | Description        | 
   | ------------ |:-------------| 
   | findall      | Returns a list containing all matches |
@@ -1403,6 +1404,7 @@ John Wick
   | sub          | Replaces one or many matches with a string |
 
 * Metacharacters - characters with special meaning
+  
   | Character    | Description        | Example  |
   | ------------ |:-------------| :-----|
   | []           | A set of characters | "[a-m]" |
