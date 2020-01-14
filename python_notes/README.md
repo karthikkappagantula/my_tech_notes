@@ -27,12 +27,14 @@
     - [PyPI and PIP](#pypi-and-pip)
   - [File Operations (Read/Write Operations)](#file-operations-readwrite-operations)
   - [Working with Directories](#working-with-directories)
+  - [How you code matters](#how-you-code-matters)
 
 ## Important URLs
-[Python Standard Libraries](https://docs.python.org/3/library/)
+[Python Standard Libraries](https://docs.python.org/3/library/)<br>
 [Python Math Module](https://docs.python.org/3/library/math.html)
-[Python Module Index](https://docs.python.org/3/py-modindex.html)
-[Python Package Index](https://pypi.org/)
+<br>
+[Python Module Index](https://docs.python.org/3/py-modindex.html)<br>
+[Python Package Index](https://pypi.org/)<br>
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -1492,3 +1494,66 @@ for file in path.glob('*'):
 [Top](#table-of-contents)
 * * * 
 
+## How you code matters
+
+* Different ways of coding a greatest common divisor with each following approach reducing the number of loops or spaces.
+  
+  *Approach-1 with lists and multiple loops*
+  <pre>
+    def gcd(a, b):
+
+      #Find all factors of a
+      fa = []
+      for i in range(1, a+1):
+          if(a % i)==0:
+              fa.append(i)
+      print(fa)
+
+      #Find all factors of b
+      fb = []
+      for j in range(1, b+1):
+          if(b % j)==0:
+              fb.append(j)
+      print(fb)
+
+      #Find the common value in both fa and fb
+      global val
+      for k in fa:
+          if k in fb:
+              val = k
+      return val
+
+      gcd(10, 18)
+  </pre>
+
+  *Approach-2 without lists looping only once*
+  <pre>
+    def gcd(a, b):
+      global val
+      for i in range(1, min(a, b) + 1):
+          if ((a % i)==0 and (b % i)==0):
+              val = i
+      return val
+              
+    gcd(10, 18)
+  </pre>
+
+  *Approach-3 recursive approach that uses [Euclid's algorithm](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm)
+  <pre>
+  def gcd(x, y): 
+    while(y): 
+       x, y = y, x % y 
+    return x 
+    
+  print (gcd(10,18)) 
+  </pre>
+  
+  *Approach-4 using math function
+  <pre>
+  import math
+  print(math.gcd(10,18))
+  </pre>
+  
+* * *
+[Top](#table-of-contents)
+* * * 
