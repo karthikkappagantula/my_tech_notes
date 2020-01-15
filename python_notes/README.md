@@ -6,8 +6,8 @@
   - [Keywords](#keywords)
   - [Arithmetic Operations](#arithmetic-operations)
   - [Math Functions](#math-functions)
-  - [print output](#print-output)
-    - [format output](#format-output)
+  - [Printing output](#printing-output)
+    - [Formatting output](#formatting-output)
   - [Taking Inputs](#taking-inputs)
   - [Strings](#strings)
     - [String functions](#string-functions)
@@ -133,8 +133,8 @@ For creating new python script : new -> select python version
   print(5 + 3)  # Addition
   print(5 * 3)  # Multiplication
   print(5 - 3)  # Subtraction
-  print(5 / 3)  # Division returns quotient in whole/fraction
-  print(5 // 3) # Division returns quotient in whole only
+  print(5 / 3)  # Division returns quotient in decimal number
+  print(5 // 3) # Division returns quotient in whole number
   print(5 % 3)  # Modulo returns Remainder
   print(5 ** 3) # Exponent
   </pre>
@@ -174,7 +174,7 @@ For creating new python script : new -> select python version
   2.9
   </pre>
 
-* Use(import) Math module for complex mathematical functions. 
+* Use(import) **math** module for complex mathematical functions. 
   
   Example:
   <pre>
@@ -193,26 +193,25 @@ For creating new python script : new -> select python version
 
 *[Python Math Module](https://docs.python.org/3/library/math.html)*
 
-## print output
+## Printing output
+
 * Python has a predefined format if you use print(a_variable) then it will go to next line automatically.
 
   <pre>
   Syntax: print(value(s), sep= ‘ ‘, end = ‘\n’, file=file, flush=flush)
 
-    Parameters:
-    value(s) : Any value, and as many as you like. Will be converted to string before printed
-    sep=’separator’ : (Optional) Specify how to separate the objects, if there is more than one.Default :’ ‘
-    end=’end’: (Optional) Specify what to print at the end.Default : ‘\n’
-    file : (Optional) An object with a write method. Default :sys.stdout
-    flush : (Optional) A Boolean, specifying if the output is flushed (True) or buffered (False). Default: False
+  Parameters:
+  value(s) : Any value, and as many as you like. Will be converted to string before printed
+  sep=’separator’ : (Optional) Specify how to separate the objects, if there is more than one.Default is ’ ‘
+  end=’end’: (Optional) Specify what to print at the end.Default is ‘\n’
+  file : (Optional) An object with a write method. Default is sys.stdout
+  flush : (Optional) A Boolean, specifying if the output is flushed (True) or buffered (False). Default is False
   </pre>
 
   **Examples**
 
   <pre>
-    # Python 3.x program showing 
-    # how to print data on 
-    # a screen 
+    # Python 3.x program showing how to print data on a screen 
       
     # One object is passed 
     print("GeeksForGeeks") 
@@ -248,16 +247,14 @@ For creating new python script : new -> select python version
 [Top](#table-of-contents)
 * * * 
 
-### format output
+### Formatting output
 
 * **Formatting output using String modulo operator(%)** :
 
   The % operator can also be used for string formatting. It interprets the left argument much like a printf()-style format string to be applied to the right argument. 
 
   <pre>
-    # Python program showing how to use 
-    # string modulo operator(%) to print 
-    # fancier output 
+    # Python program showing how to use string modulo operator(%) to print fancier output 
       
     # print integer and float value 
     print("Geeks : % 2d, Portal : % 5.2f" %(1, 05.333))  
@@ -339,25 +336,24 @@ For creating new python script : new -> select python version
   </pre>
 
   <pre>
-    # Python program to  
-    # show format () is  
-    # used in dictionary 
+    # Python program to show format () is used in dictionary 
       
     tab = {'geeks': 4127, 'for': 4098, 'geek': 8637678} 
       
     # using format() in dictionary 
     print('Geeks: {0[geeks]:d}; For: {0[for]:d}; '
-        'Geeks: {0[geek]:d}'.format(tab)) 
+        'Geek: {0[geek]:d}'.format(tab)) 
       
     data = dict(fun ="GeeksForGeeks", adj ="Portal") 
       
     # using format() in dictionary 
-    print("I love {fun} computer {adj}".format(**data)) 
+    print("I love {fun} computer {adj}".format(**data))    
+    # remember to use '**' before dictionary data to be formatted.
   </pre>
 
   *Output*:
   <pre>
-    Geeks: 4127; For: 4098; Geeks: 8637678
+    Geeks: 4127; For: 4098; Geek: 8637678
     I love GeeksForGeeks computer Portal
   </pre>
 
@@ -380,9 +376,7 @@ For creating new python script : new -> select python version
   In this output is formatted by using string slicing and concatenation operations. The string type has some methods that help in formatting a output in an fancier way. Some of method which help in formatting a output are str.ljust(), str.rjust(), str.centre()
 
   <pre>
-    # Python program to 
-    # format a output using 
-    # string() method 
+    # Python program to format a output using string() method 
       
     cstr = "I love geeksforgeeks"
         
@@ -394,12 +388,12 @@ For creating new python script : new -> select python version
     # Printing the left aligned   
     # string with "-" padding   
     print ("The left aligned string is : ")  
-    print (lstr.ljust(40, '-')) 
+    print (cstr.ljust(40, '-')) 
       
     # Printing the right aligned string  
     # with "-" padding   
     print ("The right aligned string is : ")  
-    print (rstr.rjust(40, '-')) 
+    print (cstr.rjust(40, '-')) 
   </pre>
 
   *Output*:
@@ -421,19 +415,10 @@ For creating new python script : new -> select python version
 ## Taking Inputs
 
 Python provides us with two inbuilt functions to read the input from the keyboard.
-* raw_input ( prompt )  --> works only in python 2.x
-  <pre>
-    # Python program showing  
-    # a use of raw_input() 
-      
-    g = raw_input("Enter your name : ") 
-    print g 
-  </pre>
 
 * input ( prompt )  --> works in python 3.x
   <pre>
-    # Python program showing  
-    # a use of input() 
+    # Python program showing a use of input() 
       
     val = input("Enter your value: ") 
     print(val) 
@@ -442,8 +427,7 @@ Python provides us with two inbuilt functions to read the input from the keyboar
     Whatever you enter as input, input function convert it into a string. if you enter an integer value still input() function convert it into a string. You need to explicitly convert it into an integer in your code using typecasting.
 
   <pre>
-    # Program to check input  
-    # type in Python 
+    # Program to check input type in Python 
       
     num = input ("Enter number :") 
     print(num) 
@@ -456,15 +440,14 @@ Python provides us with two inbuilt functions to read the input from the keyboar
   </pre>
 
     *Output*:
-  <pre>
+    ```    
     Enter number :hello
     hello
     Enter name : there
     there
-    type of number <class 'str'>
-    type of name <class 'str'>
-  </pre>
-
+    type of number <class 'str'\>
+    type of name <class 'str'\>
+    ```
 
 * * *
 [Top](#table-of-contents)
@@ -478,8 +461,8 @@ Python provides us with two inbuilt functions to read the input from the keyboar
     message="learning"
     print(message[0])   #prints first character
     print(message[-1])  #prints last character
-    print(message[0:4]) #prints charcters from index 0 to 4 (excludes character at index=4).
-    print(message[:-1]) #prints all characters
+    print(message[0:4]) #prints characters from index 0 to 4 (excludes character at index=4).
+    print(message[:-1]) #prints all characters except last character
     print(message[0:])  #prints all characters
     print(message[:])   #prints all characters
     </pre>
@@ -498,13 +481,16 @@ Python provides us with two inbuilt functions to read the input from the keyboar
 
   Examples:
     <pre>
-    message="this is tom's message"    #wrap message with single quotes in double quotes
+    #wrap message with single quotes in double quotes
+    message="this is tom's message"    
     print(message)
 
-    message1='this is "python" notes'  #wrap message with double quotes in single quotes
+    #wrap message with double quotes in single quotes
+    message1='this is "python" notes'  
     print(message1)
 
-    message2='this is \"python\" notes with tom\'s message'   #use escape character followed by a quote ( \" or \' ).
+    #use escape character followed by a quote ( \" or \' ).
+    message2='this is \"python\" notes with tom\'s message'   
     print(message2)
     </pre>
 
@@ -540,30 +526,30 @@ Python provides us with two inbuilt functions to read the input from the keyboar
 Using repr() -> This function returns a string in its printable format, i.e doesn’t resolve the escape sequences.
 
   Example:
-  <pre>
-  ch = "I\nLove\tGeeksforgeeks"
-  print ("The string without repr() is : ") 
-  print (ch) 
-  print ("\r") 
-  print ("The string after using repr() is : ") 
-  print (repr(ch)) 
-  ch2 = R"I\nLove\tGeeksforgeeks"     
-  print ("The string after using R is : ") 
-  print (ch2) 
-  </pre>
+    <pre>
+    ch = "I\nLove\tGeeksforgeeks"
+    print ("The string without repr() is : ") 
+    print (ch) 
+    print ("\r") 
+    print ("The string after using repr() is : ") 
+    print (repr(ch)) 
+    ch2 = R"I\nLove\tGeeksforgeeks"     
+    print ("The string after using R is : ") 
+    print (ch2) 
+    </pre>
 
-  *Output*: 
-  <pre>
-  The string without repr() is : 
-  I
-  Love	Geeksforgeeks
+    *Output*: 
+    <pre>
+    The string without repr() is : 
+    I
+    Love	Geeksforgeeks
 
-  The string after using repr() is : 
-  'I\nLove\tGeeksforgeeks'
+    The string after using repr() is : 
+    'I\nLove\tGeeksforgeeks'
 
-  The string after using R is : 
-  I\nLove\tGeeksforgeeks
-  </pre>
+    The string after using R is : 
+    I\nLove\tGeeksforgeeks
+    </pre>
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -607,7 +593,7 @@ Examples:
 * Indentation is used to determine the scope. 
 * elif is nothing but an else if
 
-Example - 1
+Example
   <pre>
   #if/elif/else statement
   temp_num = 10
@@ -617,9 +603,10 @@ Example - 1
       print('Divisible by 2')
   else:
       print('Default')
-
-  *Output: Divisible by 2*
   </pre>
+
+  *Output*:
+  <pre> Divisible by 2 </pre>
 * * *
 [Top](#table-of-contents)
 * * * 
@@ -1813,7 +1800,7 @@ for file in path.glob('*'):
     gcd(10, 18)
   </pre>
 
-  *Approach-3 recursive approach that uses [Euclid's algorithm](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm)
+  *Approach-3 uses [Euclid's algorithm](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm)
   <pre>
   def gcd(x, y): 
     while(y): 
