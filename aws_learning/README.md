@@ -2,73 +2,76 @@
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
-- [AWS Essentials <a name="aws_essentials"></a>](#aws-essentials)
-  - [AWS Accounts <a name="aws_accounts"></a>](#aws-accounts)
-  - [Regions / macro scale isolation <a name="aws_regions"></a>](#regions--macro-scale-isolation)
-  - [Availability Zones / Fault isolation domains <a name="aws_azs"></a>](#availability-zones--fault-isolation-domains)
-  - [Edge Infrastructure <a name="aws_edge"></a>](#edge-infrastructure)
+- [AWS Essentials](#aws-essentials)
+  - [AWS Accounts](#aws-accounts)
+  - [Regions / macro scale isolation](#regions--macro-scale-isolation)
+  - [Availability Zones / Fault isolation domains](#availability-zones--fault-isolation-domains)
+  - [Edge Infrastructure](#edge-infrastructure)
     - [Usual practices](#usual-practices)
-  - [Differences between High availability, Fault Tolerance, and Disaster Recovery <a name="aws_ha_ft_dr"></a>](#differences-between-high-availability-fault-tolerance-and-disaster-recovery)
-    - [Use cases <a name="aws_ha_ft_dr_usecase"></a>](#use-cases)
+  - [Differences between High availability, Fault Tolerance, and Disaster Recovery](#differences-between-high-availability-fault-tolerance-and-disaster-recovery)
+    - [Use cases](#use-cases)
         - [Examples:](#examples)
-  - [Disaster Recovery <a name="aws_dr"></a>](#disaster-recovery)
-  - [Data Persistence <a name="aws_data_persistence"></a>](#data-persistence)
+  - [Disaster Recovery](#disaster-recovery)
+  - [Data Persistence](#data-persistence)
     - [Types of Storage -](#types-of-storage)
-  - [OSI Model <a name="aws_osi_model"></a>](#osi-model)
-- [Accounts <a name="aws_accounts"></a>](#accounts)
-  - [Identity and Acess Management(IAM) Overview <a name="aws_iam"></a>](#identity-and-acess-managementiam-overview)
+  - [OSI Model](#osi-model)
+- [Accounts](#accounts)
+  - [Identity and Acess Management(IAM) Overview](#identity-and-acess-managementiam-overview)
     - [IAM Security Token Service(STS)](#iam-security-token-servicests)
       - [When to use STS:](#when-to-use-sts)
-  - [Identity and Resource Policies <a name="aws_iam_policies"></a>](#identity-and-resource-policies)
+  - [Identity and Resource Policies](#identity-and-resource-policies)
     - [Identity policy](#identity-policy)
     - [Resource policy](#resource-policy)
       - [Important points:](#important-points)
       - [AWS official documents](#aws-official-documents)
-  - [IAM Roles and Temporary Security Credentials <a name="aws_iam_roles"></a>](#iam-roles-and-temporary-security-credentials)
+  - [IAM Roles and Temporary Security Credentials](#iam-roles-and-temporary-security-credentials)
   - [IAM roles](#iam-roles)
   - [Cross-Account Access: Resource Permissions vs. Cross-Account Roles](#cross-account-access-resource-permissions-vs-cross-account-roles)
   - [AWS Accounts and AWS Organizations](#aws-accounts-and-aws-organizations)
-    - [AWS Organization <a name="aws_org"></a>](#aws-organization)
-    - [Service Control Policies <a name="aws_scp"></a>](#service-control-policies)
-    - [AWS Account Limits/Service Quotas <a name="aws_acc_limits"></a>](#aws-account-limitsservice-quotas)
+    - [AWS Organization](#aws-organization)
+    - [Service Control Policies](#service-control-policies)
+    - [AWS Account Limits/Service Quotas](#aws-account-limitsservice-quotas)
       - [AWS Documentation](#aws-documentation)
-    - [AWS Support Tiers <a name="aws_supp_tiers"></a>](#aws-support-tiers)
+    - [AWS Support Tiers](#aws-support-tiers)
       - [AWS Documentation](#aws-documentation-1)
-    - [AWS Config <a name="aws_config"></a>](#aws-config)
-    - [AWS Service Catalog <a name="aws_service_catalog"></a>](#aws-service-catalog)
+    - [AWS Config](#aws-config)
+    - [AWS Service Catalog](#aws-service-catalog)
       - [AWS documentation](#aws-documentation-2)
-    - [Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws_billing"></a>](#resource-billing-modes-on-demand-reserved-and-spot)
-    - [Identity Federation <a name="aws_id_fed"></a>](#identity-federation)
-    - [IAM Permissions Boundaries <a name="aws_iam_permissions"></a>](#iam-permissions-boundaries)
-    - [Policy Evaluation Logic <a name="aws_policy_eval"></a>](#policy-evaluation-logic)
-  - [Networking in AWS: Virtual Private Clouds (VPCs) <a name="aws_vpc_main"></a>](#networking-in-aws-virtual-private-clouds-vpcs)
-    - [VPC Basics <a name="aws_vpc_basics"></a>](#vpc-basics)
+    - [Resource Billing Modes: On-Demand, Reserved, and Spot](#resource-billing-modes-on-demand-reserved-and-spot)
+    - [Identity Federation](#identity-federation)
+    - [IAM Permissions Boundaries](#iam-permissions-boundaries)
+    - [Policy Evaluation Logic](#policy-evaluation-logic)
+  - [Networking in AWS: Virtual Private Clouds (VPCs)](#networking-in-aws-virtual-private-clouds-vpcs)
+    - [VPC Basics](#vpc-basics)
       - [Connection between VPCs](#connection-between-vpcs)
       - [Useful links](#useful-links)
-    - [AWS Resource Access Manager(RAM) <a name="aws_vpc_ram"></a>](#aws-resource-access-managerram)
+    - [AWS Resource Access Manager(RAM)](#aws-resource-access-managerram)
       - [AWS documentation](#aws-documentation-3)
-    - [VPC Routing <a name="aws_vpc_router"></a>](#vpc-routing)
-    - [Network Access Control Lists (NACLs) <a name="aws_nacl"></a>](#network-access-control-lists-nacls)
-    - [Security Groups (SG)<a name="aws_sg"></a>](#security-groups-sg)
-    - [Public vs Private Subnets, Internet Gateways, and IP addressing <a name="aws_networks"></a>](#public-vs-private-subnets-internet-gateways-and-ip-addressing)
-    - [DNS in a VPC <a name="aws_dns_vpc"> </a>](#dns-in-a-vpc)
-    - [VPC Flow Logs <a name="aws_vpc_flowlogs"> </a>](#vpc-flow-logs)
-    - [Using VPC Endpoints <a name="aws_vpc_endpoints"></a>](#using-vpc-endpoints)
-    - [Peering VPCs <a name="aws_vpc_peering"></a>](#peering-vpcs)
+    - [VPC Routing](#vpc-routing)
+    - [Network Access Control Lists (NACLs)](#network-access-control-lists-nacls)
+    - [Security Groups (SG)](#security-groups-sg)
+    - [Public vs Private Subnets, Internet Gateways, and IP addressing](#public-vs-private-subnets-internet-gateways-and-ip-addressing)
+    - [DNS in a VPC](#dns-in-a-vpc)
+    - [VPC Flow Logs](#vpc-flow-logs)
+    - [Using VPC Endpoints](#using-vpc-endpoints)
+    - [Peering VPCs](#peering-vpcs)
       - [Limitations and Considerations](#limitations-and-considerations)
-    - [AWS Site-to-Site VPN <a name="aws_s2s_vpn"></a>](#aws-site-to-site-vpn)
-    - [AWS Direct Connect Architecture <a name="aws_dca"></a>](#aws-direct-connect-architecture)
-    - [AWS Transit Gateway <a name="aws_tg"></a>](#aws-transit-gateway)
-    - [Hello there](#hello-there)
+    - [AWS Site-to-Site VPN](#aws-site-to-site-vpn)
+    - [AWS Direct Connect Architecture](#aws-direct-connect-architecture)
+    - [AWS Transit Gateway](#aws-transit-gateway)
+  - [Security](#security)
+    - [Account and Service Security](#account-and-service-security)
+      - [AWS Key Management(KMS)](#aws-key-managementkms)
+      - [AWS CloudHSM](#aws-cloudhsm)
    
 
    
 * * *
 [Top](#table-of-contents-)
 * * *
-# AWS Essentials <a name="aws_essentials"></a>
+# AWS Essentials
 
-## AWS Accounts <a name="aws_accounts"></a>
+## AWS Accounts
 Provides - Isolated domains (limited blast radius for any exploits. i.e., impacts only specific account)
   * Authentication - Authenticates users using that domain.
   * Authorization - Permissions to users to resources.
@@ -82,18 +85,18 @@ AWS IAM will provide the identity store and a permission store used during authe
 * * *
 [Top](#table-of-contents-)
 * * * 
-## Regions / macro scale isolation <a name="aws_regions"></a>
+## Regions / macro scale isolation
 There are many global regions. Usually > 100s of KM apart. 
 Example - us-east-1, eu-central-1 etc
 
-## Availability Zones / Fault isolation domains <a name="aws_azs"></a>
+## Availability Zones / Fault isolation domains
 Each region has multiple AZs. AZ names follow similar format as regions, but end with a letter.
 Example - us-east-1a, us-east-1b, us-east-1c, us-east-1d etc.
 
 Each AZ is usually one or more physical datacenters with the region. 
 They are far enough that they are not impacted by local events. They are close enough to support high performance networking between these AZs, and fault isolation.
 
-## Edge Infrastructure <a name="aws_edge"></a>
+## Edge Infrastructure
 Smaller pockets of infrastructure distributed globally accross major cities. AWS selects major data centers in those major urban areas and put in an edge location.
 Usually contains storage and content distribution functionality. This also provides edge based compute capability that usually allow with certain services such as CloudFront, abillity to distribute or cache content at the edge to improve user experience
 Cannot be used to deploy a EC2/RDS instances. 
@@ -105,12 +108,12 @@ Cannot be used to deploy a EC2/RDS instances.
 [Top](#table-of-contents-)
 * * * 
 
-## Differences between High availability, Fault Tolerance, and Disaster Recovery <a name="aws_ha_ft_dr"></a>
+## Differences between High availability, Fault Tolerance, and Disaster Recovery
 * High availability: It is not ability to remove failure, but rather the ability to recover from it. Minimise availability issues/Quickly recover from a failure.
 * Fault Tolerance: Have multiple redundancy so that a major failure can be effectively handled by another instance. This is becomes important in failures that are not easily recoverable (due a natural disaster). This usually is very expensive due to various technologies required for the orchestration.
 * Disaster Recovery: Solely concerned with protecting the critical system data so that you can use that to recreate a working system. This is designed to occur when none of the processes work. Must be always planned for irrespective of the system being designed.
 
-### Use cases <a name="aws_ha_ft_dr_usecase"></a>
+### Use cases
 * If you are asked to implement a high available and you actually implement fault tolerant system, it will cost the business more that it needs to.
 * If you are asked to implement a fault tolerant system and you actually implement a highly available system it could actually put people's careers/lives at risk.
 
@@ -133,7 +136,7 @@ Here Air force pilot is an important asset that can be protected by ejecting out
 * * * 
 [Top](#table-of-contents-)
 * * * 
-## Disaster Recovery <a name="aws_dr"></a>
+## Disaster Recovery
 It is all about how to be build systems highly available, fault tolerance, provide good performance and also can recover in the event of a disaster.
 
 * Recovery Point Objective (RPO)
@@ -150,7 +153,7 @@ It is important to understand how each AWS service/product supports RPO/RTO.
 * * *
 [Top](#table-of-contents-)
 * * * 
-## Data Persistence <a name="aws_data_persistence"></a>
+## Data Persistence
 
 Picking a correct type of storage is both important from a risk perspective and performance perspective.
 
@@ -173,7 +176,7 @@ Example: Amazon Simple Queue Service (SQS)
 * * * 
 [Top](#table-of-contents-)
 * * * 
-## OSI Model <a name="aws_osi_model"></a>
+## OSI Model
 
 [Wiki](https://en.wikipedia.org/wiki/OSI_model) for 7 layer OSI model.
 
@@ -193,8 +196,8 @@ No | Layer | Protocol data unit (PDU) | Function
 * * * 
 [Top](#table-of-contents-)
 * * * 
-# Accounts <a name="aws_accounts"></a>
-## Identity and Acess Management(IAM) Overview <a name="aws_iam"></a>
+# Accounts
+## Identity and Acess Management(IAM) Overview
 
 Allows to control access to AWS services and resources. It manages identities and allows permissions to those entities. As a global service the pool of identities is shared accross all regions.
 
@@ -247,7 +250,8 @@ A root user account by default has all permissions on AWS, but it is highly reco
 * * *
 [Top](#table-of-contents-)
 * * * 
-## Identity and Resource Policies <a name="aws_iam_policies"></a>
+## Identity and Resource Policies
+
 ### Identity policy
 An IAM policy is basically a JSON file consisting statements. Usually a statement consisting of 3 key-value pairs.
 * Effect - Determines whether the access is allowed or denied
@@ -283,7 +287,8 @@ IAM Policy ->  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici
 * * * 
 [Top](#table-of-contents-)
 * * * 
-## IAM Roles and Temporary Security Credentials <a name="aws_iam_roles"></a>
+## IAM Roles and Temporary Security Credentials 
+
 ## IAM roles
 * Role is not a user that you login to
 * Does not have long term access credentials
@@ -303,13 +308,13 @@ It is recommended to use IAM cross-account roles as a general practice.
 [Top](#table-of-contents-)
 * * * 
 ## AWS Accounts and AWS Organizations
-### AWS Organization <a name="aws_org"></a>
+### AWS Organization
 * Is a service that lets you consolidate multiple AWS accounts in to a single organization - a master account/root container.
 * This makes billing and permissions easier and allows for the creation of managed accounts. 
 * Can be further split in to Organization units(OU) which contains accounts - like one OU for each business unit.
 * Can be operated in either 'Consolidated Billing' or 'All Features' mode.
 * * * 
-### Service Control Policies <a name="aws_scp"></a>
+### Service Control Policies
 Service control policies when applied directly or indirectly to AWS accounts define what actions can be performed on what services within that account.
 These policies do not actually grant the permissions. They only restrict what you can do if you have permissions. Usually can be used to whitelist or blacklist services.
 
@@ -324,7 +329,7 @@ If multiple SCPs apply to an account, only the overlap of those SCPs is permitte
 * * *
 [Top](#table-of-contents-)
 * * * 
-### AWS Account Limits/Service Quotas <a name="aws_acc_limits"></a>
+### AWS Account Limits/Service Quotas
 This details the cut-off limits that AWS service supports. Most of these are hard cut-offs that play a crucial role in determining system design.
 
 #### AWS Documentation
@@ -334,7 +339,7 @@ IAM and STS limits -> https://docs.aws.amazon.com/IAM/latest/UserGuide/reference
 * * *
 [Top](#table-of-contents-)
 * * * 
-### AWS Support Tiers <a name="aws_supp_tiers"></a>
+### AWS Support Tiers
 There are 3 support plans apart from Basic free tien plan.
 * Developer
    1. POCs/Experiments & Explore solutions
@@ -357,7 +362,7 @@ https://aws.amazon.com/premiumsupport/plans/
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### AWS Config <a name="aws_config"></a>
+### AWS Config
 AWS configuration management system - a managed AWS service that gives detailed view of the configuration of AWS resources(EC2, EBS, VPC etc.
 
 Provides - 
@@ -375,7 +380,7 @@ Key Terms -
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### AWS Service Catalog <a name="aws_service_catalog"></a>
+### AWS Service Catalog
 Provides the abilit to implements IT Service Catalog in AWS. Usually used for larger organizations that have formal IT processes.
 
 Service Catalog is a product which allows administrators to define products and portfolios(groups of products and configuration). Users can be allowed to self-service deploy these products without the usual IAM permissions required to do so directly with AWS services. 
@@ -387,7 +392,7 @@ https://docs.aws.amazon.com/servicecatalog/latest/adminguide/getstarted-iamendus
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws_billing"></a>
+### Resource Billing Modes: On-Demand, Reserved, and Spot
 AWS provides three billing models.
    * On-demand
       1) Default AWS billing Model. 
@@ -421,7 +426,7 @@ https://github.com/open-guides/og-aws#billing-and-cost-management <br />
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### Identity Federation <a name="aws_id_fed"></a>
+### Identity Federation
 Identity fedaration bridges two security domains. AWS account is a separate security domain.
 
 Internal AWS identity fedaration between master account and user account:
@@ -434,17 +439,17 @@ Google, Facebook, Twitter are external identity providers(IDPs). They identiy an
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### IAM Permissions Boundaries <a name="aws_iam_permissions"></a>
+### IAM Permissions Boundaries
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### Policy Evaluation Logic <a name="aws_policy_eval"></a>
+### Policy Evaluation Logic
 * * * 
 [Top](#table-of-contents-)
 * * * 
 
-## Networking in AWS: Virtual Private Clouds (VPCs) <a name="aws_vpc_main"></a>
-### VPC Basics <a name="aws_vpc_basics"></a>
+## Networking in AWS: Virtual Private Clouds (VPCs)
+### VPC Basics
 * Use VPC to create any private isolated networks domains.
 VPC - foundational network elements in AWS.
 
@@ -491,7 +496,7 @@ This is not a hard rule and a new subnet should be created as required.
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### AWS Resource Access Manager(RAM) <a name="aws_vpc_ram"></a>
+### AWS Resource Access Manager(RAM)
 A service that allows the sharing of AWS resources between accounts (VPC owner vs VPC participant).
 
 * Enable sharing within your organization in RAM before sharing any resources between accounts - handshake is not required.
@@ -512,7 +517,7 @@ VPC participant - responsibility of only resources created by participants. All 
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### VPC Routing <a name="aws_vpc_router"></a>
+### VPC Routing
 VPC Router - 
 * Every VPC has a VPC router - default gateway for VPC
 * Occupies on ip address on every single subnet in the VPC(network + 1 address).
@@ -524,7 +529,7 @@ VPC Router -
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### Network Access Control Lists (NACLs) <a name="aws_nacl"></a>
+### Network Access Control Lists (NACLs)
 NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or leaving the subnet. NACLs are STATELESS which means ephemeral port rules are required to allow 'response' traffic.
 * A subnet can have one associated NACLs acting as a barrier between VPC and its subnet.
 * VPCs have a defailt NACLS associated with any subnets in that VPC by default.
@@ -541,7 +546,7 @@ NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or 
 [Top](#table-of-contents-)
 * * * 
   
-### Security Groups (SG)<a name="aws_sg"></a>
+### Security Groups (SG)
 
 SG companion security filtering products in AWS, applied to networks inside VPC. SGa are applied to network resources and effect the traffic coming in/to them.
 
@@ -554,7 +559,7 @@ SG companion security filtering products in AWS, applied to networks inside VPC.
 [Top](#table-of-contents-)
 * * * 
   
-### Public vs Private Subnets, Internet Gateways, and IP addressing <a name="aws_networks"></a>
+### Public vs Private Subnets, Internet Gateways, and IP addressing
 
 * A private subnet is a subnet with default configuration. It cannot communicate with public internet or AWS public zone networks.
 * A public subnet requires the VPC to be able to connect to internet gateway (you have to create a internet gateway and attach to VPC) and should have custom route table with default traffic allowed for internet gateway.
@@ -592,7 +597,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
   
-### DNS in a VPC <a name="aws_dns_vpc"> </a>
+### DNS in a VPC
 
 * The Network+2(DNS server) reserved address is called R53 Resolver - and is accessible only with in a VPC.
 * Thus DNS server is not accessible outside the VPC to any on premise servers through VPN connection or direct connection.
@@ -604,7 +609,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
 
-### VPC Flow Logs <a name="aws_vpc_flowlogs"> </a>
+### VPC Flow Logs
 
 * Provides network traffic visibility (logging and monitoring toolset).
 * Stores only Metadata, but not application data.
@@ -619,7 +624,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
   
-### Using VPC Endpoints <a name="aws_vpc_endpoints"></a>
+### Using VPC Endpoints
 * VPC endpoints come in handy where you do not want any of you subnets/VPC instances to have access to public/internet networks.
 * VPC endpoints allow services to be injected in to your VPC via a virtual devide in your VPC.
 * VPC endpoints come in two types - Interface endpoints and Gateway endpoints - which you select will depend on the service you wish to allow.
@@ -631,7 +636,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
 
-### Peering VPCs <a name="aws_vpc_peering"></a>
+### Peering VPCs
 
 * VPC peering connections allow communication between isolated VPCs. They work fully-featured across accounts, and in a feature-limited way between AWS regions.
 * VPC peering connections are created as logical objects - and require route table entries at both sides.
@@ -659,7 +664,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
 
-### AWS Site-to-Site VPN <a name="aws_s2s_vpn"></a>
+### AWS Site-to-Site VPN 
 
 * Product set allows to configure hardware based VPN connection between on-prem networks and VPCs.
 * Provides fully encrypted communication channels.
@@ -673,19 +678,53 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
 
-### AWS Direct Connect Architecture <a name="aws_dca"></a>
+### AWS Direct Connect Architecture 
 
 * * * 
 [Top](#table-of-contents-)
 * * * 
   
-### AWS Transit Gateway <a name="aws_tg"></a>
+### AWS Transit Gateway
 
 * * * 
 [Top](#table-of-contents-)
 * * * 
 
-### Hello there
+## Security
+
+### Account and Service Security
+
+#### AWS Key Management(KMS)
+* This is a part of IAM that manages Security keys for AWS.
+* Provides role seperation.
+* Generates and manages Customer Master Keys(CMK), using which KMS encrypt and decrypt small amounts of data up to 4kb.
+* CMKs are logical representation of a key. CMKs can be generated or imported by KMS.
+* KMS is a region specific service and CMKs never leave KMS and never leave a region.
+* Access to CMK is only through KMS apis, and is controlled by Security roles.
+* KMS uses CMK to access Data Encryption Key for encryption/decryption of the objects.
+* Supports FIPS 140-2 - cryptographic specifications.
+
+**AWS Documentation**
+[Importing Keys](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) <br>
+[Envelope Encryptions](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping) <br>
+[Protecting Encrypted Data Integrity](https://aws.amazon.com/blogs/security/how-to-protect-the-integrity-of-your-encrypted-data-by-using-aws-key-management-service-and-encryptioncontext/)<br>
+[Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html)<br>
+[Compliance](https://aws.amazon.com/kms/features/#compliance)
+
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+#### AWS CloudHSM
+
+* Provides hardware security modules.
+* Runs within your VPC, accessible only to you in a single tenant architecture.
+* Supports PKCS#11, Java Cryptography Extensions(JCE), Microsoft CryptoNG(CNG), while KMS does not support.
+* Keys can be transferred between CloudHSM and other hardware solutions(on premises). Keys are shared between cluster members.
+* Not High Avaiable unless multiple HSM's are provisioned.
+* Supports FIPS 140-2 and FIPS 140-3 - cryptographic specifications.
+* On-premises HSM - for if you really need to control your own physical hardware.
 
 * * * 
 [Top](#table-of-contents-)
