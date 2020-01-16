@@ -22,6 +22,8 @@
 * For R - Does not need any special libraries.
 
 ### Importing Dataset
+data.csv file is the ![dataset](https://github.com/karthikkappagantula/my_tech_notes/blob/master/machine_learning/resources/Screenshot%202020-01-16%20at%2010.41.46%20PM.png?raw=true)
+
 
 **Before importing dataset, you have to set the current working directory in Spyder/Rstudio**
 * For Python
