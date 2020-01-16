@@ -1,51 +1,67 @@
 ##### Linux Academy Presentation - https://interactive.linuxacademy.com/diagrams/OrionPapersPro.html <br />
 
-# Table of contents <br />
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+- [AWS Essentials <a name="aws_essentials"></a>](#aws-essentials)
+  - [AWS Accounts <a name="aws_accounts"></a>](#aws-accounts)
+  - [Regions / macro scale isolation <a name="aws_regions"></a>](#regions--macro-scale-isolation)
+  - [Availability Zones / Fault isolation domains <a name="aws_azs"></a>](#availability-zones--fault-isolation-domains)
+  - [Edge Infrastructure <a name="aws_edge"></a>](#edge-infrastructure)
+    - [Usual practices](#usual-practices)
+  - [Differences between High availability, Fault Tolerance, and Disaster Recovery <a name="aws_ha_ft_dr"></a>](#differences-between-high-availability-fault-tolerance-and-disaster-recovery)
+    - [Use cases <a name="aws_ha_ft_dr_usecase"></a>](#use-cases)
+        - [Examples:](#examples)
+  - [Disaster Recovery <a name="aws_dr"></a>](#disaster-recovery)
+  - [Data Persistence <a name="aws_data_persistence"></a>](#data-persistence)
+    - [Types of Storage -](#types-of-storage)
+  - [OSI Model <a name="aws_osi_model"></a>](#osi-model)
+- [Accounts <a name="aws_accounts"></a>](#accounts)
+  - [Identity and Acess Management(IAM) Overview <a name="aws_iam"></a>](#identity-and-acess-managementiam-overview)
+    - [IAM Security Token Service(STS)](#iam-security-token-servicests)
+      - [When to use STS:](#when-to-use-sts)
+  - [Identity and Resource Policies <a name="aws_iam_policies"></a>](#identity-and-resource-policies)
+    - [Identity policy](#identity-policy)
+    - [Resource policy](#resource-policy)
+      - [Important points:](#important-points)
+      - [AWS official documents](#aws-official-documents)
+  - [IAM Roles and Temporary Security Credentials <a name="aws_iam_roles"></a>](#iam-roles-and-temporary-security-credentials)
+  - [IAM roles](#iam-roles)
+  - [Cross-Account Access: Resource Permissions vs. Cross-Account Roles](#cross-account-access-resource-permissions-vs-cross-account-roles)
+  - [AWS Accounts and AWS Organizations](#aws-accounts-and-aws-organizations)
+    - [AWS Organization <a name="aws_org"></a>](#aws-organization)
+    - [Service Control Policies <a name="aws_scp"></a>](#service-control-policies)
+    - [AWS Account Limits/Service Quotas <a name="aws_acc_limits"></a>](#aws-account-limitsservice-quotas)
+      - [AWS Documentation](#aws-documentation)
+    - [AWS Support Tiers <a name="aws_supp_tiers"></a>](#aws-support-tiers)
+      - [AWS Documentation](#aws-documentation-1)
+    - [AWS Config <a name="aws_config"></a>](#aws-config)
+    - [AWS Service Catalog <a name="aws_service_catalog"></a>](#aws-service-catalog)
+      - [AWS documentation](#aws-documentation-2)
+    - [Resource Billing Modes: On-Demand, Reserved, and Spot<a name="aws_billing"></a>](#resource-billing-modes-on-demand-reserved-and-spot)
+    - [Identity Federation <a name="aws_id_fed"></a>](#identity-federation)
+    - [IAM Permissions Boundaries <a name="aws_iam_permissions"></a>](#iam-permissions-boundaries)
+    - [Policy Evaluation Logic <a name="aws_policy_eval"></a>](#policy-evaluation-logic)
+  - [Networking in AWS: Virtual Private Clouds (VPCs) <a name="aws_vpc_main"></a>](#networking-in-aws-virtual-private-clouds-vpcs)
+    - [VPC Basics <a name="aws_vpc_basics"></a>](#vpc-basics)
+      - [Connection between VPCs](#connection-between-vpcs)
+      - [Useful links](#useful-links)
+    - [AWS Resource Access Manager(RAM) <a name="aws_vpc_ram"></a>](#aws-resource-access-managerram)
+      - [AWS documentation](#aws-documentation-3)
+    - [VPC Routing <a name="aws_vpc_router"></a>](#vpc-routing)
+    - [Network Access Control Lists (NACLs) <a name="aws_nacl"></a>](#network-access-control-lists-nacls)
+    - [Security Groups (SG)<a name="aws_sg"></a>](#security-groups-sg)
+    - [Public vs Private Subnets, Internet Gateways, and IP addressing <a name="aws_networks"></a>](#public-vs-private-subnets-internet-gateways-and-ip-addressing)
+    - [DNS in a VPC <a name="aws_dns_vpc"> </a>](#dns-in-a-vpc)
+    - [VPC Flow Logs <a name="aws_vpc_flowlogs"> </a>](#vpc-flow-logs)
+    - [Using VPC Endpoints <a name="aws_vpc_endpoints"></a>](#using-vpc-endpoints)
+    - [Peering VPCs <a name="aws_vpc_peering"></a>](#peering-vpcs)
+      - [Limitations and Considerations](#limitations-and-considerations)
+    - [AWS Site-to-Site VPN <a name="aws_s2s_vpn"></a>](#aws-site-to-site-vpn)
+    - [AWS Direct Connect Architecture <a name="aws_dca"></a>](#aws-direct-connect-architecture)
+    - [AWS Transit Gateway <a name="aws_tg"></a>](#aws-transit-gateway)
+    - [Hello there](#hello-there)
+   
 
-1. [AWS Essentials](#aws_essentials)<br />
-    * [Accounts](#aws_accounts)<br />
-    * [Regions](#aws_regions)<br />
-    * [Availability Zones](#aws_azs)<br />
-    * [Edge Infrastructure](#aws_edge)<br />
-    * [HA, FT, DR](#aws_ha_ft_dr)<br />
-    * [Use cases](#aws_ha_ft_dr_usecase)<br />
-    * [Disaster Recovery](#aws_dr)<br />
-    * [Data Persistence](#aws_data_persistence)<br />
-    * [OSI 7-layer Networking Model](#aws_osi_model)<br />
-* * *
-[Top](#table-of-contents-)
-* * *
-2. [Accounts](#aws_accounts)<br />
-    * [IAM Overview](#aws_iam)<br />
-    * [IAM Identity and Resource Policies](#aws_iam_policies)<br />
-    * [IAM Roles and Temporary Security Credentials](#aws_iam_roles)<br />
-    * [AWS accounts and Organizations](#aws_org)<br />
-    * [Service Control Policies](#aws_scp)<br />
-    * [AWS Account Limits](#aws_acc_limits)<br />
-    * [AWS Support Tiers](#aws_supp_tiers)<br />
-    * [AWS Config](#aws_config)<br />
-    * [AWS Service Catalog](#aws_service_catalog)<br />
-    * [Resource Billing Modes: On-Demand, Reserved, and Spot](#aws_billing)<br />
-    * [Identity Federation](#aws_id_fed) <br />
-    * [IAM Permissions Boundaries](#aws_iam_permissions) <br />
-    * [Policy Evaluation Logic](#aws_policy_eval) <br />
-* * *
-[Top](#table-of-contents-)
-* * *
-3. [Networking in AWS: Virtual Private Clouds(VPCs)](#aws_vpc_main)<br />
-   * [VPC Basics](#aws_vpc_basics)<br />
-   * [AWS Resource Access Manager(RAM)](#aws_vpc_ram)<br />
-   * [VPC Router](#aws_vpc_router)<br>
-   * [Network Access Control Lists(NACLs)](#aws_nacl)<br>
-   * [Security Groups(SGs)](#aws_sg)<br>
-   * [Public vs Private Subnets, Internet Gateways, and IP addressing](#aws_networks)<br>
-   * [DNS in a VPC](#aws_dns_vpc)<br>
-   * [VPC Flow Logs](#aws_vpc_flowlogs)<br>
-   * [Using VPC Endpoints](#aws_vpc_endpoints)<br>
-   * [Peering VPCs](#aws_vpc_peering)<br>
-   * [AWS Site-to-Site VPN](#aws_s2s_vpn)<br>
-   * [AWS Direct Connect Architecture](#aws_dca)<br>
-   * [AWS Transit Gateway](#aws_tg)<br>
    
 * * *
 [Top](#table-of-contents-)
@@ -649,8 +665,8 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * Provides fully encrypted communication channels.
 * Contains 3 components:
   * Customer Gateway - physical hardware at on-prem side that allows static/dynamic routing.
-  * Virtual Private Gateway -
-  * VPN Connections - 
+  * Virtual Private Gateway - egree only gateway attached to a VPC.
+  * VPN Connections - occurs between Customer gateways and Virtual Private Gateways.
 
 
 * * * 
@@ -664,6 +680,12 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
   
 ### AWS Transit Gateway <a name="aws_tg"></a>
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### Hello there
 
 * * * 
 [Top](#table-of-contents-)
