@@ -63,6 +63,10 @@
     - [Account and Service Security](#account-and-service-security)
       - [AWS Key Management(KMS)](#aws-key-managementkms)
       - [AWS CloudHSM](#aws-cloudhsm)
+      - [AWS Certificate Management(ACM)](#aws-certificate-managementacm)
+      - [AWS Directory Service](#aws-directory-service)
+    - [Network Security](#network-security)
+      - [AWS Direct Connect Architecture](#aws-direct-connect-architecture-1)
    
 
    
@@ -718,13 +722,102 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 
 #### AWS CloudHSM
 
-* Provides hardware security modules.
+* Provides hardware security modules. KMS under the hood uses HSMs.
+* CloudHSM is dedicated HSM which runs within your VPC, accessible only to you in a single tenant architecture.
 * Runs within your VPC, accessible only to you in a single tenant architecture.
 * Supports PKCS#11, Java Cryptography Extensions(JCE), Microsoft CryptoNG(CNG), while KMS does not support.
 * Keys can be transferred between CloudHSM and other hardware solutions(on premises). Keys are shared between cluster members.
 * Not High Avaiable unless multiple HSM's are provisioned.
 * Supports FIPS 140-2 and FIPS 140-3 - cryptographic specifications.
 * On-premises HSM - for if you really need to control your own physical hardware.
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+#### AWS Certificate Management(ACM)
+* Manages X509 v3 SSL/TSL certificates.
+* Certificates, containing public keys, are used in connecting to any https traffic that authorizes the access. (Private half of keys are held at web servers)
+* ACM integrates with other AWS services and generates certificates that are valid for 13 months.
+* No associated costs with Certificates - only the resources they are used with
+* Certificates are automatically renewed when actively used within supported services.
+* Native integration with ELB, CloudFront, AWS Elastic Beanstalk & API Gateway.
+* Integrates with Route53 to perform DNS checks as part of certificate issuing process.
+* ACM is regional - certificates can be applied to serviecs in that region.
+* KMS is used - certificates are never stored unencrypted.
+
+[AWS documentation](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+#### AWS Directory Service
+
+* Group of products which include Amazon Cloud Directory, Microsoft(MS) Active Directory, Simple AD, AD connector and Amazon Cognito.
+  
+  | Directory Type | Features & Patterns | Anti-Patters |
+  | :------------ |:-------------| :-----|
+  | Simple AD | * Low cost basic directory service <br> * Integrates with AWS for SSO, and EC2/workspaces | * Cut-down version of MS AD directory. <br> * More complete enterprise apps won't work. <br> * Does not support TRUST relationships with MS AD |
+  | MS Active Directory | * HA by design, running in multiple AZs | * Not suitable for large scale application. <br> * Expensive than Simple AD. <br> * Use only if MS based AD is required. |
+  | AD Connector | * Proxy bridging between AWS Services and existing on-premise AD. <br> * Allows EC2 and Workspaces to integrate with on-premise AD | * In isolation provides NO authentication/authorization or directory services <br> * Requires an existing implementation |
+  | Amazon Cognito | * Supports ID federation, user pool management, sign-on and more for web and mobile applications | * Not suited for traditional AD serviecs usage. <br> * Does not integrate with services in the same way |
+  | Amazon Cloud Directory | * Graph based store of information. <br> * Manages object information, relationships, and schema management | * Not really suited to any workloads which manage 'users/groups' or 'identities' |
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### Network Security
+
+#### AWS Direct Connect Architecture
+* A service that provides a dedicated network connection between on-premise network and one of the AWS direct connect locations.
+* Done through authorized Direct Connect Provider (e.g. ATT Netbond)
+* An AWS direct connect location provides ability to access VPCs in the AWS region it is associated with.
+* Access to public service endpoints in all regions.
+
+**Benefits**
+* Reduces network costs
+  * Reduces bandwidth commitment to corporate ISP over public internet.
+  * Data transfer cost is billed at a lower rate by Amazon.
+* Increased network consistency
+  * Dedicated private connections reduce latency
+* Dedicated private network connection to on-premise
+  * Connect direct connect connection to a VGW in your VPC for a dedicated private connection from on-premise to VPC.
+  * Ability to bypass using bastion hosts for managing private resources.
+  * Use multiple VIF(Virtual Interfaces) to connect to multiple VPCs.
+
+**AWS documentation**
+[Userguide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+[Multiple Data Center HA Network Connectivity](https://aws.amazon.com/answers/networking/aws-multiple-data-center-ha-network-connectivity/)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
 
 * * * 
 [Top](#table-of-contents-)
