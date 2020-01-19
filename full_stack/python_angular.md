@@ -1,24 +1,14 @@
 # Table of Contents
+
 - [Table of Contents](#table-of-contents)
   - [Installing dependencies](#installing-dependencies)
-- [create the project root directory](#create-the-project-root-directory)
-- [move into it](#move-into-it)
-- [initialize it as a Git repository](#initialize-it-as-a-git-repository)
-- [create directory to hold backend source code](#create-directory-to-hold-backend-source-code)
-- [move into it](#move-into-it-1)
-- [initialize the virtual environment](#initialize-the-virtual-environment)
-- [create directories](#create-directories)
-- [create file to mark src as a module](#create-file-to-mark-src-as-a-module)
-- [create file to mark entities as a module](#create-file-to-mark-entities-as-a-module)
-- [create file to hold some boilerplate code](#create-file-to-hold-some-boilerplate-code)
-- [activate virtual environment](#activate-virtual-environment)
-- [run main module](#run-main-module)
-    - [Exams:](#exams)
+    - [Managing HTTP Requests with Flask](#managing-http-requests-with-flask)
   - [Citations](#citations)
+  
 
 ## Installing dependencies
 
-* Follow below steps to get started on this full stack how-to notes for develop using Python, Flask, and Angular to build a web application based on a modern architecture.
+Follow below steps to get started on this full stack how-to notes for develop using Python, Flask, and Angular to build a web application based on a modern architecture.
   
 
 1. **pipenv** tool 
@@ -45,28 +35,28 @@
 1. Create a directory to hold all the frontend and the backend source code of your app, and initialize git repository.
    
    ```
-   # create the project root directory
+   #create the project root directory
    mkdir online-exam
 
-   # move into it
+   #move into it
    cd online-exam
 
-   # initialize it as a Git repository 
+   #initialize it as a Git repository 
    git init
    ```
 2. Create a directory for backend application.
    
    ```
-   # create directory to hold backend source code
+   #create directory to hold backend source code
    mkdir backend
 
-   # move into it
+   #move into it
    cd backend
    ```
 3. Create virtual environment using **pipenv**
    
    ```
-   # initialize the virtual environment
+   #initialize the virtual environment
    pipenv --three
    ```
 4. Create .gitignore file in the project root directory and copy the rules from this [URL](https://raw.githubusercontent.com/auth0-blog/online-exam/master/.gitignore)
@@ -80,29 +70,29 @@
 5. Use below command to install ```sqlalchemy``` and ```psycog2-binary```.
 
     ```
-    # install sqlalchemy and psycopg2 on the venv
+    #install sqlalchemy and psycopg2 on the venv
     pipenv install sqlalchemy psycopg2-binary
     ```
 6. Create entities as below. The last touch command creates the file that will hold a class called Entity. You will use this class as the superclass to all your entities. This will be useful to avoid having to repeat some boilerplate code to connect to the database and to define some common properties (e.g. id and created_at)
    
    ```
-   # create directories
+   #create directories
    mkdir -p src/entities
 
-   # create file to mark src as a module
+   #create file to mark src as a module
    touch src/__init__.py
 
-   # create file to mark entities as a module
+   #create file to mark entities as a module
    touch src/entities/__init__.py
 
-   # create file to hold some boilerplate code
+   #create file to hold some boilerplate code
    touch src/entities/entity.py
    ```
 
 7. Use boiler plate code in entity.py to connect to the database and to define some common properties (e.g. id and created_at)
 
     ```
-    # coding=utf-8
+    #coding=utf-8
 
     from datetime import datetime
     from sqlalchemy import create_engine, Column, String, Integer, DateTime
@@ -140,7 +130,7 @@
 9. Insert following code.
    
    ```
-    # coding=utf-8
+    #coding=utf-8
 
     from sqlalchemy import Column, String
 
@@ -168,32 +158,32 @@
     ```
 
     ```
-    # coding=utf-8
+    #coding=utf-8
 
     from .entities.entity import Session, engine, Base
     from .entities.exam import Exam
 
-    # generate database schema
+    #generate database schema
     Base.metadata.create_all(engine)
 
-    # start session
+    #start session
     session = Session()
 
-    # check for existing data
+    #check for existing data
     exams = session.query(Exam).all()
 
     if len(exams) == 0:
-        # create and persist dummy exam
+        #create and persist dummy exam
         python_exam = Exam("SQLAlchemy Exam", "Test your knowledge about SQLAlchemy.", "script")
         session.add(python_exam)
         session.commit()
         session.close()
 
-    # reload exams
+    #reload exams
     exams = session.query(Exam).all()
 
-    # show existing exams
-    print('### Exams:')
+    #show existing exams
+    print('###Exams:')
     for exam in exams:
         print(f'({exam.id}) {exam.title} - {exam.description}')
     ```
@@ -208,10 +198,10 @@
 11. To run this script main.py, you will have to activate the virtual environment (created by pipenv) then use python to trigger the src.main module.
 
 ```
-# activate virtual environment
+#activate virtual environment
 pipenv shell
 
-# run main module
+#run main module
 python -m src.main
 ```
 
@@ -231,11 +221,12 @@ To update your account to use zsh, please run `chsh -s /bin/zsh`.
 For more details, please visit https://support.apple.com/kb/HT208050.
 bash-3.2$  . /Users/karthikkappagantula/.local/share/virtualenvs/backend-zD0mafRO/bin/activate
 (backend) bash-3.2$ python -m src.main
-### Exams:
+###Exams:
 (1) SQLAlchemy Exam - Test your knowledge about SQLAlchemy.
 (backend) bash-3.2$ 
 ```
 
+### Managing HTTP Requests with Flask
 
 ## Citations
 [Source content](https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/)<br>
