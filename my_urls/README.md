@@ -5,6 +5,7 @@
   - [Cloud URLs](#cloud-urls)
   - [Devops URLs](#devops-urls)
     - [Github related](#github-related)
+    - [Docker](#docker)
   - [Unix/Linux URLs](#unixlinux-urls)
   - [Agile URLs](#agile-urls)
   - [Python/R URLs](#pythonr-urls)
@@ -14,6 +15,9 @@
   - [Regular Expression/regex URLs <a name="regex_urls"></a>](#regular-expressionregex-urls)
   - [Markdown URLs](#markdown-urls)
   - [Other URLs<br />](#other-urlsbr)
+  - [How-tos and Solutions](#how-tos-and-solutions)
+    - [Python, FLask and Angular Demo](#python-flask-and-angular-demo)
+
 
 * * *
 [Top](#table-of-contents-)
@@ -53,6 +57,15 @@ Guides included -
 * * *
 [Top](#table-of-contents-)
 * * *
+
+### Docker
+[Docker Doodles](https://github.com/docker/doodle)
+
+* * *
+[Top](#table-of-contents-)
+* * *
+
+
 ## Unix/Linux URLs
 
 * * *
@@ -69,6 +82,8 @@ Guides included -
 [Python Math Module](https://docs.python.org/3/library/math.html)<br>
 [Python Module Index](https://docs.python.org/3/py-modindex.html)<br>
 [Python Package Index](https://pypi.org/)<br>
+
+[Pipenv](https://pipenv.kennethreitz.org/en/latest/)
 
 * * *
 ### R
@@ -103,3 +118,13 @@ b. [Markdown](#markdown_urls)<br />
 * * *
 [Top](#table-of-contents-)
 * * *
+
+## How-tos and Solutions
+
+### Python, FLask and Angular Demo
+
+*a blog from auth0*
+[How to create modern web applications with Python, Flask, and Angular](https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/)
+
+*a blog about SQLAlchemy*
+[SQLAlchemy ORM Tutorial for Python Developers](https://auth0.com/blog/sqlalchemy-orm-tutorial-for-python-developers/)
