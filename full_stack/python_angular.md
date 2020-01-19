@@ -2,6 +2,8 @@
 
 - [Table of Contents](#table-of-contents)
   - [Installing dependencies](#installing-dependencies)
+  - [Bootstraping Python application](#bootstraping-python-application)
+    - [Managing Entities with SQLAlchemy ORM](#managing-entities-with-sqlalchemy-orm)
     - [Managing HTTP Requests with Flask](#managing-http-requests-with-flask)
   - [Citations](#citations)
   
@@ -11,24 +13,27 @@
 Follow below steps to get started on this full stack how-to notes for develop using Python, Flask, and Angular to build a web application based on a modern architecture.
   
 
-1. **pipenv** tool 
-   Install pipenv using following in terminal
+1. **pipenv** tool - Install pipenv using following in terminal
    ``` 
    pip install pipenv 
    ```
 2. [Install Docker](https://docs.docker.com/install/) and run below docker run command to create database in local.
-   ```
+   <pre>
    docker run --name online-exam-db \
     -p 5432:5432 \
     -e POSTGRES_DB=online-exam \
     -e POSTGRES_PASSWORD=0NLIN3-ex4m \
     -d postgres
-    ```
+    </pre>
 3. Install **node** and **npm** from [nodejs](https://nodejs.org/en/download/)
 4. Install angular cli using below command from terminal
    ```
    npm install -g @angular/cli
    ```
+
+***
+[Top](#table-of-contents)
+***
 
 ## Bootstraping Python application
 
@@ -60,6 +65,10 @@ Follow below steps to get started on this full stack how-to notes for develop us
    pipenv --three
    ```
 4. Create .gitignore file in the project root directory and copy the rules from this [URL](https://raw.githubusercontent.com/auth0-blog/online-exam/master/.gitignore)
+
+***
+[Top](#table-of-contents)
+***
 
 ### Managing Entities with SQLAlchemy ORM
 
@@ -151,6 +160,7 @@ Follow below steps to get started on this full stack how-to notes for develop us
 
    Here, you are defining a class called Exam that inherits from Entity and from Base. This entity contains, besides the properties defined by its superclasses, two properties: title and description. Besides that, this class also defines that instances of it must be persisted to and retrieved from a table called exams.
 
+
 10.  Create a script called main.py in the src directory to test if they are really connecting to the database.
 
     ```
@@ -226,7 +236,107 @@ bash-3.2$  . /Users/karthikkappagantula/.local/share/virtualenvs/backend-zD0mafR
 (backend) bash-3.2$ 
 ```
 
+***
+[Top](#table-of-contents)
+***
+
 ### Managing HTTP Requests with Flask
+
+1. Now that your app is connected to a database, it's time to transform it into a Flask web application. To do so, the first thing you will need is to install **flask** and **marshamallow**
+
+```
+pipenv install flask marshmallow
+```
+
+2. Update exam.py as follows:
+   
+<pre>
+#coding=utf-8
+
+from marshmallow import Schema, fields
+
+#... other import statements ...
+
+#... Exam class definition ...
+
+class ExamSchema(Schema):
+    id = fields.Number()
+    title = fields.Str()
+    description = fields.Str()
+    created_at = fields.DateTime()
+    updated_at = fields.DateTime()
+    last_updated_by = fields.Str()
+</pre>
+
+In the new version of this file, you are using the Schema class of marshmallow to define a new class called ExamSchema. You will use this class to transform instances of Exam into JSON objects.
+
+3. After defining ExamSchema, you can refactor the ./src/main.py file to expose two endpoints.
+
+<pre>
+#coding=utf-8
+
+from flask import Flask, jsonify, request
+
+from .entities.entity import Session, engine, Base
+from .entities.exam import Exam, ExamSchema
+
+#creating the Flask application
+app = Flask(__name__)
+
+#if needed, generate database schema
+Base.metadata.create_all(engine)
+
+
+@app.route('/exams')
+def get_exams():
+    #fetching from the database
+    session = Session()
+    exam_objects = session.query(Exam).all()
+
+    #transforming into JSON-serializable objects
+    schema = ExamSchema(many=True)
+    exams = schema.dump(exam_objects)
+
+    #serializing as JSON
+    session.close()
+    return jsonify(exams.data)
+
+
+@app.route('/exams', methods=['POST'])
+def add_exam():
+    #mount exam object
+    posted_exam = ExamSchema(only=('title', 'description'))\
+        .load(request.get_json())
+
+    exam = Exam(**posted_exam.data, created_by="HTTP post request")
+
+    #persist exam
+    session = Session()
+    session.add(exam)
+    session.commit()
+
+    #return created exam
+    new_exam = ExamSchema().dump(exam).data
+    session.close()
+    return jsonify(new_exam), 201
+</pre>   
+
+This file now creates a Flask application, based on SQLAlchemy and PostgreSQL, that is capable of accepting POST requests to create new instances of exam and capable of accepting GET requests to serialize these instances as a JSON array.
+
+4. To facilitate running this application, you can create a script called bootstrap.sh in the backend directory with the following code:
+   
+<pre>
+#!/bin/bash
+export FLASK_APP=./src/main.py
+source $(pipenv --venv)/bin/activate
+flask run -h 0.0.0.0
+</pre>
+
+This script does three things:
+
+* it sets ./src/main.py as the value of the FLASK_APP environment variable (this is needed by the last command);
+* it activates the virtual environment;
+* and it runs flask listening on all interfaces (-h 0.0.0.0).
 
 ## Citations
 [Source content](https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/)<br>
