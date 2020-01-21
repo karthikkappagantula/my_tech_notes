@@ -28,6 +28,8 @@ Follow below steps to get started on this full stack how-to notes for develop us
     -e POSTGRES_PASSWORD=0NLIN3-ex4m \
     -d postgres
     </pre>
+   **Remember to issue  ``` docker restart online-exam-db ``` to restart the container after a local machine shutdown to have the db available for connections.**
+
 3. Install **node** and **npm** from [nodejs](https://nodejs.org/en/download/)
 4. Install angular cli using below command from terminal
    ```
