@@ -29,6 +29,9 @@
 [Top](#table-of-contents-)
 * * *
 ## Frontend URLs
+[Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+  * [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#resource-specific-cors)
+
 
 * * *
 [Top](#table-of-contents-)

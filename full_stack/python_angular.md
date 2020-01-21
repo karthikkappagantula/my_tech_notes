@@ -5,6 +5,9 @@
   - [Bootstraping Python application](#bootstraping-python-application)
     - [Managing Entities with SQLAlchemy ORM](#managing-entities-with-sqlalchemy-orm)
     - [Managing HTTP Requests with Flask](#managing-http-requests-with-flask)
+    - [Handling CORS on Flask Apps](#handling-cors-on-flask-apps)
+  - [Bootstrapping the Angular Application](#bootstrapping-the-angular-application)
+    - [Consuming Flask Endpoints with Angular](#consuming-flask-endpoints-with-angular)
   - [Citations](#citations)
   
 
@@ -299,7 +302,7 @@ def get_exams():
 
     #serializing as JSON
     session.close()
-    return jsonify(exams.data)
+    return jsonify(exams)
 
 
 @app.route('/exams', methods=['POST'])
@@ -308,7 +311,7 @@ def add_exam():
     posted_exam = ExamSchema(only=('title', 'description'))\
         .load(request.get_json())
 
-    exam = Exam(**posted_exam.data, created_by="HTTP post request")
+    exam = Exam(**posted_exam, created_by="HTTP post request")
 
     #persist exam
     session = Session()
@@ -338,8 +341,110 @@ This script does three things:
 * it activates the virtual environment;
 * and it runs flask listening on all interfaces (-h 0.0.0.0).
 
+5. To test everything, use below commands
+   
+   <pre>
+    # make script executable
+    chmod u+x bootstrap.sh
+
+    # execute script in the background
+    ./bootstrap.sh &
+
+    # create a new exam
+    curl -X POST -H 'Content-Type: application/json' -d '{
+    "title": "TypeScript Advanced Exam",
+    "description": "Tricky questions about TypeScript."
+    }' http://0.0.0.0:5000/exams
+
+    # retrieve exams
+    curl http://0.0.0.0:5000/exams
+   </pre>
+
+Besides using curl, you can also fetch exams by browsing to http://0.0.0.0:5000/exams.
+
+***
+[Top](#table-of-contents)
+***
+
+### Handling CORS on Flask Apps
+
+1. As your Flask app will receive requests from a SPA, you will need to allow CORS on it. If you don't do so, most browsers will block requests to your API because the backend does not explicitly allow Cross-Origin Resource Sharing (CORS). There is a Flask module called **flask-cors** that is easy to configure. 
+   
+2. Install **flask-cors** in the **backend** directory
+   ```
+   pipenv install flask-cors
+   ```
+3. Update **main.py** to use **flask-cors**
+
+   <pre>
+    # coding=utf-8
+
+    from flask_cors import CORS
+    #other import statements 
+
+    #creating the Flask application
+    app = Flask(__name__)
+    CORS(app)
+
+    #create_all(engine) and endpoint definitions
+   </pre>
+
+*Check the [official documentation of the flask-cors module](https://flask-cors.readthedocs.io/en/latest/#resource-specific-cors) to learn how to make the application more restrictive for productionized applications.*
+
+4. Commit the changes to git and leave the app running.
+   
+   <pre>
+   #commit your progress
+   git add . && git commit -m "enabling CORS"
+
+   #run the Flask app in the background
+   ./bootstrap.sh &
+   </pre>
+
+***
+[Top](#table-of-contents)
+***
+
+## Bootstrapping the Angular Application
+
+1. Move back to the project root directory and issue **ng new frontend**
+   
+    <pre>
+    #change working directory to project root
+    cd ..
+
+    #run @angular/cli to bootstrap the Angular app. Use defaults for now.
+    ng new frontend
+
+    #move working directory to your frontend app
+    cd frontend
+
+    #commit template Angular project
+    git add . && git commit -m "bootstrapping an Angular project"
+    </pre>
+
+***
+[Top](#table-of-contents)
+***
+
+### Consuming Flask Endpoints with Angular
+
+1. After creating your Angular app, the next thing you will need is to create a file called **env.ts** inside the **./frontend/src/app** directory with the following code:
+   
+   <pre>
+   export const API_URL = 'http://localhost:5000';
+   </pre>
+
+This TypeScript module simply exports a single constant (API_URL) that references your Flask backend application running locally. 
+
+2. 
+***
+[Top](#table-of-contents)
+***
+
 ## Citations
 [Source content](https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/)<br>
-[SQLAlchemy - ORM](https://auth0.com/blog/<br>
-sqlalchemy-orm-tutorial-for-python-developers/)
+[SQLAlchemy ORM](https://auth0.com/blog/sqlalchemy-orm-tutorial-for-python-developers/)<br>
 [Docker install](https://docs.docker.com/install/)<br>
+[CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)<br>
+[Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#resource-specific-cors)<br>
