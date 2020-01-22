@@ -109,6 +109,8 @@ https://www.rexegg.com/regex-quickstart.html <br />
 ## Markdown URLs
 [Github Markdown Guide](https://guides.github.com/features/mastering-markdown/)
 
+## Rexx URLs
+[Rexx Tutorial](http://www.cs.ox.ac.uk/people/ian.collier/Docs/rexx_info/whole.html#)
 * * *
 [Top](#table-of-contents-)<br>
 [Other](#other-urls)
