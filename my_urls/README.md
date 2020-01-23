@@ -10,10 +10,12 @@
   - [Agile URLs](#agile-urls)
   - [Python/R URLs](#pythonr-urls)
     - [Python](#python)
+      - [Packaging and Distribution of Python applications](#packaging-and-distribution-of-python-applications)
     - [R](#r)
   - [DS/ML/AI URLs](#dsmlai-urls)
   - [Regular Expression/regex URLs <a name="regex_urls"></a>](#regular-expressionregex-urls)
   - [Markdown URLs](#markdown-urls)
+  - [Rexx URLs](#rexx-urls)
   - [Other URLs<br />](#other-urlsbr)
   - [How-tos and Solutions](#how-tos-and-solutions)
     - [Python, FLask and Angular Demo](#python-flask-and-angular-demo)
@@ -80,7 +82,9 @@ Guides included -
 [Top](#table-of-contents-)
 * * *
 ## Python/R URLs
+
 ### Python
+
 [Python Standard Libraries](https://docs.python.org/3/library/)<br>
 [Python Math Module](https://docs.python.org/3/library/math.html)<br>
 [Python Module Index](https://docs.python.org/3/py-modindex.html)<br>
@@ -88,6 +92,10 @@ Guides included -
 
 [Pipenv](https://pipenv.kennethreitz.org/en/latest/)
 
+#### Packaging and Distribution of Python applications
+
+[Basics of PyInstaller](https://realpython.com/pyinstaller-python/)
+[PyInstaller Official Docs](https://pyinstaller.readthedocs.io/en/stable/operating-mode.html#analysis-finding-the-files-your-program-needs)
 * * *
 ### R
 * * *

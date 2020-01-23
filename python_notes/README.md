@@ -4,12 +4,21 @@
   - [Install Anaconda](#install-anaconda)
   - [Jupyter Intro](#jupyter-intro)
   - [Keywords](#keywords)
+  - [Data Types in Python](#data-types-in-python)
+    - [Integers](#integers)
+- [define in base 2 / binary](#define-in-base-2--binary)
+- [define in base 8 / octal](#define-in-base-8--octal)
+- [define in base 16 / hexa](#define-in-base-16--hexa)
+    - [Floating-Point](#floating-point)
+    - [Complex Numbers](#complex-numbers)
+    - [Strings](#strings)
+    - [Booleans](#booleans)
   - [Arithmetic Operations](#arithmetic-operations)
   - [Math Functions](#math-functions)
   - [Printing output](#printing-output)
     - [Formatting output](#formatting-output)
   - [Taking Inputs](#taking-inputs)
-  - [Strings](#strings)
+  - [Strings](#strings-1)
     - [String functions](#string-functions)
   - [Conditional Statements - if/elif/else](#conditional-statements---ifelifelse)
   - [For Loops](#for-loops)
@@ -122,7 +131,177 @@ For creating new python script : new -> select python version
     The list of keywords is : 
     ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
   </pre>
+
+* * *
+[Top](#table-of-contents)
+* * * 
+
+## Data Types in Python
+
+### Integers
+
+* Whole numbers
+* Default base used is base10, but can be converted or displayed in other bases.
+* Any limit allowed up to memory limit of computer
+
+  <pre>
+  a = 10
+  b = 5
+  print(a, b)
+  print(type(a), type(b))
+  </pre>
+
+  *Output:*
+  <pre>
+  10 5
+  <class 'int'> <class 'int'>
+  </pre>
+
+* Defining different bases for integers
   
+  <pre>
+  # define in base 2 / binary
+  c = 0b00110110
+  print(c)
+  print(type(c))
+  # define in base 8 / octal
+  d = 0o452300
+  print(d)
+  print(type(d))
+  # define in base 16 / hexa
+  e = 0x234A2B
+  print(e)
+  print(type(e))
+  </pre>
+
+  *Output*:
+  <pre>
+  54
+  <class 'int'>
+  152768
+  <class 'int'>
+  2312747
+  <class 'int'>
+  </pre>
+
+* A given integer in base 10 decimal can be converted in to other bases using built-in functions such as *bin, oct, hex, etc.*.
+  <pre>
+  f = 1130
+  print(bin(f))
+  print(oct(f))
+  print(hex(f))
+  </pre>
+
+  *Output*:
+  <pre>
+  0b10001101010
+  0o2152
+  0x46a
+  </pre>
+
+  
+* Type conversion to String
+  * A *TypeError* will be thrown when an mathematical operation is done on none integer.
+  
+    <pre>
+    num1 = '4'
+    num2 = 1
+    print(type(num1), '|', type(num2))
+    print(num1 + num2)
+    </pre>
+
+    *Output*:
+    ```
+    <class 'str'> | <class 'int'>
+    ---------------------------------------------------------------------------
+    TypeError                                 Traceback (most recent call last)
+    <ipython-input-14-f86fc6987c79> in <module>
+        2 num2 = 1
+        3 print(type(num1), '|', type(num2))
+    ----> 4 print(num1 + num2)
+
+    TypeError: can only concatenate str (not "int") to str
+    ```
+
+  * Use data type conversion / type casting
+    * Enclose the string within as *int(string-variable-name)*
+
+    <pre>
+    num1 = '4'
+    num2 = 1
+    print(type(num1), '|', type(num2))
+    print(int(num1) + num2)
+    </pre>
+
+    *Output*:
+    ```
+    <class 'str'> | <class 'int'>
+    5
+    ```
+
+### Floating-Point 
+
+* Any number with a decimal point.
+* Division result will be a float.
+* Can be defined using scientific notations (0.09 as 9 x 10^-2)
+  
+  <pre>
+  print(type(0.5))  #type is float if decimal is used
+  print(type(0.5 + 0.4))
+  print(type(10 / 2)) #result of division is a float
+  print(type(10 // 2)) #integer division
+  print(9e-3 , '==>', type(9e-3)) #scientific notation
+
+  #Beware of the precision errors that may creep up with Floating point arithmetic
+  print(0.2 + 0.1)
+  </pre>
+
+  *Output*:
+  ```
+  <class 'float'>
+  <class 'float'>
+  <class 'float'>
+  <class 'int'>
+  0.009 ==> <class 'float'>
+  0.30000000000000004
+  ```
+
+### Complex Numbers
+
+* A complex number is a number that can be expressed in the form a + bj, where a and b are real numbers, and j is a solution of the equation x2 = −1.
+
+<pre>
+print(2+3j)
+print(type(2+3j))
+</pre>
+
+*Output*:
+```
+(2+3j)
+<class 'complex'>
+```
+Python supports all artimetic operations on complex numbers. 
+
+### Strings
+Covered in a seperate section
+
+### Booleans
+* bool(x) -> bool
+  Returns True when the argument x is true, False otherwise.
+* The builtins True and False are the only two instances of the class bool.
+* The class bool is a subclass of the class int, and cannot be subclassed.
+
+<pre>
+print(type('True'))
+print(type(True))
+</pre>
+
+*Output*:
+```
+<class 'str'>
+<class 'bool'>
+```
+
 * * *
 [Top](#table-of-contents)
 * * * 
