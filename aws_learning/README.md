@@ -13,7 +13,7 @@
         - [Examples:](#examples)
   - [Disaster Recovery](#disaster-recovery)
   - [Data Persistence](#data-persistence)
-    - [Types of Storage -](#types-of-storage)
+    - [Types of Storage -](#types-of-storage--)
   - [OSI Model](#osi-model)
 - [Accounts](#accounts)
   - [Identity and Acess Management(IAM) Overview](#identity-and-acess-managementiam-overview)
@@ -171,7 +171,7 @@ Example: Cache storage(Amazon ElastiCache).
 * Persistent Storage:
 Data that is durable and survives power events (Start, Stop, Restart).
 Data access performance is not as fast as for Ephemeral Storage, but the data integrity is maintained.
-Example: Amazon EBS, Amazon EFS
+Example: Amazon Elastic Block Storage, Amazon Elastic File Storage
 
 * Transient Storage:
 Data that exists in a form while it is passed between sources. This helps in decoupling the application systems.
@@ -207,7 +207,8 @@ Allows to control access to AWS services and resources. It manages identities an
 
 IAM service objectivies :
 * Authentication -> who can access AWS resources/services.
-* Autherization -> what actions can be performed on a AWS resource/service by an authenticated user.
+(Username/password for web and access keys for CLI/API access)
+* Authorization -> what actions can be performed on a AWS resource/service by an authenticated user.
 
 IAM Manages followint through AWS CLI, AWS SDK, or AWS management console :
 * Users   / individual users with login credentials 
