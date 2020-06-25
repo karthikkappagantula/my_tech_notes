@@ -23,7 +23,7 @@
     - [Identity policy](#identity-policy)
     - [Resource policy](#resource-policy)
       - [Important points:](#important-points)
-      - [AWS official documents](#aws-official-documents)
+      - [AWS official documentation](#aws-official-documentation)
   - [IAM Roles and Temporary Security Credentials](#iam-roles-and-temporary-security-credentials)
   - [IAM roles](#iam-roles)
   - [Cross-Account Access: Resource Permissions vs. Cross-Account Roles](#cross-account-access-resource-permissions-vs-cross-account-roles)
@@ -216,7 +216,7 @@ IAM Manages following through AWS CLI, AWS SDK, or AWS management console :
 * Roles   / users, applications and services may assume IAM roles, and IAM policy will determine the permissions of the user that assumed the role. For a IAM User permissions obtained through IAM role will preceed the permissions obtained through individual IAM policy setup for the user.
 * IAM policies - JSON documents to describe permissions with in AWS.
 
-IAM Policy Example:
+IAM Policy Example: Below allows all S3 Operations
 <pre>
 {
   "Version": "2020-01-20",
@@ -230,7 +230,18 @@ IAM Policy Example:
 }
 
 </pre>
-* Authentication attributes - Usernames, passwords, Access keys, Multi-factor authentications and Password policies.
+
+IAM policy can set to Identities or Resources. 
+* Identity policies - what a IAM user can access.
+* Resource policies - what actions can be performed by any IAM user on the resource.
+
+IAM Policies also allows you to use variables in the policy documents to create generic policy document.This is done using **Condition** key value pair.
+*  comes in use to allow a IAM user to access only to the folder(folder name same as IAM user name) that he has permission to. 
+*  Allow access to buckets only after certain time.
+
+---------
+
+Authentication attributes - Usernames, passwords, Access keys, Multi-factor authentications and Password policies.
 
 
 If you wanted to interact with AWS services/resources -  (both are longterm access credentials. Usually do not expire)
@@ -242,9 +253,10 @@ Users are real user identities, where as groups are organizational grouping to d
 (You cannot login using group)
 
 By default, any new IAM user you create in AWS account has no permission policies attached. If an IAM user is not given access to a service/resource it implies a "Implicit Deny"
-If there is any explicit Deny, it always override a ALLOW permission.
+If there is any explicit Deny, it always override other ALLOW permission.
 
 A root user account by default has all permissions on AWS, but it is highly recommended to use roor user only to setup the first IAM user account with admin access through a IAM policy.
+
 * * *
 [Top](#table-of-contents-)
 * * *
@@ -302,8 +314,11 @@ Principal is required/mandatory for a resource policy which is the identity tryi
 #### Important points:
 * An explicit deny will override any explicit allow permissions.
 
-#### AWS official documents
-IAM Policy ->  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
+#### AWS official documentation
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
@@ -314,16 +329,40 @@ IAM Policy ->  https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_polici
 * Does not have long term access credentials
 * Designed to be assumed by anyone who needs to make use of their of permissions
 * You grant permissions to AWS resources via roles. This is similar to service accounts.
+* A role has two components - 
+  * trust policy - defines circumstances under which role can be assumed
+  * permission policy - defines AWS access rights granted during "AssumeRole"
+
 
 Everytime a role is assumed, IAM provides temporary security credentials that allow/deny the permissions based on the role policy.
+
+Curl on http://169.254.169.254/latest/meta-data/iam/security-credentials/*role-name*
+will display the role credentials. (change *role-name* to role assumed)
+
+Running an sts:Assume role API call results in STS providing you with temporary credentials.
+
+You can either -
+* remove the permission policy for the role to stop allowing access to AWS resource. Impacts all who assumes the role.
+* revoke session. Impacts only unauthorized access.
+
+**AWS Official Documentation**
+https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html
 
 ## Cross-Account Access: Resource Permissions vs. Cross-Account Roles
 There are 3 ways to provide access to your S3 buckets from external AWS accounts.
 * IAM Roles
 * Bucket Policies
-* Bucket ACLs (Access Control Lists) 
+* Bucket ACLs (Access Control Lists) - legacy method attached to objects
 
-It is recommended to use IAM cross-account roles as a general practice.
+**It is recommended to use IAM cross-account roles as a general practice**. Both ACLs and Bucket Policies will prevent bucket owner the access to the object created in the bucket by another user.
+
+**AWS Official Documentation**
+
+Granting Cross-Account Permissions Example - 
+<https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8>
+
+IAM Policies and Bucket Policies and ACLs! Oh, My! (Controlling Access to S3 Resources) - 
+https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/
 * * * 
 [Top](#table-of-contents-)
 * * * 
@@ -332,7 +371,11 @@ It is recommended to use IAM cross-account roles as a general practice.
 * Is a service that lets you consolidate multiple AWS accounts in to a single organization - a master account/root container.
 * This makes billing and permissions easier and allows for the creation of managed accounts. 
 * Can be further split in to Organization units(OU) which contains accounts - like one OU for each business unit.
+* Attaching policies at Root/OU levels will propagate to all accounts with in that Rote level/OU level respectively(inherit downwards through the heirarchy).
 * Can be operated in either 'Consolidated Billing' or 'All Features' mode.
+  * Consolidated billing - Single AWS usage bill with granular details. Helps to achieve usage discounts quicker and efficiently.
+
+  
 * * * 
 ### Service Control Policies
 Service control policies when applied directly or indirectly to AWS accounts define what actions can be performed on what services within that account.
@@ -341,10 +384,12 @@ These policies do not actually grant the permissions. They only restrict what yo
 If multiple SCPs apply to an account, only the overlap of those SCPs is permitted.
 
 
-* JSON doc that can be directly applied to a AWS account/OU.
-* Inherits downwards.
+* JSON doc that can be directly applied to a AWS account/OU/Root container.
+* Inherits downwards the hierarchy.
 * SCPs have no effect on master account.
-* Avoid using master accounts for any AWS services. Use it only for billing and user store. You cannot place any restrictions on the resources using service control policy.
+* SCPs contain explict ALLOW and DENY statements, but these statements don't GRANT Permisssions, they only say those permissions are permitted. They are kind of whitelisting/blacklisting actions that can be perfromed.
+* Avoid using master accounts for any AWS services. Use it only for billing and user store. You cannot place any restrictions on the resources using service control policy or by any other means.
+* If multiple SCPs apply to an account, only the overlap of those SCPs is permitted.
 
 * * *
 [Top](#table-of-contents-)
