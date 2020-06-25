@@ -210,11 +210,26 @@ IAM service objectivies :
 (Username/password for web and access keys for CLI/API access)
 * Authorization -> what actions can be performed on a AWS resource/service by an authenticated user.
 
-IAM Manages followint through AWS CLI, AWS SDK, or AWS management console :
+IAM Manages following through AWS CLI, AWS SDK, or AWS management console :
 * Users   / individual users with login credentials 
 * Groups  / individuals can be grouped together to make the access management easier by setting group level permissions.
 * Roles   / users, applications and services may assume IAM roles, and IAM policy will determine the permissions of the user that assumed the role. For a IAM User permissions obtained through IAM role will preceed the permissions obtained through individual IAM policy setup for the user.
-* IMA policies  / JSON documents to describe permissions with in AWS.
+* IAM policies - JSON documents to describe permissions with in AWS.
+
+IAM Policy Example:
+<pre>
+{
+  "Version": "2020-01-20",
+  "Statement": [
+    {
+      "Effect" : "Allow",
+      "Action" : "s3:*" ,
+      "Resource" : "*"
+    }
+  ]
+}
+
+</pre>
 * Authentication attributes - Usernames, passwords, Access keys, Multi-factor authentications and Password policies.
 
 
