@@ -58,6 +58,7 @@
       - [Limitations and Considerations](#limitations-and-considerations)
     - [AWS Site-to-Site VPN](#aws-site-to-site-vpn)
     - [AWS Direct Connect Architecture](#aws-direct-connect-architecture)
+      - [AWS Direct Connect Architecture](#aws-direct-connect-architecture-1)
     - [AWS Transit Gateway](#aws-transit-gateway)
   - [Security](#security)
     - [Account and Service Security](#account-and-service-security)
@@ -66,7 +67,6 @@
       - [AWS Certificate Management(ACM)](#aws-certificate-managementacm)
       - [AWS Directory Service](#aws-directory-service)
     - [Network Security](#network-security)
-      - [AWS Direct Connect Architecture](#aws-direct-connect-architecture-1)
    
 
    
@@ -446,7 +446,7 @@ Key Terms -
 [Top](#table-of-contents-)
 * * * 
 ### AWS Service Catalog
-Provides the abilit to implements IT Service Catalog in AWS. Usually used for larger organizations that have formal IT processes.
+Provides the ability to implements IT Service Catalog in AWS. Usually used for larger organizations that have formal IT processes.
 
 Service Catalog is a product which allows administrators to define products and portfolios(groups of products and configuration). Users can be allowed to self-service deploy these products without the usual IAM permissions required to do so directly with AWS services. 
 
@@ -498,17 +498,59 @@ Internal AWS identity fedaration between master account and user account:
 IAM roles + Security Token Services(STS). STS provides the temporary access tokens that lets you assume a IAM role - which is a kind of identity federation.
 
 External AWS Identity fedaration:
-Use a non AWS user id to login and use AWS resources. This is similar to using a in house/active directory security domains ids for logging in to AWS. Like using your company email id as AWS login details.
+Use a non AWS user id to login and use AWS resources. This is similar to using a in-house/active directory security domains ids for logging in to AWS. Like using your company email id as AWS login details.
 
-Google, Facebook, Twitter are external identity providers(IDPs). They identiy and authenticate the users. STS provides the temporary credetials that will be used for interacting with AWS resources/services.
+Google, Facebook, Twitter are external identity providers(IDPs). They identify and authenticate the users. STS provides the temporary credetials that will be used for interacting with AWS resources/services.
+
+Different Identity Federation
+* AssumeRole - within AWS
+* AssumeRoleWithWebIdentity - Integrated to Google/Twitter/Facebook etc.
+* AssumeRoleWithSAML - Integrated to Active Directory.
+
+IAM has a limit of 5000 user accounts. Identity federation solves this limitation.
+
+Benefits - 
+* administration of roles is easy and support any number of users.
+* credentials are managed through sessions.
+
+**AWS Official Documentation**
+https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc_cognito.html
 * * * 
 [Top](#table-of-contents-)
 * * * 
 ### IAM Permissions Boundaries
+
+Permissions Boundaries limit the maximum permissions an identity can have. They can be applied to IAM Users/Roles/AWS organizations.
+
+Permission Boundaries don't GIVE any permissions. they limit what permissions a thing can have. 
+
+Given an IAM permissions policy and permission boundary - effective permissions are the intersections.(Works similar to Service Control Policy).
+
+**AWS Official Documentation**
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
 ### Policy Evaluation Logic
+
+Evaluation logic order ->
+
+1. Organization Boundaries
+2. User or Role Boundaries
+3. Role Policies
+4. Permissions
+
+Boundaries are always processed first starting with organizational and then identity(user or role). Then AWS checks if you have chosen a subset of permissions for a stst:AssumeRole. Final effective permissions are a merge of identity, resource, and ACL.
+
+**Evaluation Logic** <br>
+Explicit DENY --> DENY <br>
+Explicit ALLOW without Explicit DENY --> ALLOW <br>
+No Explicit ALLOW/DENY --> DENY (Default)
+
+**AWS Official Documentation**
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
+
 * * * 
 [Top](#table-of-contents-)
 * * * 
@@ -569,7 +611,11 @@ A service that allows the sharing of AWS resources between accounts (VPC owner v
 * Resource share - By creating a resource share in AWS RAM  you share set of AWS resources within/outside organization. Sharing is limited based on the resources being shared. Subnets are not allowed to be shared outside of organization.
 
 VPC owner - responsible for maintaining VPCs and its components(Subnets, Network ACLs,Peering Connections, Routing connections, End points, etc).
+
 VPC participant - responsibility of only resources created by participants. All other shared resources are read-only.
+
+While Resource manager allows to share resources to accounts from other organizations. But there are limits to what can be shared. Subnets can only be shared to other accounts with in same organization. Default resources(subnets/security policies) cannot be shared to any accounts.
+
 
 #### AWS documentation
 [Enabling RAM](https://console.aws.amazon.com/ram/home#Setting)
@@ -586,9 +632,10 @@ VPC participant - responsibility of only resources created by participants. All 
 VPC Router - 
 * Every VPC has a VPC router - default gateway for VPC
 * Occupies on ip address on every single subnet in the VPC(network + 1 address).
-* VPC router is controlled by route tables. VPCs come with a default 'MAIN' Route table. Customer RTs can be defined and attached to subnets
-* Route tables contain a default 'local' route 
+* VPC router is controlled by route tables. VPCs come with a default 'MAIN' Route table. Custom Route Tables can be defined and attached to subnets(one route per subnet or collection of subnets using shared route table).
+* Route tables contain a default 'local' route that cannot be changed/deleted.
 * A route matches a destination and tells the VPC router where to direct IP traffic. More specific routes take priority(i.e /32 > /16).
+* Routes added to Route table can be static routes or Route propagation configs.
 * VPC routers are used for VPC endpoints, VPC peering connections, Egress only Internet gateway, Internet gateway, NAT-Gateway.
 
 * * * 
@@ -597,14 +644,15 @@ VPC Router -
 ### Network Access Control Lists (NACLs)
 NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or leaving the subnet. NACLs are STATELESS which means ephemeral port rules are required to allow 'response' traffic.
 * A subnet can have one associated NACLs acting as a barrier between VPC and its subnet.
-* VPCs have a defailt NACLS associated with any subnets in that VPC by default.
+* VPCs have a defailt NACLs associated with any subnets in that VPC by default that allows both inbound and outbound traffic.
 * Inbound rules are applied for traffic coming in to subnets.
 * Outbound rules are applied for traffic coming out of the subnets.
 * Rules priority is done based on Rule # field. Lowest Rule # will take higher priority over a higher Rule # entry.
-* Rules are based on IP address ranges only, and cannot refer any logical resources.
+* Rules are based on IP address ranges only, and cannot refer any logical resources and are processed with lesser rule number taking higher priority.
 * Common use case for NACLs - Whitelist/Blacklist traffic from/to an IP.
 * NACLs does not effect traffic between two EC2 instances with in same Subnet. They come in to effect only when the traffic is flowing in to/out of a Subnet.
 * NACLs are the only option when Security groups cannot be used to restrict the routing. 
+* NACLs take effect only for traffic flowing in and out of a subnet. Traffic between resources in same subnet cannot be effected by NACLs.
 
 [Wiki for Ephemeral port](https://en.wikipedia.org/wiki/Ephemeral_port)
 * * * 
@@ -613,12 +661,13 @@ NACLs are firewalls attached to VPC subnets. They filter IP traffic entering or 
   
 ### Security Groups (SG)
 
-SG companion security filtering products in AWS, applied to networks inside VPC. SGa are applied to network resources and effect the traffic coming in/to them.
+Security Groups are filtering products in AWS, applied only to networks resources inside VPC and effect the traffic coming in/to them.
 
 * Every VPC comes with a default SG
 * Each SG contains inbound/outbound rules for IP traffic.
 * SG procesing has NO order - all rules are executed at once. There is a deafult implicit DENY. SG's cannot explicitly DENY.
 * SG rules are STATEFUL. If traffic is allowed IN, it's corresponding return traffic is automatically allowed - this cannot be changed. The same applies to outbound traffic, its return communications are automatically permitted. ==> You do not have to worry about ephemeral ports.
+* Can be used as role based security rules that can be used by any other security groups - reducing admin overhear.
 
 * * * 
 [Top](#table-of-contents-)
@@ -626,7 +675,7 @@ SG companion security filtering products in AWS, applied to networks inside VPC.
   
 ### Public vs Private Subnets, Internet Gateways, and IP addressing
 
-* A private subnet is a subnet with default configuration. It cannot communicate with public internet or AWS public zone networks.
+* A private subnet is a subnet with default configuration. It cannot communicate with public internet or AWS public zone networks(S3, DynamoDB etc).
 * A public subnet requires the VPC to be able to connect to internet gateway (you have to create a internet gateway and attach to VPC) and should have custom route table with default traffic allowed for internet gateway.
 
 *public IP for an instance can be inherited based on VPC config*
@@ -666,7 +715,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 
 * The Network+2(DNS server) reserved address is called R53 Resolver - and is accessible only with in a VPC.
 * Thus DNS server is not accessible outside the VPC to any on premise servers through VPN connection or direct connection.
-* One solution is to use EC2 instances as DNS relays that let the on premise instances to talk to instances in VPC indirectly.
+* One solution is to use EC2 instances as DNS relays that let the on-premise instances to talk to instances in VPC indirectly.
 * Inbound/Outbound endpoints configuration in R53 resolver does the DNS resolving between VPC and on-prem/external/non-VPC networks.
 
 [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)
@@ -677,9 +726,27 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 ### VPC Flow Logs
 
 * Provides network traffic visibility (logging and monitoring toolset).
-* Stores only Metadata, but not application data.
-* **NOT LOGGED -** DHCP traffic, AWS DNS, Internal AWS instances' Metadata, License Activation Requests.
-* Collects data at one of the 3 levels:
+* Stores only Metadata, but not application data. Logged only -
+  * versioning
+  * account-id
+  * interface-id
+  * scraddr
+  * dstaddr
+  * srcport
+  * dstport
+  * protocol
+  * packets
+  * bytes
+  * start
+  * end
+  * action
+  * log-status
+* **NOT LOGGED -** 
+  * DHCP traffic
+  * AWS DNS 
+  * Internal AWS instances' Metadata 
+  * License Activation Requests.
+* Can setup monitoring logs for metadata at 3 different levels:
   * At VPC level (all traffic TO/FROM/INSIDE) the VPC.
   * At Subnet level(TO/FROM/INSIDE) the subnet.
   * At Elastic Network Interface(ENI) level(TO/FROM) the ENI.
@@ -716,7 +783,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 **Intra-region VPC Peering**
 * Peering connections cannot peer VPC's with overlapping CIDRs
 * Peering is not transitive. Peering A and B, B and C, does not mean A and C are peered.
-* SGs can reference groups in remove VPC's. SGs and NACLs can also reference CIDR/IP.
+* SGs can reference groups in remote VPC's. SGs and NACLs can also reference CIDR/IP.
 * IPv6 is supported, but not by-default.
 * Private DNS hostnames can be resolved.
 
@@ -744,6 +811,30 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
 
 ### AWS Direct Connect Architecture 
+
+#### AWS Direct Connect Architecture
+* A service that provides a dedicated network connection between on-premise network and one of the AWS direct connect locations.
+* Done through authorized Direct Connect Provider (e.g. ATT Netbond)
+* An AWS direct connect location provides ability to access VPCs in the AWS region it is associated with.
+* Access to public service endpoints in all regions.
+
+**Benefits**
+* Reduces network costs
+  * Reduces bandwidth commitment to corporate ISP over public internet.
+  * Data transfer cost is billed at a lower rate by Amazon.
+* Increased network consistency
+  * Dedicated private connections reduce latency
+* Dedicated private network connection to on-premise
+  * Connect direct connect connection to a VGW in your VPC for a dedicated private connection from on-premise to VPC.
+  * Ability to bypass using bastion hosts for managing private resources.
+  * Use multiple VIF(Virtual Interfaces) to connect to multiple VPCs.
+
+**AWS documentation**
+
+[Userguide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
+
+[Multiple Data Center HA Network Connectivity](https://aws.amazon.com/answers/networking/aws-multiple-data-center-ha-network-connectivity/)
+
 
 * * * 
 [Top](#table-of-contents-)
@@ -831,26 +922,6 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 
 ### Network Security
 
-#### AWS Direct Connect Architecture
-* A service that provides a dedicated network connection between on-premise network and one of the AWS direct connect locations.
-* Done through authorized Direct Connect Provider (e.g. ATT Netbond)
-* An AWS direct connect location provides ability to access VPCs in the AWS region it is associated with.
-* Access to public service endpoints in all regions.
-
-**Benefits**
-* Reduces network costs
-  * Reduces bandwidth commitment to corporate ISP over public internet.
-  * Data transfer cost is billed at a lower rate by Amazon.
-* Increased network consistency
-  * Dedicated private connections reduce latency
-* Dedicated private network connection to on-premise
-  * Connect direct connect connection to a VGW in your VPC for a dedicated private connection from on-premise to VPC.
-  * Ability to bypass using bastion hosts for managing private resources.
-  * Use multiple VIF(Virtual Interfaces) to connect to multiple VPCs.
-
-**AWS documentation**
-[Userguide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html)
-[Multiple Data Center HA Network Connectivity](https://aws.amazon.com/answers/networking/aws-multiple-data-center-ha-network-connectivity/)
 
 * * * 
 [Top](#table-of-contents-)
