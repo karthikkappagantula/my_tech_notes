@@ -71,20 +71,20 @@ Why React -
 
 Regular function -
 
-<pre>
+```JSX
 function myFnc() {
 …
 …
 }
-</pre>
+```
 
 Arrow function -
-<pre>
+```JSX
 const myFnc = () => {
 …
 …
 }
-</pre>
+```
 
 * No more issues with the 'this' keyword.<br>
 * Arrow Functions maintain the context.
@@ -97,11 +97,11 @@ let/const <name> = (arg1, arg2, … ) { <function-body> }
 * Function body is wrapped around curly braces { }.
 * Arguments are wrapped around round braces ( ).
   * If no args, just use ()
-    <pre>
+    ```JSX
     let myFnc = () => { 
     …
     }
-    </pre>
+    ```
   * If only one arg, braces can be removed.
   * If the function body only returns some value but does not contain any other statements, you can remove curly braces and return keyword
 
@@ -113,27 +113,27 @@ let/const <name> = (arg1, arg2, … ) { <function-body> }
 
 Example:
 *person.js*
-<pre>
+```JSX
 const person = {
 	name: 'Max'
 }
 
 export default person;                         //default export
-</pre>
+```
 *utility.js*
-<pre>
+```JSX
 export const clean = () => { ….};              //named export
 export const baseDate = 10;
-</pre>
+```
 
 *app.js*
-<pre>
+```JSX
 import person from './person.js'              //imports default element exported elsewhere and you can use any file name while importing
 import prs from './person.js'
 
 import { baseData } from './utility.js'       //imports individual elements exported elsewhere without default.
 import { clean } from './utility.js'
-</pre>
+```
 
 ### Classes
 
@@ -142,7 +142,7 @@ import { clean } from './utility.js'
 * Supports inheritance.
 
 Example:
-<pre>
+```JSX
 class Person {
 	constructor() {
 		this.name = 'Karthik';
@@ -154,41 +154,45 @@ class Person {
 
 const person = new Person();
 person.printMyName();
-</pre>
+```
 
 * Properties ==>  "variables attached to classes/objects".
 
 ES6 way - 
-<pre>
+```JSX
 constructor() {
     this.myProperty = 'value'
 }
-</pre>
+```
 
 ES7 way - 
-<pre>
+```JSX
 myProperty = 'value'
-</pre>	
+```	
 
 * Methods ==> "functions  attached to classes/objects"
 
 ES6 way - 
-<pre> myMethod() { …… } </pre>
+```JSX 
+myMethod() { …… } 
+```
 	
 ES7 way - Arrow function like a property value
-<pre>myMethod = () => { … }</pre>
+```JSX
+myMethod = () => { … }
+```
 	
 ### Spread & Rest Operators
 Operator is three dots (…) changes based on usage and context.
 
 * Spread --> used to split up array elements OR object properties (creates new objects)
-<pre>
+```JSX
 const newArray = […oldArray, 1, 2]
 const newObject = {…oldObject, newProp:5}
-</pre>
+```
 
 Example:
-<pre>
+```JSX
 const numbers = [1, 2, 3];
 const newNumbers1 = [numbers, 4];
 const newNumbers2 = […numbers, 4];
@@ -203,49 +207,49 @@ const newperson = {
 console.log(newNumbers1);      //Output = [[1, 2, 3], 4]
 console.log(newNumbers2);      //Output = [1, 2, 3, 4]
 console.log(newPerson);        //Outputs new object with both age and name
-</pre>
+```
 	
 * Rest --> used to merge a list of function arguments into an array
-<pre>
+```JSX
 function sortArgs(…args) {
     return args.sort()
 }
-</pre>
+```
 
 Examples:
-<pre>
+```JSX
 const filter = (...args) => {
   return args.filter(el => el === 1);
 }
 
 console.log(filter(1, 2, 3));   //Outputs [1]
-</pre>
+```
 
 ### Destructuring
 Allows to easily extract array elements or objects properties and store them as varaibles.
 * Array Destructuring
 
 Examples:
-  <pre>
+  ```JSX
     [a, b] = ['Hello', 'Max'];
     console.log(a);   //Outputs 'Hello'
     console.log(b);   //Outputs 'Max'
-  </pre>
+  ```
 
-  <pre>
+  ```JSX
     const numbers = [1, 2, 3];
     [num1, num2] = numbers;
     //[num1, , num3] = numbers; // Should leave out the non referenced element as blank
     console.log(num1, num2);    // Outputs 1 and 2
     //console.log(num1, num3);  // Outputs 1 and 3
-  </pre>
+  ```
 
 * Object Destructuring
-  <pre>
+  ```JSX
     {name} = {name:'Max', age:28};
     console.log(name);   //Outputs 'Max'
     console.log(age);    //Ouputs undefined - as no variable is defined for age
-  </pre>
+  ```
 
 ### Reference and Primitive Types
 * Objects and Arrays are Reference types. 
@@ -315,9 +319,9 @@ All dependency modules required for react application.
 * src folder has all the files we will edit and work on. React application files we work on.
   * index.js - has the access to root id from index.html to render react app.
   React app entry point - 
-  <pre>
+  ```JSX
   ReactDOM.render(<App />, document.getElementById('root'));
-  </pre>
+  ```
   * App.js - react components. 
     * App class having render() method.  
     * App class is default exported which is imported in index.js
@@ -476,11 +480,11 @@ We call such components “function components” because they are literally Jav
 * JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
 * When creating components, you have the choice between two different ways:
   1. Functional components (also referred to as "presentational", "dumb" or "stateless" components 
-  <pre>const cmp = () => { return <div>some JSX</div> }</pre> 
+  ```JSXconst cmp = () => { return <div>some JSX</div> }``` 
   (using ES6 arrow functions as shown here is recommended but optional)
 
    2. class-based components (also referred to as "containers", "smart" or "stateful" components) 
-  <pre> class Cmp extends Component { render () { return <div>some JSX</div> } } </pre>
+  ```JSX class Cmp extends Component { render () { return <div>some JSX</div> } } ```
 
 #### Outputting Dynamic Content
 * Wrap the dynamic content portion (function/methods) in single curly braces in the JSX.
