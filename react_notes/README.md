@@ -404,33 +404,36 @@ JSX tags may contain childres
 ##### JSX Prevents Injection Attacks
 
 * It is safe to embed user input in JSX
-
+  ```JSX
       const title = response.potentiallyMaliciousInput;
       // This is safe:
       const element = <h1>{title}</h1>;
-    
+  ```  
 * React DOM escapes any values embdedded in JSX before rendering them. This ensures that you can never inject anything that's not explicitly written in your application.
 
 ##### JSX Represents Objects
 
-* Babel compiles JSX down to <pre> React.createElement() </pre> calls.
+* Babel compiles JSX down to 
+  ```JSX
+  React.createElement() 
+  ```
 
 Both the below two examples are identical:
+  ```JSX
+      const element = (
+        <h1 className="greeting">
+          Hello, world!
+        </h1>
+      );
 
-    const element = (
-      <h1 className="greeting">
-        Hello, world!
-      </h1>
-    );
-
-    const element = React.createElement(
-      'h1',
-      {className: 'greeting'},
-      'Hello, world!'
-    );
-
+      const element = React.createElement(
+        'h1',
+        {className: 'greeting'},
+        'Hello, world!'
+      );
+  ```
 * React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
-  
+  ```JSX
       // Note: this structure is simplified
       const element = {
         type: 'h1',
@@ -439,7 +442,7 @@ Both the below two examples are identical:
           children: 'Hello, world!'
         }
       };
-
+  ```
 * These objects are called “React elements”. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
 
 ##### JSX Restrictions
@@ -453,7 +456,22 @@ Both the below two examples are identical:
 * Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. 
 * A typical React app therefore could be depicted as a component tree - having one root component ("App") and then an potentially infinite amount of nested child components.
 * Each component needs to return/ render some JSX code - it defines which HTML code React should render to the real DOM in the end.
-
+* The simplest way to define a component is to write a JavaScript function:
+  ```JSX
+  function Welcome(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+  ```
+We call such components “function components” because they are literally JavaScript functions.
+* You can define class component:
+  ```JSX
+  class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+   }
+  }
+  ```
+* The above two components are equivalent from React’s point of view.
 
 * JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
 * When creating components, you have the choice between two different ways:
