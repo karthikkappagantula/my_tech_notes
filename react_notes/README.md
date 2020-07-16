@@ -23,7 +23,7 @@
         - [JSX Prevents Injection Attacks](#jsx-prevents-injection-attacks)
         - [JSX Represents Objects](#jsx-represents-objects)
         - [JSX Restrictions](#jsx-restrictions)
-    - [Creating a Functional Component](#creating-a-functional-component)
+    - [Creating a Function/Class Component](#creating-a-functionclass-component)
       - [Outputting Dynamic Content](#outputting-dynamic-content)
       - [Passing attributes to components](#passing-attributes-to-components)
 
@@ -453,8 +453,6 @@ Both the below two examples are identical:
 * Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. 
 * A typical React app therefore could be depicted as a component tree - having one root component ("App") and then an potentially infinite amount of nested child components.
 * Each component needs to return/ render some JSX code - it defines which HTML code React should render to the real DOM in the end.
-* The simplest way to define a component is to write a JavaScript function:
-<img scr="./">
 
 
 * JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
