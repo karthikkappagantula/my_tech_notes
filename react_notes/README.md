@@ -342,53 +342,55 @@ All dependency modules required for react application.
 * It allows React to show more useful error and warning messages.
 
 Example:
-
-    const element = <h1>Hello, world!</h1>;
-
+  ```JSX
+  const element = <h1>Hello, world!</h1>;
+  ```
 
 ##### Embedding Expressions in JSX
 
 * You can put Javascript expression inside the curly braces in JSX. Example: 2 + 2, user.firstName, or formatName(user) are all valid JSX.
+  ```JSX
+  function formatName(user) {
+    return user.firstName + ' ' + user.lastName;
+  }
 
-      function formatName(user) {
-        return user.firstName + ' ' + user.lastName;
-      }
+  const user = {
+    firstName: 'Harper',
+    lastName: 'Perez'
+  };
 
-      const user = {
-        firstName: 'Harper',
-        lastName: 'Perez'
-      };
+  const element = (
+    <h1>
+      Hello, {formatName(user)}!
+    </h1>
+  );
 
-      const element = (
-        <h1>
-          Hello, {formatName(user)}!
-        </h1>
-      );
-
-      ReactDOM.render(
-        element,
-        document.getElementById('root')
-      );
-
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+  ```
 * After compilation, JSX becomes regular JavaScript function calls and evaluate to JavaScript objects.
 * You can use JSX inside conditions and loops, assign it to variables, accept it as arguments and return it from frunctions.
-
-      function getGreeting(user) {
-        if (user) {
-          return <h1>Hello, {formatName(user)}!</h1>;
-        }
-        return <h1>Hello, Stranger.</h1>;
-      }
-
+  ```JSX
+  function getGreeting(user) {
+    if (user) {
+      return <h1>Hello, {formatName(user)}!</h1>;
+    }
+    return <h1>Hello, Stranger.</h1>;
+  }
+  ```
 ##### Specifying Attributes with JSX
 
 * Either use quotes or curly braces to embed a JSX in an attribute.
+  ```JSX
+  const element = <div tabIndex="0"></div>;
+  ```
 
-      const element = <div tabIndex="0"></div>;
-
-or
-
-      const element = <img src={user.avatarUrl}></img>;
+  or
+  ```JSX
+  const element = <img src={user.avatarUrl}></img>;
+  ```
 
 * JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
 
@@ -397,14 +399,14 @@ For example, class becomes className in JSX, and tabindex becomes tabIndex.
 ##### Specifying Children with JSX
 
 JSX tags may contain childres 
-
-    const element = (
-      <div>
-        <h1>Hello!</h1>
-        <h2>Good to see you here.</h2>
-      </div>
-    );
-
+  ```JSX
+  const element = (
+    <div>
+      <h1>Hello!</h1>
+      <h2>Good to see you here.</h2>
+    </div>
+  );
+  ```
 ##### JSX Prevents Injection Attacks
 
 * It is safe to embed user input in JSX
@@ -480,21 +482,26 @@ We call such components “function components” because they are literally Jav
 * JSX is just syntactic sugar for JavaScript, allowing you to write HTMLish code instead of nested React.createElement(...) calls.
 * When creating components, you have the choice between two different ways:
   1. Functional components (also referred to as "presentational", "dumb" or "stateless" components 
-  ```JSXconst cmp = () => { return <div>some JSX</div> }``` 
+  ```JSX
+  const cmp = () => { return <div>some JSX</div> }
+  ``` 
   (using ES6 arrow functions as shown here is recommended but optional)
 
    2. class-based components (also referred to as "containers", "smart" or "stateful" components) 
-  ```JSX class Cmp extends Component { render () { return <div>some JSX</div> } } ```
+  ```JSX 
+  class Cmp extends Component { render () { return <div>some JSX</div> } } 
+  ```
 
 #### Outputting Dynamic Content
 * Wrap the dynamic content portion (function/methods) in single curly braces in the JSX.
       import React from 'react';
+  ```JSX
+  const person = () => {
+      return <p>I'm a Person! and I am {Math.floor(Math.random()*30)} years old</p>
+  }
 
-      const person = () => {
-          return <p>I'm a Person! and I am {Math.floor(Math.random()*30)} years old</p>
-      }
-
-      export default person;
+  export default person;
+  ```
 
 #### Passing attributes to components
 * You can pass attributes to components.
