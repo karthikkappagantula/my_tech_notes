@@ -67,6 +67,10 @@
       - [AWS Certificate Management(ACM)](#aws-certificate-managementacm)
       - [AWS Directory Service](#aws-directory-service)
     - [Network Security](#network-security)
+  - [EC2 Concepts](#ec2-concepts)
+    - [Amazon Machine Image(AMI)](#amazon-machine-imageami)
+    - [EC2 Instance types](#ec2-instance-types)
+    - [Vitualization](#vitualization)
    
 
    
@@ -927,9 +931,38 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 [Top](#table-of-contents-)
 * * * 
 
+## EC2 Concepts
+
+* Every EC2 instance is created using Amazon Machine Image(AMI).
+* AMI 
+  * images generally has root volume with OS installed.
+  * usually comes with a vitualization technology built in.
+* Different AMI types are available in marketplace, community or quick start(Amazon) menu options.
+* A single EC2 occupies a single Subnet/VPC/Region/AZ.
+  
+### Amazon Machine Image(AMI)
+
+* Amazon provided / maintained EC2 images.
+* Each AMI contains (metadata) -
+  * the information required to launch an instance
+  * the owner of the AMI
+  * launch permissions
+  * system architecture (32 bit vs 64 bit processor)
+  * operating systems
+  * a block device mappings of all volumes(EBS volumn snapshots) required
+* User can create their own AMI based on requirement.
+* By default user who creates the AMI will have implicit ownership of the AMI allowing use by the creator.
+* AMIs can be sold in marketplace as commercial instances with softwares. Users of these AMIs would pay standard EC2 charges and extra charges for the Image provider.
+  
 * * * 
 [Top](#table-of-contents-)
 * * * 
+### EC2 Instance types
+* 
+### Vitualization  
+
+
+
 
 * * * 
 [Top](#table-of-contents-)

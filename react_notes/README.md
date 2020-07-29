@@ -25,7 +25,10 @@
         - [JSX Restrictions](#jsx-restrictions)
     - [Creating a Function/Class Component](#creating-a-functionclass-component)
       - [Outputting Dynamic Content](#outputting-dynamic-content)
-      - [Passing attributes to components](#passing-attributes-to-components)
+      - [Props & State](#props--state)
+      - [Props](#props)
+      - [State](#state)
+      - [DOM events that app can listen](#dom-events-that-app-can-listen)
 
 ## Important URLs
 [React Offical Page](https://reactjs.org/)
@@ -503,10 +506,300 @@ We call such components “function components” because they are literally Jav
   export default person;
   ```
 
-#### Passing attributes to components
-* You can pass attributes to components.
+* * *
+[Top](#table-of-contents)
+* * * 
+#### Props & State
+
+* ```props``` and ```state``` are CORE concepts of React.
+* Actually, only changes in props  and/ or state  trigger React to re-render your components and potentially update the DOM in the browser
+
+#### Props
+
+* ```props```  allow you to pass data from a parent (wrapping) component to a child (embedded) component.
 
 
+Example:
+*app.js*
+```JSX
+import React, { Component } from 'react';
+import Person from './Person/Person'
+import './App.css';
+
+class App extends Component {
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Hi, I'm a React App</h1>
+        <Person name="Eeshan" age="4"> My Hobbies: Acting </Person>
+      </div>
+    );
+    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a Reach App!!'));
+  }
+}
+
+export default App;
+```
+*person.js*
+```JSX
+import React from 'react';
+
+const person = (props) => {
+    return (
+        <div>
+            <p>I'm {props.name} and I am {props.age} years old</p>
+            <p>{props.children}</p>
+        </div>
+    )
+}
+export default person;
+```
+* Whatever you mention after opening tag of the function component in app.js will/can be exported to and imported in to function(child) component as arguments(*props*).
+
+  ```<Person .../>```
+* In above example props.name and props.age are values passed from App.js to Person.js.
+  
+*Name of the receiving argument can be anything. props can be a just plain x.*
+
+* Anything you mention between the opening and closing tags can be accessed as children (*props.children*)
+* In above example 'My Hobbies: Acting' from App.js can be accessed in Person.js using props.children.
+
+#### State
+
+* Whilst props allow you to pass data down the component tree (and hence trigger an UI update), state is used to change the component, well, state from within. Changes to state also trigger an UI update.
+
+Example:
+*NewPost.js*
+```JSX
+class NewPost extends Component { // state can only be accessed in class-based components!
+    state = {
+        counter: 1
+    };  
+ 
+    render () { // Needs to be implemented in class-based components! Needs to return some JSX!
+        return (
+            <div>{this.state.counter}</div>
+        );
+    }
+}
+```
+Here, the ```NewPost```  component contains ```state``` . Only class-based components can define and use ```state``` . You can of course pass the ```state```  down to functional components, but these then can't directly edit it.
+
+```state```  simply is a property of the component class, you have to call it ```state```  though - the name is not optional. You can then access it via ```this.state```  in your class JSX code (which you return in the required ```render()```  method).
+
+Whenever ```state```  changes (taught over the next lectures), the component will re-render and reflect the new state. The difference to ```props```  is, that this happens within one and the same component - you don't receive new data (```props```) from outside!
+
+* Change state only using setState React function but not directly using assignment operator.
+```JSX
+switchNameHandler = () => {
+    // console.log('Was Clicked!');
+    // DON'T DO THIS -> this.state.persons[0].name = 'Kappagantula';
+    this.setState({persons: [ 
+      { name: 'laddu', age: 36},
+      { name: 'pandu', age: 30},
+      { name: 'kutlu', age: 4},
+      { name: 'kuchku', age: 1},
+    ]})
+  }
+
+```
+
+* * *
+[Top](#table-of-contents)
+* * * 
+#### DOM events that app can listen
+
+You can find a list of supported events [here] (https://reactjs.org/docs/events.html#supported-events)
+
+1. **Clipboard Events**
+
+Event names:
+
+```onCopy``` ```onCut``` ```onPaste```
+
+Properties:
+
+```DOMDataTransfer clipboardData```
+
+2. **Composition Events**
+
+Event names:
+
+```onCompositionEnd onCompositionStart onCompositionUpdate```
+
+Properties:
+
+```string data```
+
+3. **Keyboard Events**
+
+Event names:
+
+```onKeyDown onKeyPress onKeyUp```
+
+Properties:
+
+```
+boolean altKey
+number charCode
+boolean ctrlKey
+boolean getModifierState(key)
+string key
+number keyCode
+string locale
+number location
+boolean metaKey
+boolean repeat
+boolean shiftKey
+number which 
+```
+
+4. **Focus Events**
+
+Event names:
+
+```onFocus onBlur```
+
+These focus events work on all elements in the React DOM, not just form elements.
+
+Properties:
+
+```DOMEventTarget relatedTarget```
+
+5.**Form Events**
+
+Event names:
+
+```onChange onInput onInvalid onSubmit```
+
+
+For more information about the onChange event, see Forms.
+
+6. **Mouse Events**
+
+Event names:
+
+```onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit```
+```onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave```
+```onMouseMove onMouseOut onMouseOver onMouseUp```
+
+The onMouseEnter and onMouseLeave events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+
+Properties:
+
+```
+boolean altKey
+number button
+number buttons
+number clientX
+number clientY
+boolean ctrlKey
+boolean getModifierState(key)
+boolean metaKey
+number pageX
+number pageY
+DOMEventTarget relatedTarget
+number screenX
+number screenY
+boolean shiftKey
+```
+
+7.**Selection Events**
+
+Event names:
+
+```onSelect```
+
+8.**Touch Events**
+
+Event names:
+
+```onTouchCancel onTouchEnd onTouchMove onTouchStart```
+
+Properties:
+
+```
+boolean altKey
+DOMTouchList changedTouches
+boolean ctrlKey
+boolean getModifierState(key)
+boolean metaKey
+boolean shiftKey
+DOMTouchList targetTouches
+DOMTouchList touches
+```
+
+9. **UI Events**
+
+Event names:
+
+```onScroll```
+
+Properties:
+```
+number detail
+DOMAbstractView view
+```
+
+10.**Wheel Events**
+
+Event names:
+
+```onWheel```
+
+Properties:
+```
+number deltaMode
+number deltaX
+number deltaY
+number deltaZ
+```
+
+11.**Media Events**
+
+Event names:
+```onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted```
+```onEnded onError onLoadedData onLoadedMetadata onLoadStart onPause onPlay```
+```onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend```
+```onTimeUpdate onVolumeChange onWaiting```
+
+12.**Image Events**
+
+Event names:
+
+```onLoad onError```
+
+13.**Animation Events**
+
+Event names:
+
+```onAnimationStart onAnimationEnd onAnimationIteration```
+
+Properties:
+```
+string animationName
+string pseudoElement
+float elapsedTime
+```
+
+14.**Transition Events**
+
+Event names:
+
+```onTransitionEnd```
+
+Properties:
+```
+string propertyName
+string pseudoElement
+float elapsedTime
+```
+
+15.**Other Events**
+
+Event names:
+```onToggle```
 
 * * *
 [Top](#table-of-contents)
