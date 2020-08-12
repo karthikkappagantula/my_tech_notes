@@ -7,7 +7,10 @@
 - [Headings](#headings)
 - [Paragraph](#paragraph)
 - [Text formatting](#text-formatting)
-- [Div tags](#div-tags)
+- [Div/Span tags](#divspan-tags)
+- [Attributes](#attributes)
+- [Image tag](#image-tag)
+- [Anchor tag](#anchor-tag)
   
 # Code Editors
 * VS Code
@@ -68,8 +71,37 @@
 * ```<ins>...</ins>``` - underline
 * ```<sub>...</sub>``` - subscript
 * ```<sup>...</sup>``` - superscript
+* ```<hr>``` - horizontal line
 
-# Div tags
+# Div/Span tags
 
 * helps in separating the content in to sections
 * a block level tag
+
+# Attributes
+
+* Provides additional information about HTML elements
+* Declared on opening tag
+* Key-Value pairs
+* Value should be wrapped in double quotes.
+
+# Image tag
+
+* Self-closing tag used to add images to HTML pages.
+* src tag provide information of the image file name.
+* alt tag provide alternative description for screen readers.
+* width determines the image width on the page.
+
+Example:
+
+```<img src="filename.jpg" alt="description of image" width="400">```
+
+# Anchor tag
+
+* used to add hyperlinks to HTML pages to other pages or pages on internet.
+* href attribute is the destination page.
+* target attribute will allow you to open new window when the URL is clicked.
+
+Example:
+
+```<a href="https://www.google.com" target="_blank"> Google </a>```

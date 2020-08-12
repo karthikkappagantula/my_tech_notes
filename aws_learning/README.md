@@ -69,8 +69,16 @@
     - [Network Security](#network-security)
   - [EC2 Concepts](#ec2-concepts)
     - [Amazon Machine Image(AMI)](#amazon-machine-imageami)
-    - [EC2 Instance types](#ec2-instance-types)
-    - [Vitualization](#vitualization)
+    - [EC2 Instance types and Virtualization](#ec2-instance-types-and-virtualization)
+    - [EC2 Storage Options](#ec2-storage-options)
+      - [Elastic Block Storage (EBS)](#elastic-block-storage-ebs)
+      - [Instance Storage Volumes - Ephemeral](#instance-storage-volumes---ephemeral)
+    - [EC2 Instance Profiles and Roles](#ec2-instance-profiles-and-roles)
+    - [Placement Groups](#placement-groups)
+    - [Custom Logging to CloudWatch](#custom-logging-to-cloudwatch)
+  - [Containers](#containers)
+    - [Amazon Elastic Container Service (ECS)](#amazon-elastic-container-service-ecs)
+      - [ECS Architecture](#ecs-architecture)
    
 
    
@@ -957,11 +965,219 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
 [Top](#table-of-contents-)
 * * * 
-### EC2 Instance types
-* 
-### Vitualization  
+### EC2 Instance types and Virtualization
+
+* All instances fall in to different families, grouped based on specific benefits when selected. Few examples - 
+  * general purpose
+  * memory optimized
+  * storage optimized
+  * cpu heavy
+  
+* **general purpose**
+  * If no specific requirement, pick general purpose instance type.
+  * M type is default type - not special in any way. 
+    * if it ends with 'a' it using AMD processor
+  * T type use if you know the operations to be under mentioned baselines for majority of times. For burstible requirements.
+  * A type uses Arm architecture.
+
+* **compute optimized**
+  * for enhanced CPU capabilities.
+  * C type. if it ends with 'n' it provides additional networking perfomance benefits.
+
+* **memory optimized**
+  * optiimized for memory consumption.
+  * R type 
+  * X type
+
+* **storage optimized**
+  * heavy storage usage / sustained disk throughput.
+  * H type
+  * I type
+  * D type
+
+* **accelerated computing**
+  * high performance computing using GPUs for data analytics
+  * P type - data analysis
+  * G type - graphics
+  * F type - genomics research, financial analytics, etc
 
 
+**External Docs**
+
+[EC2 Virtualization 2017](http://www.brendangregg.com/blog/2017-11-29/aws-ec2-virtualization-2017.html)
+
+[Virtualization Technology](https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html)
+
+[EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)
+
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### EC2 Storage Options
+
+#### Elastic Block Storage (EBS)
+
+* Network Storage Product.
+* EBS optimised instances provide dedicated storate network - improving speeds and reducing contention with traditional data transfer.
+* Volumes occupy an Availability Zone.
+* Provides both SSD based volumes and HDD based volumes
+  * general purpose (gp2) : SSD
+    * default for most workloads
+    * baseline performance of 3 IOPS/GiB - (100 IOPS - 16,000 IOPS p/vol)
+    * bursts up to 3000 IOPS (credit based)
+    * volume size of 1 GiB to 16 TiB
+    * max throughput p/vol of 250 MiB
+  * provisioned IOPS SSD (io1) : SSD
+    * used for mission critical applications that require sustained IOPS performance
+    * large database workloads
+    * volume size of 4 GiB to 16 TiB
+    * performs at provisioned level and can provision up to 64,000 IOPS p/volume
+    * max throughput p/vol of 1000 MiB/s
+  * throughput optimized(st1) : HDD
+    * low storage cost
+    * used for frequently accessed, throughput-intensive workloads (Streaming, Big data)
+    * cannot be a boot volume
+    * volume size of 500 GiB - 16 TiB
+    * p/volume max throughput of 500 MiB/s & IOPS 500
+  * code HDD (sc1) : HDD
+    * lowest cost
+    * infrequently accessed data
+    * cannot be a boot volume
+    * volume size of 500 GiB to 16 TiB
+    * p/vol max throughput of 250 MiB/s & 250 IOPS
+* Ideal patterns -
+  * Persistence storage.
+  * Durabitlity - allows for snapshots or resilience.
+  * Elasticity - Scales based on demand.
+  * Provisioned Performance - certain EBS volumes can provide guaranteed performance levels.
+* Anti-patterns -
+  * Temporary storage - EC2 instance store is better suited for it. EBS has costs attached and is best as persistent store.
+  * Static conent distribution - S3 or S3+Cloudfront are ideal for it.
+  * Shared access - EBS volumes are attached to a single instance as block storage. They cannot be shared between instances.
+  * High Durability - EBS cannot provide super high 99.5-99.9%+ durability.
+
+* **EBS Snapshots**
+  * Snapshots are point in time backups of EBS volume stored in S3.
+  * Initial snapshot contains exact copy of data on EBS volume and usually takes little longer to complete.
+  * Incremental in nature and each new snapshot of initial snapshot only captures the changes since previous snapshot - saves costs, time, resources etc)
+  * When deleted, blocks required to restore the other snapshots are retained.
+  * Snapshots can be used in creating AMIs or create EBS volumes.
+  * They are crash-consistent. Activity should be frozen on highly-transactional volumes where consistency is required.
+  * Ideally for root volumes the instance should be in stopped state.
+  * While EBS is AZ scoped service, snapshots in S3 are region resilient.
+
+
+**AWS Documentation**
+
+[EBS volume type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html)
+[EBS volume performance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+  
+#### Instance Storage Volumes - Ephemeral
+
+* Physical storage attached to EC2 hosts. 
+* These volumes are also known as ephemeral0 to ephemeral23.
+* Suscptible for hardware failures.
+* Not all instances come with this type of Storage.
+* Ideal patterns - 
+  * Ideally should be used for non persistent data.
+  * Provides high IO & through-put.
+* Anti-patterns -
+  * Attached to instance and cannot be scaled.
+  * Cannot be shared across instances.
+  * Storage is effected by Start/Stop of instances.
+  * No support for snapshots and volumes are single physical disks can and do fail.
+
+**AWS documentation**
+
+[EC2 Instance Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### EC2 Instance Profiles and Roles
+
+* IAM roles - short term access credentials within AWS when used with sts:AssumeRole API call. Identities within AWS can be granted access to assume roles using that roles TRUST policy.
+* Instance profiles allow a role to be assigned to a single EC2 instance, and for applications running on that instance to assume a role.
+* Applications running on an EC2 instance are not 'AWS identities' and instance profiles facility to assume a IAM role.
+* IAM role credentials can be obtained from EC2 instance metadata if a role is attached via an Instance profile.
+http://xxx.xxx.xxx.xxx/latest/meta-data/iam/security-credentials/ROLENAME
+
+* Only a single instance profile can be associated with an EC2 instance, containing a single EC2 role. 
+* If associating a role via console, the instance profile is automatically created and associated.
+* If using API's, the CLI or CloudFormation the two steps are distinct and must be done explicitly.
+* Roles (via profiles) can be assigned at the time of creating the instance, or afterwards via the console, CLI or API's.
+* All applications running on the instance share the role credentials - it is not possible to be more granular.
+
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### Placement Groups
+
+* Cluster placement groups - performance oriented
+  * exists in single AZ only in closed physical vicinity.
+  * highest throughput and lowest latency.
+  * recreate the placement group to add additional capacity, else capacity issues could arise.
+  * Use same type of instances that support place groups.
+* Partition placement groups - high availability oriented.
+  * Designed to spread large infrastructure sets across infrastructure in isolated fault-domains.
+  * Can span AZs.
+  * 7 partitions per AZ.
+* Spread placement group - durability and resiliency
+  * Designed for a small number of critical components where you need to ensure separation.
+  * Can span AZs and have multiple instance types.
+
+[Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+### Custom Logging to CloudWatch
+
+* By default Cloudwatch gathers all the monitoring of AWS instances.
+* Cloudwatch provides access to monitoring details in each AWS instance.
+* Need to install Cloudwatch agent on the EC2 instance manually using IAM role to enable custom telemetry/monitoring, Or
+* Use AWS Systems Manager to install Amazon Cloud Watch Agent.
+
+[Installing Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance-fleet.html)
+
+[Configuring](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html)
+
+[Creating Cloudwatch Agent Config file](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
+
+## Containers 
+
+### Amazon Elastic Container Service (ECS)
+
+* Containers are efficient way to package applications and dependencies.
+* You can ensure your application runs as developer intends and is isolated from other applications.
+* Applications running within a container are portable and can be migrated between platforms with minimal if any modifications.
+
+#### ECS Architecture
+
+1. Container definition - the part of a task definition which configured the capabilities of the container the task operates withing, the container image, the memory limits, any port mappings, storage, GPU attachments, and much more.
+2. Task definition - defines the task, contains the container definitions(s). Configures how the container interacts within ECS. The network mode, the execution role, and the Launchtype. Task definitions can contain multiple containers.
+3. Service - services allow additional an ECS admin to maintain a specific number of task instances within an ECS cluster. Services allow load balancing across tasks using a ELB and allow configuration of scaling and availability.
+4. Cluster - are groupings of tasks and services inside ECS. They can be managed EC2 instances, or AS managed via Fargate. Self-Managed clusters can be scaled, and can use on-demand or spot pricing.
+
+[AWS ECS documentation](https://docs.aws.amazon.com/ecs/index.html)
+
+* * * 
+[Top](#table-of-contents-)
+* * * 
 
 
 * * * 
@@ -971,6 +1187,7 @@ Allocated VPC IPv6 + Allocated Subnet IPv6 + Allocated EC2 IPv6 + Egress-Only Ga
 * * * 
 [Top](#table-of-contents-)
 * * * 
+
 
 * * * 
 [Top](#table-of-contents-)
