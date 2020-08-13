@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../../Desktop/jslearn"
+		},
+		{
+			"path": "../../webdev_learn/mernlearn"
 		}
 	],
 	"settings": {}
