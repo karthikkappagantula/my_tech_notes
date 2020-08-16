@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../webdev_learn/mernlearn"
+		},
+		{
+			"path": "../../webdev_learn/twitterclone"
 		}
 	],
 	"settings": {}
