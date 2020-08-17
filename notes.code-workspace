@@ -7,11 +7,13 @@
 			"path": "../../../Desktop/jslearn"
 		},
 		{
-			"path": "../../webdev_learn/mernlearn"
+			"path": "../../webdev_learn/twitterclone"
 		},
 		{
-			"path": "../../webdev_learn/twitterclone"
+			"path": "../mern_shopping_list/mernlearn"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
 }
